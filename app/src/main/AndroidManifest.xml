@@ -9,13 +9,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Herabangkit">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.main.profile.setting.SettingActivity"></activity>
+        <activity android:name=".ui.splash.SplashActivity" />
+        <activity android:name=".ui.auth.register.RegisterSuccessActivity" />
+        <activity android:name=".ui.auth.register.RegisterActivity" />
+        <activity android:name=".ui.auth.login.LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ui.intro.IntroActivity" />
+        <activity android:name=".MainActivity"/>
+
+
+
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

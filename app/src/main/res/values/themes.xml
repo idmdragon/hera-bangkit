@@ -15,6 +15,9 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="textInputStyle" parent="">
+        <item name="boxStrokeColor">@color/pink</item>
+    </style>
     <style name="pink_h1" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/pink</item>
         <item name="android:fontFamily">@font/poppins_bold</item>
