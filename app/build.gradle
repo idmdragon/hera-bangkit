@@ -79,5 +79,7 @@ dependencies {
     implementation "com.google.dagger:hilt-android:2.34.1-beta"
     kapt "com.google.dagger:hilt-compiler:2.34.1-beta"
 
-
+    // Kotlin
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
 }

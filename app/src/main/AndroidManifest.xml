@@ -2,6 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.hera.bangkit">
 
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,21 +13,22 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Herabangkit">
-        <activity android:name=".ui.main.profile.setting.SettingActivity"></activity>
+        <activity android:name=".ui.main.post.story.StoryActivity"></activity>
+        <activity android:name=".ui.main.post.sos.SosActivity" />
+        <activity android:name=".ui.main.post.report.ReportActivity" />
+        <activity android:name=".ui.main.profile.setting.SettingActivity" />
         <activity android:name=".ui.splash.SplashActivity" />
         <activity android:name=".ui.auth.register.RegisterSuccessActivity" />
         <activity android:name=".ui.auth.register.RegisterActivity" />
-        <activity android:name=".ui.auth.login.LoginActivity" >
+        <activity android:name=".ui.auth.login.LoginActivity" />
+        <activity android:name=".ui.intro.IntroActivity" />
+        <activity android:name=".ui.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.intro.IntroActivity" />
-        <activity android:name=".MainActivity"/>
-
-
 
         <meta-data
             android:name="preloaded_fonts"
