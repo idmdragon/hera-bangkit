@@ -40,5 +40,14 @@
     <string name="hasil_pencarian_untuk">Hasil Pencarian Untuk</string>
     <string name="coba_kata_kunci_lain">Coba Kata Kunci Lain</string>
     <string name="topik_yang_dicari_tidak_ditemukan">Topik yang dicari tidak ditemukan</string>
+    <string name="tab_1">Ceritamu</string>
+    <string name="tab_2">Laporanmu</string>
+    <string name="button_setting">Button Setting</string>
+    <string name="pengaturan">Pengaturan</string>
+    <string name="preferensi_bahasa">Preferensi Bahasa</string>
+    <string name="tentang">Tentang</string>
+    <string name="keluar">Keluar</string>
+    <string name="back_button">Back Button</string>
+    <string name="pengaturan_akun">Pengaturan Akun</string>
 
 </resources>

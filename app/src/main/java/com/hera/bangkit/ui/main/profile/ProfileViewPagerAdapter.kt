@@ -6,7 +6,7 @@ import com.hera.bangkit.ui.main.profile.report.ReportFragment
 import com.hera.bangkit.ui.main.profile.story.StoryFragment
 
 
-class ProfileViewPagerAdapter(fm : Fragment) : FragmentStateAdapter(fm) {
+class ProfileViewPagerAdapter(fm: Fragment) : FragmentStateAdapter(fm) {
 
     override fun getItemCount(): Int {
        return 2
@@ -16,10 +16,12 @@ class ProfileViewPagerAdapter(fm : Fragment) : FragmentStateAdapter(fm) {
         var fragment: Fragment? = null
         when (position) {
             0 -> fragment = StoryFragment()
-            1 -> fragment  = ReportFragment()
+            1 -> fragment = ReportFragment()
         }
         return fragment as Fragment
     }
+
+
 
 
 }

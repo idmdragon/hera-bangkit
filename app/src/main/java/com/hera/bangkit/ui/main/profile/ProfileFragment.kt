@@ -1,5 +1,6 @@
 package com.hera.bangkit.ui.main.profile
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,17 +10,18 @@ import androidx.annotation.StringRes
 import com.google.android.material.tabs.TabLayoutMediator
 import com.hera.bangkit.R
 import com.hera.bangkit.databinding.FragmentProfileBinding
+import com.hera.bangkit.ui.main.profile.setting.SettingActivity
 
 
 class ProfileFragment : Fragment() {
-//    companion object {
-//        @StringRes
-//        private val TAB_TITLES = intArrayOf(
-//            R.string.tab_1,
-//            R.string.tab_2
-//        )
-//    }
 
+    companion object {
+
+        private val tabIcons = intArrayOf(
+                R.drawable.ic_story_profile_active,
+                R.drawable.ic_report_profile_active,
+        )
+    }
     private var _binding: FragmentProfileBinding? = null
     private val binding get() = _binding!!
 
@@ -33,8 +35,17 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         with(binding){
 
+            btnSetting.setOnClickListener {
+                startActivity(Intent(requireContext(), SettingActivity::class.java))
+            }
 
             viewPager.adapter =  ProfileViewPagerAdapter(this@ProfileFragment)
+            TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+                tab.text = null
+                tab.setIcon(tabIcons[position])
+
+            }.attach()
+
 
         }
     }
