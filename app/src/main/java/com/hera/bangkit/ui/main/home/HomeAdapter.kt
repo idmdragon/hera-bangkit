@@ -4,11 +4,11 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hera.bangkit.data.entity.StoryEntity
-import com.hera.bangkit.databinding.HomeItemBinding
+import com.hera.bangkit.databinding.StoryItemBinding
 
 class HomeAdapter(private val listStory : ArrayList<StoryEntity>): RecyclerView.Adapter<HomeViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HomeViewHolder {
-        val itemStoryBinding = HomeItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
+        val itemStoryBinding = StoryItemBinding.inflate(LayoutInflater.from(parent.context),parent,false)
         return HomeViewHolder(itemStoryBinding)
     }
 

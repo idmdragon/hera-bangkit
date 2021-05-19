@@ -33,6 +33,12 @@
         <item name="android:textStyle">italic</item>
 
     </style>
+    <style name="pink_m_12" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/pink</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">12sp</item>
+
+    </style>
 
     <style name="m_heading0_s" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/white</item>

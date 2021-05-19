@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.hera.bangkit.R
 
 
-class StoryFragment : Fragment() {
+class  StoryFragment : Fragment() {
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

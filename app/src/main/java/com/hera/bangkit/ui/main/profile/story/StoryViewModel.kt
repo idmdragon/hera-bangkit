@@ -1,4 +1,6 @@
 package com.hera.bangkit.ui.main.profile.story
 
-class StoryViewModel {
+import androidx.lifecycle.ViewModel
+
+class StoryViewModel : ViewModel(){
 }

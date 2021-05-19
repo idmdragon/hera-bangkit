@@ -49,5 +49,13 @@
     <string name="keluar">Keluar</string>
     <string name="back_button">Back Button</string>
     <string name="pengaturan_akun">Pengaturan Akun</string>
+    <string name="detail_laporan">Detail Laporan</string>
+    <string name="nama_pengirim">Nama Pengirim</string>
+    <string name="nik">NIK</string>
+    <string name="nomer_telepon">Nomer Telepon</string>
+    <string name="waktu_laporan">Waktu Laporan</string>
+    <string name="alamat">Alamat</string>
+    <string name="kategori">Kategori</string>
+    <string name="kronologi_kejadian">Kronologi Kejadian</string>
 
 </resources>

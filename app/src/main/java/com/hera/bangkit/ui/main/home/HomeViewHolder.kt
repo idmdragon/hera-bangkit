@@ -1,13 +1,14 @@
 package com.hera.bangkit.ui.main.home
 
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.hera.bangkit.data.entity.StoryEntity
-import com.hera.bangkit.databinding.HomeItemBinding
+import com.hera.bangkit.databinding.StoryItemBinding
 
-class HomeViewHolder(private val binding: HomeItemBinding) : RecyclerView.ViewHolder(binding.root) {
+class HomeViewHolder(private val binding: StoryItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(story: StoryEntity) {
         with(binding){
 
@@ -21,9 +22,14 @@ class HomeViewHolder(private val binding: HomeItemBinding) : RecyclerView.ViewHo
                     .load(story.AvatarProfile)
                     .into(ivAvatar)
 
-            Glide.with(itemView.context)
+            if (story.ImgContent.isEmpty()){
+                ivContent.isVisible = false
+            }else{
+                Glide.with(itemView.context)
                     .load(story.ImgContent)
                     .into(ivContent)
+            }
+
 
         }
 

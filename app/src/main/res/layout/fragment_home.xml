@@ -104,7 +104,7 @@
                         android:paddingTop="16dp"
                         android:layout_width="match_parent"
                         android:id="@+id/rv_home"
-                        tools:listitem="@layout/home_item"
+                        tools:listitem="@layout/story_item"
                         android:layout_height="match_parent"/>
 
 
