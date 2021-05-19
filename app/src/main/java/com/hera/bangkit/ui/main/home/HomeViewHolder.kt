@@ -19,14 +19,11 @@ class HomeViewHolder(private val binding: HomeItemBinding) : RecyclerView.ViewHo
 
             Glide.with(itemView.context)
                     .load(story.AvatarProfile)
-                    .apply(RequestOptions().override(57, 57))
                     .into(ivAvatar)
 
             Glide.with(itemView.context)
                     .load(story.ImgContent)
-                    .apply(RequestOptions().override(57, 57))
                     .into(ivContent)
-
 
         }
 

@@ -5,7 +5,6 @@
     <string name="hai">Hai,</string>
     <string name="text_topik">Ini beberapa topik yang tersedia untuk kamu baca </string>
     <string name="tambahkan">Tambahkan</string>
-    <string name="sinyal_sos">Sinyal SOS</string>
     <string name="sostextpost">Berikan sinyal kepada guardian untuk menyelamatkanmu sekarang juga</string>
     <string name="buat_sinyal_sos">Buat Sinyal SOS</string>
     <string name="laporkan_kasus_yang_kamu_alami_langsung_ke_kpppa">Laporkan kasus yang kamu alami langsung ke KPPPA</string>
@@ -20,4 +19,26 @@
     <string name="option_menu">option_menu</string>
     <string name="username">Username</string>
     <string name="nama_lengkap">Nama Lengkap</string>
+    <string name="tulis_laporan">Tulis Laporan</string>
+    <string name="post">Post</string>
+    <string name="apa_yang_kamu_alami">Apa yang kamu alami?</string>
+    <string name="tambahkan_gambar">Tambahkan Gambar</string>
+    <string name="tambahkan_lokasi">Tambahkan Lokasi</string>
+    <string name="tulis_cerita">Tulis Cerita</string>
+    <string name="sinyal_sos">Sinyal SOS</string>
+    <string name="bahaya">Apakah kamu dalam bahaya?</string>
+    <string name="tombol_dikirim">Tekan tombol dibawah dan SOS akan dikirim ke guardianmu</string>
+    <string name="sos">SOS</string>
+    <string name="batalkan_sos">Batalkan SOS</string>
+    <string name="search">Pencarian</string>
+    <string name="hint_search">Cari topik kasus ...</string>
+    <string name="kasus_marak">Kasus yang sedang marak terjadi</string>
+    <string name="minggu_ini">Minggu Ini</string>
+    <string name="kronologi_kejadianmu">Kronologi Kejadianmu...</string>
+    <string name="kategori_kasus">Kategori Kasus</string>
+    <string name="tagar">Tagar</string>
+    <string name="hasil_pencarian_untuk">Hasil Pencarian Untuk</string>
+    <string name="coba_kata_kunci_lain">Coba Kata Kunci Lain</string>
+    <string name="topik_yang_dicari_tidak_ditemukan">Topik yang dicari tidak ditemukan</string>
+
 </resources>

@@ -15,9 +15,10 @@ import com.hera.bangkit.databinding.FragmentHomeBinding
 class HomeFragment : Fragment() {
 
     private val viewModel: HomeViewModel by activityViewModels()
+    private lateinit var adapter: HomeAdapter
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!
-    private lateinit var adapter: HomeAdapter
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {

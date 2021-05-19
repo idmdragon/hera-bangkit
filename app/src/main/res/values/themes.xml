@@ -13,6 +13,8 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColorHint">@color/whitegray</item>
+
     </style>
 
     <style name="textInputStyle" parent="">
@@ -134,7 +136,11 @@
         <item name="android:fontFamily">@font/poppins_light</item>
         <item name="android:textSize">12sp</item>
     </style>
-
+    <style name="p_heading3_sb_blue" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/bluetext</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
     <style name="p_heading3_m_abu" parent="Widget.AppCompat.TextView">
         <item name="android:textColor">@color/textgray</item>
         <item name="android:fontFamily">@font/poppins_medium</item>
