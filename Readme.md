@@ -1,1 +1,0 @@
-Jangan Disentuh Cuy
