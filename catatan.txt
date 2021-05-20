@@ -1,0 +1,27 @@
+Input to VM
+
+export apiKey=
+export authDomain=
+export projectId=
+export storageBucket=
+export messagingSenderId=
+export appId=
+
+echo text env
+
+echo $apiKey
+echo $authDomain
+echo $projectId
+echo $storageBucket
+echo $messagingSenderId
+echo $appId
+
+
+Database.js
+
+    apiKey:"process.env.apiKey",
+    authDomain:"process.env.authDomain",
+    projectId:"process.env.projectId",
+    storageBucket:"process.env.storageBucket",
+    messagingSenderId:"process.env.messagingSenderId",
+    appId:"process.env.appId"
