@@ -5,12 +5,9 @@
     android:layout_height="match_parent"
     tools:context=".ui.main.profile.story.StoryFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        style="@style/p_heading2_m"
-
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Fragment Story" />
+   <androidx.recyclerview.widget.RecyclerView
+       android:layout_width="match_parent"
+       android:id="@+id/rv_story_profile"
+       android:layout_height="match_parent"/>
 
 </FrameLayout>

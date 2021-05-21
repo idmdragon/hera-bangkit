@@ -6,7 +6,7 @@ import com.hera.bangkit.R
 import com.hera.bangkit.databinding.ActivityReportBinding
 import com.hera.bangkit.databinding.ActivityStoryBinding
 
-class StoryActivity : AppCompatActivity() {
+class PostStoryActivity : AppCompatActivity() {
     private lateinit var binding : ActivityStoryBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {

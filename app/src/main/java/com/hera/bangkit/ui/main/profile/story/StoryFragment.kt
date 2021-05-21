@@ -1,20 +1,51 @@
 package com.hera.bangkit.ui.main.profile.story
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.hera.bangkit.R
+import com.hera.bangkit.data.entity.StoryEntity
+import com.hera.bangkit.databinding.FragmentReportBinding
+import com.hera.bangkit.databinding.FragmentStoryBinding
+import com.hera.bangkit.ui.main.post.report.ReportViewModel
+import com.hera.bangkit.ui.main.profile.report.ReportAdapter
 
 
 class  StoryFragment : Fragment() {
 
 
+    private val viewModel : StoryViewModel by activityViewModels()
+    private var _binding: FragmentStoryBinding? = null
+    private lateinit var adapter: StoryAdapter
+    private val binding get() = _binding!!
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_story, container, false)
+                              savedInstanceState: Bundle?): View {
+        _binding = FragmentStoryBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        viewModel.getStoryList().observe(viewLifecycleOwner,::setList)
+    }
+
+    private fun setList(items: ArrayList<StoryEntity>) {
+        with(binding){
+            rvStoryProfile.layoutManager = LinearLayoutManager(requireContext())
+            adapter = StoryAdapter(items)
+            rvStoryProfile.adapter = adapter
+            adapter.notifyDataSetChanged()
+        }
+
+
+
     }
 
 }

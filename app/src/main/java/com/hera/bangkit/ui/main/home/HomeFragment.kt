@@ -29,14 +29,15 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
         viewModel.getStoryList().observe(viewLifecycleOwner, ::setStoryList)
     }
 
     private fun setStoryList(items: ArrayList<StoryEntity>) {
+        binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
         adapter = HomeAdapter(items)
         adapter.notifyDataSetChanged()
         binding.rvHome.adapter = adapter
+
     }
 
     override fun onDestroy() {

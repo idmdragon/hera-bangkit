@@ -6,13 +6,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.hera.bangkit.R
-import com.hera.bangkit.databinding.FragmentHomeBinding
 import com.hera.bangkit.databinding.FragmentPostBinding
 import com.hera.bangkit.ui.main.post.report.ReportActivity
 import com.hera.bangkit.ui.main.post.sos.SosActivity
-import com.hera.bangkit.ui.main.post.story.StoryActivity
+import com.hera.bangkit.ui.main.post.story.PostStoryActivity
 
 
 class PostFragment : Fragment(){
@@ -38,7 +35,7 @@ class PostFragment : Fragment(){
                 startActivity(Intent(requireContext(),SosActivity::class.java))
             }
             btnStory.setOnClickListener{
-                startActivity(Intent(requireContext(),StoryActivity::class.java))
+                startActivity(Intent(requireContext(),PostStoryActivity::class.java))
             }
         }
     }

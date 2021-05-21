@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.utils.DummyData
 
-class HomeViewModel : ViewModel() {
+class   HomeViewModel : ViewModel() {
 
     private val _listStory = MutableLiveData<ArrayList<StoryEntity>>()
     fun getStoryList():LiveData<ArrayList<StoryEntity>> {

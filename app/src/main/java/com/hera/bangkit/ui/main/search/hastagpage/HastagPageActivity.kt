@@ -1,15 +1,21 @@
-package com.hera.bangkit.ui.main.search
+package com.hera.bangkit.ui.main.search.hastagpage
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.hera.bangkit.R
+import androidx.activity.viewModels
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.databinding.ActivityHastagPageBinding
+import com.hera.bangkit.ui.main.home.HomeAdapter
+import com.hera.bangkit.ui.main.profile.report.ReportAdapter
 
 class HastagPageActivity : AppCompatActivity() {
 
     companion object{
         const val CATEGORY = "category"
     }
+    private lateinit var adapter: HomeAdapter
+    private val viewModel : HastagPageViewModel by viewModels()
 
     private lateinit var binding : ActivityHastagPageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,5 +31,15 @@ class HastagPageActivity : AppCompatActivity() {
             }
         }
 
+        viewModel.getStoryList(hastagCategory.toString()).observe(this,::setList)
+
+
+    }
+
+    private fun setList(items: ArrayList<StoryEntity>) {
+        binding.rvHastag.layoutManager = LinearLayoutManager(this)
+        adapter = HomeAdapter(items)
+        adapter.notifyDataSetChanged()
+        binding.rvHastag.adapter = adapter
     }
 }
