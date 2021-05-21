@@ -4,6 +4,92 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/black"
     tools:context=".ui.auth.register.RegisterSuccessActivity">
+
+    <ImageView
+        android:id="@+id/iv_small_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/ic_small_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:contentDescription="@+id/iv_small_logo" />
+
+    <ImageView
+        android:id="@+id/iv_ilu_register_success"
+        android:layout_width="250dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="88dp"
+        android:contentDescription="@+id/iv_ilu_register_success"
+        android:src="@drawable/ilu_end_regist"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_small_logo" />
+
+    <TextView
+        android:id="@+id/tv_pengguna"
+        style="@style/p_heading1_b"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="48dp"
+        android:gravity="center"
+        android:text="Lian Swan,"
+        android:textAlignment="textStart"
+        android:textColor="@color/pink"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/iv_ilu_register_success"
+        tools:ignore="RtlCompat" />
+
+    <TextView
+        android:id="@+id/tv_hai"
+        style="@style/p_heading1_b"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/hai"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_pengguna"
+        app:layout_constraintEnd_toStartOf="@+id/tv_pengguna"
+        app:layout_constraintHorizontal_bias="0.925"
+        app:layout_constraintStart_toStartOf="@+id/iv_ilu_register_success"
+        app:layout_constraintTop_toTopOf="@+id/tv_pengguna"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/tv_register_success"
+        style="@style/p_heading2_m"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="36dp"
+        android:layout_marginEnd="36dp"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:text="@string/register_success_desc"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.606"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_pengguna"
+        tools:ignore="RtlCompat" />
+
+    <Button
+        android:id="@+id/btn_register_success"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:textAllCaps="false"
+        android:textStyle="bold"
+        android:backgroundTint="@color/pink"
+        android:text="@string/siap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_register_success" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

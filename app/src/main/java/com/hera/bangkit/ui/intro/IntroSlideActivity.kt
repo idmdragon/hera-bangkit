@@ -8,37 +8,36 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
+import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.hera.bangkit.R
 import com.hera.bangkit.databinding.ActivityIntroBinding
+import com.hera.bangkit.databinding.FragmentHomeBinding
 import com.hera.bangkit.ui.auth.login.LoginActivity
+import com.hera.bangkit.ui.auth.register.RegisterActivity
 
-class IntroActivity : AppCompatActivity() {
-
+class IntroSlideActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityIntroBinding
 
-        private val introSlideAdapter = IntroSlideAdapter(
+    private val introSlideAdapter = IntroSlideAdapter(
         listOf(
             IntroSlide(
-                "Mendengar",
-                "Pahami kosakata bahasa jawa dengan mendengar pengucapannya",
-                R.drawable.ic_launcher_background
+                "Berikan Sinyal SOS",
+                "Gunakan sinyal SOS untuk menyelamatkan dirimu",
+                R.drawable.ilu_sos_intro
             ),
             IntroSlide(
-                "Menulis",
-                "Hafalkan kosakata bahasa jawa dengan belajar penulisannya",
-                R.drawable.ic_launcher_background
+                "Bagikan ceritamu",
+                "Bagikan cerita yang kamu alami, informasikan kasus yang menimpamu",
+                R.drawable.ilu_story_intro
             ),
             IntroSlide(
-                "Berbicara",
-                "Coba berbicara bahasa jawa dan test pelafalan kamu",
-                R.drawable.ic_launcher_background
+                "Lapor KPPPA",
+                "Beritahukan kepada KPPPA tentang apa yang kamu alami",
+                R.drawable.ilu_report_intro
             )
-
-
         )
-
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -60,7 +59,7 @@ class IntroActivity : AppCompatActivity() {
             {
                 binding.introSliderViewPager.currentItem+=1
             }else{
-                Intent (applicationContext, LoginActivity::class.java).also {
+                Intent (applicationContext, RegisterActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
@@ -109,5 +108,6 @@ class IntroActivity : AppCompatActivity() {
             }
         }
     }
+
 
 }

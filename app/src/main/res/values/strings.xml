@@ -58,4 +58,45 @@
     <string name="kategori">Kategori</string>
     <string name="kronologi_kejadian">Kronologi Kejadian</string>
 
+    <!-- annisah -->
+    <string name="dashboard_description">Bagikan keresahanmu dan mintalah pertolongan dengan para guardian</string>
+    <string name="mulai_sekarang">Mulai Sekarang</string>
+    <string name="berikutnya">Berikutnya</string>
+    <string name="login_desc">Masuk ke akunmu dan gunakan berbagai fitur yang tersedia</string>
+    <string name="email">Email</string>
+    <string name="register_success_desc">Pendaftaranmu telah selesai, mulai bagikan kisahmu dan laporkan keluhanmu kepada kami</string>
+    <string name="siap">Siap!</string>
+    <string name="buat_akun">Buat Akun</string>
+    <string name="register1_desc">Hai silahkan isi data berikut untuk membuat akun.</string>
+    <string name="nama_pengguna">Nama Pengguna</string>
+    <string name="password">Password</string>
+    <string name="code">+62</string>
+    <string name="nomor_telepon">Nomor Telepon</string>
+    <string name="kelengkapan_data_diri">Kelengkapan Data Diri</string>
+    <string name="tempat_lahir">Tempat Lahir</string>
+    <string name="tanggal_lahir">Tanggal Lahir</string>
+    <string name="kode_pos">Kode Pos</string>
+    <string name="masukkan_foto">Masukkan Foto</string>
+    <string name="register_foto_desc">Masukkan foto profil untuk melengkapi datamu. (opsional)</string>
+    <string name="upload_foto">Upload Foto</string>
+    <string name="verifikasi_ktp">Verifikasi KTP</string>
+    <string name="masukkan_foto_ktp">Masukkan Foto KTP</string>
+    <string name="keterangan">Keterangan :</string>
+    <string name="verifikasi_desc">Data diri dipergunakan untuk mencegah adanya penipuan dan kejahatan yang tidak terduga. Aplikasi ini dibawah kendali Kementerian Pemberdayaan Perempuan dan Perlindungan Anak, data kamu akan kami simpan serahasia mungkin.</string>
+    <string name="daftarkan_guardianmu">Daftarkan Guardianmu</string>
+    <string name="guardian_desc">Guardian akan menerima pesan untuk menyelamatkanmu ketika kondisi darurat</string>
+    <string name="nama_guardian_1">Nama Guardian 1</string>
+    <string name="nomor_telepon_guardian_1">Nomor Telepon Guardian 1</string>
+    <string name="nama_guardian_2">Nama Guardian 2</string>
+    <string name="nomor_telepon_guardian_2">Nomor Telepon Guardian 2</string>
+    <string name="lanjutkan">Lanjutkan</string>
+    <string name="lupa_password">Lupa Password?</string>
+    <string name="belum_punya_akun">Belum punya akun?</string>
+    <string name="daftar">Daftar</string>
+    <string name="privacy_desc">data kamu akan dilindungi dan bersifat privasi</string>
+    <string name="regis_desc">Daftarkan akunmu dan bagikan kisah yang menimpamu</string>
+    <string name="sudah_punya_akun">Sudah punya akun?</string>
+    <string name="masuk">Masuk</string>
+    <string name="lengkapi_data_desc">Lengkapi data berikut sebagai data pendukung</string>
+    <string name="selesai">Selesai</string>
 </resources>
