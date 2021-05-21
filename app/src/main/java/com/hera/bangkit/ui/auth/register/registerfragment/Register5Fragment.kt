@@ -1,5 +1,6 @@
 package com.hera.bangkit.ui.auth.register.registerfragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,8 @@ import androidx.navigation.Navigation
 import com.hera.bangkit.R
 import com.hera.bangkit.databinding.FragmentRegister2Binding
 import com.hera.bangkit.databinding.FragmentRegister5Binding
+import com.hera.bangkit.ui.auth.register.RegisterSuccessActivity
+import com.hera.bangkit.ui.main.MainActivity
 
 class Register5Fragment : Fragment() {
     private var _binding: FragmentRegister5Binding? = null
@@ -23,9 +26,9 @@ class Register5Fragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        binding.btnSelesai.setOnClickListener(
-                Navigation.createNavigateOnClickListener(R.id.action_register2Fragment_to_register3Fragment)
-        )
+        binding.btnSelesai.setOnClickListener {
+            startActivity(Intent(requireContext(), RegisterSuccessActivity::class.java))
+        }
         binding.btnBack.setOnClickListener(
                 Navigation.createNavigateOnClickListener(R.id.action_register5Fragment_to_register4Fragment)
         )

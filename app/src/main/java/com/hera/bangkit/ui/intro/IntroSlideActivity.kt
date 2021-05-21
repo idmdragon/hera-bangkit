@@ -14,6 +14,7 @@ import com.hera.bangkit.R
 import com.hera.bangkit.databinding.ActivityIntroBinding
 import com.hera.bangkit.databinding.FragmentHomeBinding
 import com.hera.bangkit.ui.auth.login.LoginActivity
+import com.hera.bangkit.ui.auth.register.RegisterActivity
 
 class IntroSlideActivity : AppCompatActivity() {
 
@@ -58,7 +59,7 @@ class IntroSlideActivity : AppCompatActivity() {
             {
                 binding.introSliderViewPager.currentItem+=1
             }else{
-                Intent (applicationContext, LoginActivity::class.java).also {
+                Intent (applicationContext, RegisterActivity::class.java).also {
                     startActivity(it)
                     finish()
                 }
@@ -107,5 +108,6 @@ class IntroSlideActivity : AppCompatActivity() {
             }
         }
     }
+
 
 }
