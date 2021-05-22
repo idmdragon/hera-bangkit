@@ -16,8 +16,12 @@ import javax.inject.Named
 
 
 class RemoteDataSource @Inject constructor(
-    @Named("cerita")
-    private val storyCollection: DocumentReference) {
+    @Named("story")
+    private val storyCollection: DocumentReference,
+    @Named("report")
+    private val reportCollection: DocumentReference,
+
+    ) {
 
     fun insertStory(storyEntity: StoryEntity) {
         CoroutineScope(Dispatchers.IO).launch {

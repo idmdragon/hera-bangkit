@@ -104,4 +104,7 @@ dependencies {
 
     //Tensorflow Lite
     implementation 'org.tensorflow:tensorflow-lite:2.4.0'
+
+    implementation "androidx.activity:activity-ktx:1.2.3"
+    api 'com.theartofdev.edmodo:android-image-cropper:2.8.0'
 }

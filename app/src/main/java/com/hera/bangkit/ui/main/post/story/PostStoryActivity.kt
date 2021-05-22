@@ -1,13 +1,19 @@
 package com.hera.bangkit.ui.main.post.story
 
 import android.app.ProgressDialog
+import android.content.ActivityNotFoundException
+import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.viewModels
 import androidx.core.view.isEmpty
+import androidx.core.view.isVisible
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -17,6 +23,7 @@ import com.hera.bangkit.databinding.ActivityReportBinding
 import com.hera.bangkit.databinding.ActivityStoryBinding
 import com.hera.bangkit.tflite.Classifier
 import com.hera.bangkit.utils.DateHelper
+import com.theartofdev.edmodo.cropper.CropImage
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -30,6 +37,23 @@ import java.nio.channels.FileChannel
 
 @AndroidEntryPoint
 class PostStoryActivity : AppCompatActivity() {
+
+    val REQUEST_IMAGE_CAPTURE = 1
+
+    private val cropActivityResultContract = object :ActivityResultContract<Any?, Uri?>(){
+        override fun createIntent(context: Context, input: Any?): Intent {
+            return CropImage.activity()
+                .setAspectRatio(16,16)
+                .getIntent(this@PostStoryActivity)
+        }
+
+        override fun parseResult(resultCode: Int, intent: Intent?): Uri? {
+             return CropImage.getActivityResult(intent)?.uri
+        }
+    }
+
+    private lateinit var cropActivityResultLauncher : ActivityResultLauncher<Any?>
+
 
 
     private lateinit var binding: ActivityStoryBinding
@@ -48,6 +72,22 @@ class PostStoryActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityStoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        cropActivityResultLauncher = registerForActivityResult(cropActivityResultContract){
+            it?.let { uri ->
+                with(binding){
+                    val textGambar = "Ubah Gambar"
+                    ivContent.isVisible = true
+                    btnAddImg.text = textGambar
+                    ivContent.setImageURI(uri)
+                }
+            }
+        }
+
+        binding.btnAddImg.setOnClickListener {
+            cropActivityResultLauncher.launch{null}
+        }
 
 
         //Tensorflow
@@ -77,7 +117,6 @@ class PostStoryActivity : AppCompatActivity() {
                 } else {
 
                     val tokenizedMessage = classifier.tokenize(content.toLowerCase().trim())
-                    //var paddedMessage = classifier.padSequence(tokenizedMessage)
                     val results = classifySequence(tokenizedMessage)
 
                     val highest = results.maxOrNull()
@@ -110,6 +149,14 @@ class PostStoryActivity : AppCompatActivity() {
 
     }
 
+    private fun dispatchTakePictureIntent() {
+        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
+        try {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
+        } catch (e: ActivityNotFoundException) {
+            // display error state to the user
+        }
+    }
 
 //  <!--------------Tensor Flow Function---------->
 

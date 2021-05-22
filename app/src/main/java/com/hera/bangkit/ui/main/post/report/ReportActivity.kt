@@ -54,16 +54,15 @@ class ReportActivity : AppCompatActivity() {
              val dummyUser = DummyUser.generateUser()
              val reportItem = ReportEntity(
                  dummyUser.NIK,
-                 dummyUser.NamaLengkap,
-                 dummyUser.TanggalLahir,
-                 dummyUser.NomerTelepon,
-                 dummyUser.Alamat,
+                 dummyUser.Fullname,
+                 dummyUser.DateOfBirth,
+                 dummyUser.PhoneNumber,
+                 dummyUser.Address,
                  kategoriMenu.text.toString(),
                  tvKronologi.text.toString(),
                  DateHelper.getCurrentDate()
              )
 
-             Log.d("ReportActivityDebug","Isi $reportItem")
              viewModel.postReport(reportItem)
          }
     }

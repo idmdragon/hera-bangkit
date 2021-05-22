@@ -11,5 +11,5 @@ import javax.inject.Inject
 class PostStoryViewModel @Inject constructor(
     private val repository: DefaultRepository
 ) : ViewModel() {
-    fun insertStory (storyEntity: StoryEntity)= repository.insertStory(storyEntity)
+    fun insertStory (storyEntity: StoryEntity) = repository.insertStory(storyEntity)
 }

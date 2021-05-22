@@ -8,6 +8,7 @@ data class StoryEntity(
         val ImgContent: String ="",
         var Like: Int = 0,
         @field:JvmField
-        var isLike : Boolean = false
+        var isLike : Boolean = false,
+        var location : String = ""
 ) {
 }
