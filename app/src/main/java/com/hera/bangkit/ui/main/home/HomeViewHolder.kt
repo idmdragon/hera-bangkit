@@ -14,15 +14,15 @@ class HomeViewHolder(private val binding: StoryItemBinding) : RecyclerView.ViewH
     fun bind(story: StoryEntity) {
         with(binding) {
 
-            tvUsername.text = story.Username
+//            tvUsername.text = story.Username
             tvTimeUpload.text = story.TimeUpload
             tvCategory.text = story.Category
             tvContent.text = story.Content
 
 
-            Glide.with(itemView.context)
-                    .load(story.AvatarProfile)
-                    .into(ivAvatar)
+//            Glide.with(itemView.context)
+//                .load(story.AvatarProfile)
+//                    .into(ivAvatar)
 
             if (story.ImgContent.isEmpty()) {
                 ivContent.isVisible = false
@@ -33,6 +33,7 @@ class HomeViewHolder(private val binding: StoryItemBinding) : RecyclerView.ViewH
             }
 
             tvLoveNumCount.text = story.Like.toString()
+/*
 
             btnLove.setOnClickListener {
 
@@ -52,7 +53,7 @@ class HomeViewHolder(private val binding: StoryItemBinding) : RecyclerView.ViewH
                 tvLoveNumCount.text = story.Like.toString()
 
             }
-
+ */
 
         }
 

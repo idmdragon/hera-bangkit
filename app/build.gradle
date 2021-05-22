@@ -4,6 +4,7 @@ plugins {
     id 'kotlin-kapt'
     id 'kotlin-parcelize'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.gms.google-services'
 }
 
 android {
@@ -28,6 +29,9 @@ android {
     }
     buildFeatures{
         viewBinding true
+    }
+    aaptOptions {
+        noCompress "tflite"
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
@@ -82,4 +86,22 @@ dependencies {
     // Kotlin
     implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
     implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
+
+    //pagging
+    implementation 'androidx.paging:paging-runtime:2.1.2'
+
+
+    //Firebase Android BoM
+    implementation platform('com.google.firebase:firebase-bom:28.0.1')
+
+    // Declare the dependency for the Firebase SDK for Google Analytics
+    implementation 'com.google.firebase:firebase-analytics'
+
+    // Declare the dependencies for any other desired Firebase products
+    implementation 'com.google.firebase:firebase-firestore-ktx:23.0.0'
+
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.1'
+
+    //Tensorflow Lite
+    implementation 'org.tensorflow:tensorflow-lite:2.4.0'
 }

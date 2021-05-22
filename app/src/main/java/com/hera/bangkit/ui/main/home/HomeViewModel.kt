@@ -10,8 +10,8 @@ class   HomeViewModel : ViewModel() {
 
     private val _listStory = MutableLiveData<ArrayList<StoryEntity>>()
     fun getStoryList():LiveData<ArrayList<StoryEntity>> {
-         val arrTemp = DummyData.generateHomeDummy()
-        _listStory.postValue(arrTemp)
+//         val arrTemp = DummyData.generateHomeDummy()
+//        _listStory.postValue(arrTemp)
         return _listStory
     }
 }

@@ -43,7 +43,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+            android:id="@+id/tv_content"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="0dp"
             android:layout_height="165dp"
@@ -77,8 +77,8 @@
             android:drawablePadding="8dp"
             android:text="@string/tambahkan_gambar"
             app:drawableStartCompat="@drawable/ic_image_post"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout" />
+            app:layout_constraintStart_toStartOf="@+id/tv_content"
+            app:layout_constraintTop_toBottomOf="@+id/tv_content" />
 
         <TextView
             android:id="@+id/btn_add_loc"
