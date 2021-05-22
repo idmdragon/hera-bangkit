@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1076423867054",
+    "firebase_url": "https://hera1234-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "hera1234",
+    "storage_bucket": "hera1234.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1076423867054:android:6e32298063aea7e1ba8b3f",
+        "android_client_info": {
+          "package_name": "com.hera.bangkit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1076423867054-0cnnfc1s18b7gkeb4es9s80vg2f9gs2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD6EucXLJBCUKZ-aAUyGH9qZIeMgVtLkzs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1076423867054-0cnnfc1s18b7gkeb4es9s80vg2f9gs2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
