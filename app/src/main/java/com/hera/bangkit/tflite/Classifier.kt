@@ -9,7 +9,6 @@ import kotlin.collections.HashMap
 class Classifier(context: Context, jsonFilename: String , inputMaxLen : Int ) {
 
     private var context : Context? = context
-
     // Filename for the exported vocab ( .json )
     private var filename : String? = jsonFilename
 

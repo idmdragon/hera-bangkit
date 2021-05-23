@@ -3,8 +3,8 @@ package com.hera.bangkit.ui.main.post.report
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.activity.viewModels
 import com.hera.bangkit.R
 import com.hera.bangkit.data.entity.ReportEntity
@@ -12,8 +12,10 @@ import com.hera.bangkit.databinding.ActivityReportBinding
 import com.hera.bangkit.ui.main.MainActivity
 import com.hera.bangkit.utils.DateHelper
 import com.hera.bangkit.utils.DummyUser
+import dagger.hilt.android.AndroidEntryPoint
 
-class ReportActivity : AppCompatActivity() {
+@AndroidEntryPoint
+class PostReportActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivityReportBinding
     private val viewModel : ReportViewModel by viewModels()
@@ -33,37 +35,40 @@ class ReportActivity : AppCompatActivity() {
 
         with(binding){
             btnPost.setOnClickListener {
-                if (kategoriMenu.text.toString().isEmpty()){
+
+                val category = etKategori.editText?.text.toString()
+                val desc = etDesc.editText?.text.toString()
+
+                if (category.isEmpty()){
                     kategoriMenu.error = "Pilih Kategori Terlebih dahulu"
-                }
-                else if (tvKronologi.text.toString().isEmpty()){
-                    tvKronologi.error= "Kronologi Tidak boleh kosong"
+                } else if (desc.isEmpty()){
+                    etDesc.error= "Kronologi Tidak boleh kosong"
                 }else{
-                    startActivity(Intent(this@ReportActivity,MainActivity::class.java)).also {
+                    startActivity(Intent(this@PostReportActivity,MainActivity::class.java)).also {
                         finish()
                     }
-                    postData()
+                    postData(desc,category)
+                    Toast.makeText(this@PostReportActivity,"Berhasil diPOST",Toast.LENGTH_LONG).show()
                 }
             }
         }
 
     }
 
-    private fun postData() {
-         with(binding){
-             val dummyUser = DummyUser.generateUser()
-             val reportItem = ReportEntity(
-                 dummyUser.NIK,
-                 dummyUser.Fullname,
-                 dummyUser.DateOfBirth,
-                 dummyUser.PhoneNumber,
-                 dummyUser.Address,
-                 kategoriMenu.text.toString(),
-                 tvKronologi.text.toString(),
-                 DateHelper.getCurrentDate()
-             )
+    private fun postData(desc: String, category: String) {
+        val dummyUser = DummyUser.generateUser()
+        val reportItem = ReportEntity(
+            dummyUser.Address,
+            category,
+            desc,
+            "Joseph",
+            dummyUser.NIK,
+            dummyUser.DateOfBirth,
+            dummyUser.PhoneNumber,
+            DateHelper.getCurrentDate()
+        )
 
-             viewModel.postReport(reportItem)
-         }
+
+        viewModel.insertReport(reportItem)
     }
 }

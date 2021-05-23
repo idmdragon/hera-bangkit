@@ -10,10 +10,10 @@ object DummyReport {
         arrReport.add(
                 ReportEntity(
                         dummyUser.NIK,
-                        dummyUser.NamaLengkap,
-                        dummyUser.TanggalLahir,
-                        dummyUser.NomerTelepon,
-                        dummyUser.Alamat,
+                        dummyUser.Fullname,
+                        dummyUser.DateOfBirth,
+                        dummyUser.PhoneNumber,
+                        dummyUser.Address,
                         "Exploitasi Ekonomi",
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
                         DateHelper.getCurrentDate()
@@ -21,11 +21,11 @@ object DummyReport {
         )
         arrReport.add(
                 ReportEntity(
-                        dummyUser.NIK,
-                        dummyUser.NamaLengkap,
-                        dummyUser.TanggalLahir,
-                        dummyUser.NomerTelepon,
-                        dummyUser.Alamat,
+                    dummyUser.NIK,
+                    dummyUser.Fullname,
+                    dummyUser.DateOfBirth,
+                    dummyUser.PhoneNumber,
+                    dummyUser.Address,
                         "Pornografi",
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
                         DateHelper.getCurrentDate()
@@ -34,11 +34,11 @@ object DummyReport {
 
         arrReport.add(
                 ReportEntity(
-                        dummyUser.NIK,
-                        dummyUser.NamaLengkap,
-                        dummyUser.TanggalLahir,
-                        dummyUser.NomerTelepon,
-                        dummyUser.Alamat,
+                    dummyUser.NIK,
+                    dummyUser.Fullname,
+                    dummyUser.DateOfBirth,
+                    dummyUser.PhoneNumber,
+                    dummyUser.Address,
                         "Kejahatan Seksual",
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
                         DateHelper.getCurrentDate()

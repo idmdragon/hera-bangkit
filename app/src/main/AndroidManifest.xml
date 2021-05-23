@@ -4,9 +4,7 @@
     package="com.hera.bangkit">
 
     <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
-
     <uses-permission android:name="android.permission.INTERNET" />
-
     <uses-feature android:name="android.hardware.camera"
         android:required="true" />
 
@@ -23,14 +21,10 @@
             android:theme="@style/Base.Theme.AppCompat"/>
         <activity android:name=".ui.main.profile.report.detail.ReportActivityDetail"/>
         <activity android:name=".ui.main.search.hastagpage.HastagPageActivity" />
-        <activity android:name=".ui.main.post.story.PostStoryActivity" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".ui.main.post.story.PostStoryActivity" />
+
         <activity android:name=".ui.main.post.sos.SosActivity" />
-        <activity android:name=".ui.main.post.report.ReportActivity" >
+        <activity android:name=".ui.main.post.report.PostReportActivity">
 
         </activity>
         <activity android:name=".ui.main.profile.setting.SettingActivity" />
@@ -42,7 +36,12 @@
         <activity android:name=".ui.auth.login.LoginActivity" />
         <activity android:name=".ui.intro.IntroSlideActivity" />
         <activity android:name=".ui.dashboard.DashboardActivity"/>
-        <activity android:name=".ui.main.MainActivity"/>
+        <activity android:name=".ui.main.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

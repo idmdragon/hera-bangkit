@@ -34,11 +34,10 @@ import java.io.FileInputStream
 import java.io.IOException
 import java.nio.MappedByteBuffer
 import java.nio.channels.FileChannel
+import java.util.*
 
 @AndroidEntryPoint
 class PostStoryActivity : AppCompatActivity() {
-
-    val REQUEST_IMAGE_CAPTURE = 1
 
     private val cropActivityResultContract = object :ActivityResultContract<Any?, Uri?>(){
         override fun createIntent(context: Context, input: Any?): Intent {
@@ -54,17 +53,12 @@ class PostStoryActivity : AppCompatActivity() {
 
     private lateinit var cropActivityResultLauncher : ActivityResultLauncher<Any?>
 
-
-
     private lateinit var binding: ActivityStoryBinding
     private val viewModel: PostStoryViewModel by viewModels()
 
     // Name of TFLite model ( in /assets folder ).
     private val MODEL_ASSETS_PATH = "model.tflite"
-
-    // Max Length of input sequence. The input shape for the model will be ( None , INPUT_MAXLEN ).
     private val INPUT_MAXLEN = 45
-
     private var tfLiteInterpreter : Interpreter? = null
 
 
@@ -116,7 +110,7 @@ class PostStoryActivity : AppCompatActivity() {
                     tvContent.error = null
                 } else {
 
-                    val tokenizedMessage = classifier.tokenize(content.toLowerCase().trim())
+                    val tokenizedMessage = classifier.tokenize(content.toLowerCase(Locale.ROOT).trim())
                     val results = classifySequence(tokenizedMessage)
 
                     val highest = results.maxOrNull()
@@ -149,14 +143,7 @@ class PostStoryActivity : AppCompatActivity() {
 
     }
 
-    private fun dispatchTakePictureIntent() {
-        val takePictureIntent = Intent(MediaStore.ACTION_IMAGE_CAPTURE)
-        try {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
-        } catch (e: ActivityNotFoundException) {
-            // display error state to the user
-        }
-    }
+
 
 //  <!--------------Tensor Flow Function---------->
 

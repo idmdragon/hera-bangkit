@@ -15,9 +15,9 @@ import com.hera.bangkit.ui.main.profile.report.detail.ReportActivityDetail
 class ReportViewHolder(private val binding: ReportListItemBinding) : RecyclerView.ViewHolder(binding.root) {
     fun bind(item: ReportEntity) {
         with(binding) {
-            val reportName = "Laporan A.N. ${item.Nama}"
-            val reportCategory = "Kategori : ${item.Kategori}"
-            val reportDate = "Waktu Upload : ${item.TanggalLapor}"
+            val reportName = "Laporan A.N. ${item.fullname}"
+            val reportCategory = "Kategori : ${item.category}"
+            val reportDate = "Waktu Upload : ${item.uploadTime}"
             tvReportName.text = reportName
             tvCategory.text = reportCategory
             tvTimeUpload.text = reportDate

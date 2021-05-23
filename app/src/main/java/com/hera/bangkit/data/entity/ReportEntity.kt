@@ -5,13 +5,13 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class ReportEntity(
-    val NIK : String,
-    val Nama : String,
-    val TTL : String,
-    val NoTlp : String,
-    val Alamat : String,
-    val Kategori : String,
-    val Kronologi : String,
-    val TanggalLapor : String
+    val address : String ="",
+    val category : String ="",
+    val description : String ="",
+    val fullname : String ="",
+    val nik : String = "",
+    val ttl : String = "",
+    val phoneNumber : String ="",
+    val uploadTime : String =""
 ) : Parcelable{
 }

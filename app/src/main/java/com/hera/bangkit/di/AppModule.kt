@@ -2,6 +2,7 @@ package com.hera.bangkit.di
 
 import android.content.Context
 import androidx.viewbinding.BuildConfig
+import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
@@ -27,13 +28,13 @@ object AppModule {
     @Singleton
     @Provides
     @Named("story")
-    fun provideStoryCollection(): DocumentReference =
-        Firebase.firestore.collection("story").document()
+    fun provideStoryCollection(): CollectionReference =
+        Firebase.firestore.collection("story")
 
     @Singleton
     @Provides
     @Named("report")
-    fun provideReportCollection(): DocumentReference =
-        Firebase.firestore.collection("report").document()
+    fun provideReportCollection(): CollectionReference =
+        Firebase.firestore.collection("report")
 
 }
