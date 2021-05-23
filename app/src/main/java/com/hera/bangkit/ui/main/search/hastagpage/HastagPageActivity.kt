@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.databinding.ActivityHastagPageBinding
 import com.hera.bangkit.ui.main.home.HomeAdapter
-import com.hera.bangkit.ui.main.profile.report.ReportAdapter
+import com.hera.bangkit.ui.viewmodel.StoryViewModel
 
 class HastagPageActivity : AppCompatActivity() {
 
@@ -15,7 +15,7 @@ class HastagPageActivity : AppCompatActivity() {
         const val CATEGORY = "category"
     }
     private lateinit var adapter: HomeAdapter
-    private val viewModel : HastagPageViewModel by viewModels()
+    private val viewModel : StoryViewModel by viewModels()
 
     private lateinit var binding : ActivityHastagPageBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,7 +31,7 @@ class HastagPageActivity : AppCompatActivity() {
             }
         }
 
-        viewModel.getStoryList(hastagCategory.toString()).observe(this,::setList)
+        viewModel.getStoryWithTag(hastagCategory.toString()).observe(this,::setList)
 
 
     }

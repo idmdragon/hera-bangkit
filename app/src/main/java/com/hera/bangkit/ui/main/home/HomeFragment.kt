@@ -7,14 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hera.bangkit.R
 import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.databinding.FragmentHomeBinding
+import com.hera.bangkit.ui.viewmodel.StoryViewModel
 
 
 class HomeFragment : Fragment() {
 
-    private val viewModel: HomeViewModel by activityViewModels()
+    private val viewModel: StoryViewModel by activityViewModels()
     private lateinit var adapter: HomeAdapter
     private var _binding: FragmentHomeBinding? = null
     private val binding get() = _binding!!

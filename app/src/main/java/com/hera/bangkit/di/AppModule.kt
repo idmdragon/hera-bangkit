@@ -37,4 +37,9 @@ object AppModule {
     fun provideReportCollection(): CollectionReference =
         Firebase.firestore.collection("report")
 
+    @Singleton
+    @Provides
+    @Named("users")
+    fun provideUserCollection(): CollectionReference =
+        Firebase.firestore.collection("users")
 }

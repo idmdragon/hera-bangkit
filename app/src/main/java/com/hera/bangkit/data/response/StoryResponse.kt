@@ -1,7 +1,7 @@
-package com.hera.bangkit.data.entity
+package com.hera.bangkit.data.response
 
-data class StoryEntity(
-        val avatarProfile : String = "",
+data class StoryResponse(
+
         val category: String = "",
         val content: String ="",
         val imgContent: String ="",
@@ -10,7 +10,6 @@ data class StoryEntity(
         var like: Int = 0,
         var location : String = "",
         val timeUpload: String ="",
-        val userName : String = "",
-
+        val userID: String = ""
 ) {
 }

@@ -7,7 +7,7 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.hera.bangkit.R
-import com.hera.bangkit.data.entity.ReportEntity
+import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.databinding.ActivityReportBinding
 import com.hera.bangkit.ui.main.MainActivity
 import com.hera.bangkit.utils.DateHelper
@@ -58,10 +58,10 @@ class PostReportActivity : AppCompatActivity() {
     private fun postData(desc: String, category: String) {
         val dummyUser = DummyUser.generateUser()
         val reportItem = ReportEntity(
-            dummyUser.Address,
+            dummyUser.address,
             category,
             desc,
-            "Joseph",
+            DummyUser.generateUser().Fullname,
             dummyUser.NIK,
             dummyUser.DateOfBirth,
             dummyUser.PhoneNumber,

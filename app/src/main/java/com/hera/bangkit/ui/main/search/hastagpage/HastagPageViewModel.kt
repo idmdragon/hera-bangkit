@@ -4,8 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.hera.bangkit.data.entity.StoryEntity
-import com.hera.bangkit.utils.DummyData
-import com.hera.bangkit.utils.DummyUser
+import com.hera.bangkit.data.response.StoryResponse
 
 class HastagPageViewModel : ViewModel(){
     private val _listStory = MutableLiveData<ArrayList<StoryEntity>>()

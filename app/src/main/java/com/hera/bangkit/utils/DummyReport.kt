@@ -1,6 +1,6 @@
 package com.hera.bangkit.utils
 
-import com.hera.bangkit.data.entity.ReportEntity
+import com.hera.bangkit.data.response.ReportEntity
 
 
 object DummyReport {
@@ -13,7 +13,7 @@ object DummyReport {
                         dummyUser.Fullname,
                         dummyUser.DateOfBirth,
                         dummyUser.PhoneNumber,
-                        dummyUser.Address,
+                        dummyUser.address,
                         "Exploitasi Ekonomi",
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
                         DateHelper.getCurrentDate()
@@ -25,7 +25,7 @@ object DummyReport {
                     dummyUser.Fullname,
                     dummyUser.DateOfBirth,
                     dummyUser.PhoneNumber,
-                    dummyUser.Address,
+                    dummyUser.address,
                         "Pornografi",
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
                         DateHelper.getCurrentDate()
@@ -38,7 +38,7 @@ object DummyReport {
                     dummyUser.Fullname,
                     dummyUser.DateOfBirth,
                     dummyUser.PhoneNumber,
-                    dummyUser.Address,
+                    dummyUser.address,
                         "Kejahatan Seksual",
                         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat",
                         DateHelper.getCurrentDate()

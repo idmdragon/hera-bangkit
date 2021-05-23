@@ -7,12 +7,9 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import com.hera.bangkit.data.entity.ReportEntity
-import com.hera.bangkit.data.entity.StoryEntity
+import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.data.repositories.DefaultRepository
-import com.hera.bangkit.utils.DummyReport
 import com.hera.bangkit.utils.DummyUser
-import com.idm.moviedb.data.source.remote.RemoteResponse
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -47,7 +44,6 @@ class ReportViewModel @Inject constructor(
             }
             listReport.postValue(listItem)
         }
-
         return listReport
     }
 

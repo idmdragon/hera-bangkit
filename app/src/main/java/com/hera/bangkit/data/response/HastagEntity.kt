@@ -1,4 +1,4 @@
-package com.hera.bangkit.data.entity
+package com.hera.bangkit.data.response
 
 data class HastagEntity (
     val Category : String,

@@ -1,28 +1,24 @@
 package com.hera.bangkit.data.repositories
 
 import androidx.lifecycle.LiveData
-import androidx.paging.LivePagedListBuilder
 import androidx.paging.PagedList
 import com.hera.bangkit.data.NetworkBoundResource
-import com.hera.bangkit.data.entity.ReportEntity
-import com.hera.bangkit.data.entity.StoryEntity
+import com.hera.bangkit.data.response.ReportEntity
+import com.hera.bangkit.data.response.StoryResponse
 import com.hera.bangkit.data.source.remote.RemoteDataSource
 import com.idm.moviedb.data.source.remote.RemoteResponse
 import com.idm.moviedb.vo.Resource
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 class DefaultRepository @Inject constructor(
     private val remoteDataSource: RemoteDataSource,
 ) : DataSource {
 
-    override fun insertStory(story: StoryEntity) {
+    override fun insertStory(story: StoryResponse) {
         remoteDataSource.insertStory(story)
     }
 
-    override fun getListStory(): LiveData<Resource<PagedList<StoryEntity>>> {
+    override fun getListStory(): LiveData<Resource<PagedList<StoryResponse>>> {
         TODO("Not yet implemented")
     }
 

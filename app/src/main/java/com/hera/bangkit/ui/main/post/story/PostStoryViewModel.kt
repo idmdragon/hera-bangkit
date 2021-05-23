@@ -1,7 +1,7 @@
 package com.hera.bangkit.ui.main.post.story
 
 import androidx.lifecycle.ViewModel
-import com.hera.bangkit.data.entity.StoryEntity
+import com.hera.bangkit.data.response.StoryResponse
 import com.hera.bangkit.data.repositories.DefaultRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
@@ -11,5 +11,5 @@ import javax.inject.Inject
 class PostStoryViewModel @Inject constructor(
     private val repository: DefaultRepository
 ) : ViewModel() {
-    fun insertStory (storyEntity: StoryEntity) = repository.insertStory(storyEntity)
+    fun insertStory (storyEntity: StoryResponse) = repository.insertStory(storyEntity)
 }

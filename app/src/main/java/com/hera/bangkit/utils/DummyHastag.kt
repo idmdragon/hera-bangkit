@@ -1,6 +1,6 @@
 package com.hera.bangkit.utils
 
-import com.hera.bangkit.data.entity.HastagEntity
+import com.hera.bangkit.data.response.HastagEntity
 
 object DummyHastag {
     fun hastagList() : ArrayList<HastagEntity>{

@@ -1,30 +1,16 @@
 package com.hera.bangkit.ui.main.profile.report
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.toObject
-import com.google.firebase.ktx.Firebase
-import com.hera.bangkit.R
-import com.hera.bangkit.data.entity.ReportEntity
-import com.hera.bangkit.databinding.FragmentPostBinding
+import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.databinding.FragmentReportBinding
 import com.hera.bangkit.ui.main.post.report.ReportViewModel
-import com.hera.bangkit.utils.DummyUser
-import com.idm.moviedb.data.source.remote.RemoteResponse
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 
 
 @AndroidEntryPoint

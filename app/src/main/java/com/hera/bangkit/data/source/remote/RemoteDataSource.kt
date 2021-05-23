@@ -1,21 +1,16 @@
 package com.hera.bangkit.data.source.remote
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.paging.PagedList
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ktx.toObject
-import com.hera.bangkit.data.entity.ReportEntity
-import com.hera.bangkit.data.entity.StoryEntity
+import com.hera.bangkit.data.response.ReportEntity
+import com.hera.bangkit.data.response.StoryResponse
 import com.hera.bangkit.utils.DummyUser
 import com.idm.moviedb.data.source.remote.RemoteResponse
-import com.idm.moviedb.vo.Resource
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
@@ -30,7 +25,7 @@ class RemoteDataSource @Inject constructor(
 
     ) {
 
-    fun insertStory(storyEntity: StoryEntity) {
+    fun insertStory(storyEntity: StoryResponse) {
         CoroutineScope(Dispatchers.IO).launch {
             storyCollection.add(storyEntity).await()
         }

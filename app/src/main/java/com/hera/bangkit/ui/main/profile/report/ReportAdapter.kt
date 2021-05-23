@@ -3,7 +3,7 @@ package com.hera.bangkit.ui.main.profile.report
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.hera.bangkit.data.entity.ReportEntity
+import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.databinding.ReportListItemBinding
 
 class ReportAdapter(private val listItems : ArrayList<ReportEntity>): RecyclerView.Adapter<ReportViewHolder>() {

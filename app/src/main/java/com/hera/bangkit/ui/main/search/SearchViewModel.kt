@@ -3,9 +3,7 @@ package com.hera.bangkit.ui.main.search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hera.bangkit.data.entity.HastagEntity
-import com.hera.bangkit.data.entity.StoryEntity
-import com.hera.bangkit.utils.DummyData
+import com.hera.bangkit.data.response.HastagEntity
 import com.hera.bangkit.utils.DummyHastag
 
 class SearchViewModel : ViewModel() {

@@ -1,34 +1,22 @@
 package com.hera.bangkit.ui.main.post.story
 
 import android.app.ProgressDialog
-import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.MediaStore
 import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.viewModels
-import androidx.core.view.isEmpty
 import androidx.core.view.isVisible
-import com.google.firebase.firestore.DocumentReference
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
-import com.hera.bangkit.R
-import com.hera.bangkit.data.entity.StoryEntity
-import com.hera.bangkit.databinding.ActivityReportBinding
+import com.hera.bangkit.data.response.StoryResponse
 import com.hera.bangkit.databinding.ActivityStoryBinding
 import com.hera.bangkit.tflite.Classifier
 import com.hera.bangkit.utils.DateHelper
 import com.theartofdev.edmodo.cropper.CropImage
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.tasks.await
 import org.tensorflow.lite.Interpreter
 import java.io.FileInputStream
 import java.io.IOException
@@ -107,9 +95,8 @@ class PostStoryActivity : AppCompatActivity() {
                 val content = tvContent.editText?.text.toString()
                 if (content.isEmpty()) {
                     tvContent.error = "Text Field Tidak Boleh Kosong"
-                    tvContent.error = null
                 } else {
-
+                    tvContent.error = null
                     val tokenizedMessage = classifier.tokenize(content.toLowerCase(Locale.ROOT).trim())
                     val results = classifySequence(tokenizedMessage)
 
@@ -117,21 +104,24 @@ class PostStoryActivity : AppCompatActivity() {
                     val idxLabel = results.indexOfFirst { it == highest!! }
                     val finalLabel = findLabel(idxLabel)
 
-                    val storyItem = StoryEntity(
-                        "nwDaazUrlPY3iDPDY0xn2TxoL703",
-                        DateHelper.getCurrentDate(),
+                    val storyItem = StoryResponse(
                         finalLabel,
                         content,
                         "",
-                        0
-                    )
+                        false,
+                        0,
+                        "",
+                        DateHelper.getCurrentDate(),
+                        "nwDaazUrlPY3iDPDY0xn2TxoL703",
 
+                    )
                     viewModel.insertStory(storyItem)
                     Toast.makeText(
                         this@PostStoryActivity,
                         "Cerita Berhasil di Kirimkan",
                         Toast.LENGTH_LONG
                     ).show()
+                    finish()
                 }
 
             }
