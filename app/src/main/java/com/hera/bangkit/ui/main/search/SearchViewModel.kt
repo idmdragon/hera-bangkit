@@ -3,6 +3,7 @@ package com.hera.bangkit.ui.main.search
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.data.response.HastagEntity
 import com.hera.bangkit.utils.DummyHastag
 
@@ -14,5 +15,9 @@ class SearchViewModel : ViewModel() {
          val arrHastag = DummyHastag.hastagList()
         _listHastag.postValue(arrHastag)
         return _listHastag
+    }
+
+    fun searchItem(query: String): LiveData<ArrayList<StoryEntity>> {
+
     }
 }

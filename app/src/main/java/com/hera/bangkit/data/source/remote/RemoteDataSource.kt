@@ -18,7 +18,7 @@ import javax.inject.Named
 
 
 class RemoteDataSource @Inject constructor(
-    @Named("story")
+    @Named("stories")
     private val storyCollection: CollectionReference,
     @Named("report")
     private val reportCollection: CollectionReference,

@@ -1,21 +1,25 @@
 package com.hera.bangkit.ui.main.post.story
 
-import android.app.ProgressDialog
-import android.content.Context
+import android.app.Activity
 import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.webkit.MimeTypeMap
 import android.widget.Toast
-import androidx.activity.result.ActivityResultLauncher
-import androidx.activity.result.contract.ActivityResultContract
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
+import com.bumptech.glide.Glide
+import com.google.android.gms.tasks.OnSuccessListener
+
+import com.google.firebase.storage.FirebaseStorage
+import com.google.firebase.storage.StorageReference
 import com.hera.bangkit.data.response.StoryResponse
 import com.hera.bangkit.databinding.ActivityStoryBinding
 import com.hera.bangkit.tflite.Classifier
 import com.hera.bangkit.utils.DateHelper
-import com.theartofdev.edmodo.cropper.CropImage
+import com.share424.sastrawi.Stemmer.StemmerFactory
+import com.share424.sastrawi.StopWordRemover.StopWordRemoverFactory
 import dagger.hilt.android.AndroidEntryPoint
 import org.tensorflow.lite.Interpreter
 import java.io.FileInputStream
@@ -27,68 +31,57 @@ import java.util.*
 @AndroidEntryPoint
 class PostStoryActivity : AppCompatActivity() {
 
-    private val cropActivityResultContract = object :ActivityResultContract<Any?, Uri?>(){
-        override fun createIntent(context: Context, input: Any?): Intent {
-            return CropImage.activity()
-                .setAspectRatio(16,16)
-                .getIntent(this@PostStoryActivity)
-        }
-
-        override fun parseResult(resultCode: Int, intent: Intent?): Uri? {
-             return CropImage.getActivityResult(intent)?.uri
-        }
-    }
-
-    private lateinit var cropActivityResultLauncher : ActivityResultLauncher<Any?>
 
     private lateinit var binding: ActivityStoryBinding
     private val viewModel: PostStoryViewModel by viewModels()
 
-    // Name of TFLite model ( in /assets folder ).
-    private val MODEL_ASSETS_PATH = "modelpost.tflite"
-    private val INPUT_MAXLEN = 45
-    private var tfLiteInterpreter : Interpreter? = null
+    var photoMax: Int = 1
+    var photoLocation: Uri? = null
+    lateinit var storageRef: StorageReference
+    var profilePic: String = ""
 
+    private val modelAssetPath = "modelpost.tflite"
+    private var tfLiteInterpreter: Interpreter? = null
+
+    //Get Image
+    private fun getFileExtension(uri: Uri?): String? {
+        val contentResolver = contentResolver
+        val mimeTypeMap = MimeTypeMap.getSingleton()
+        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri!!))
+    }
+
+    private fun findPhoto() {
+        val pic = Intent()
+        pic.type = "image/*"
+        pic.action = Intent.ACTION_GET_CONTENT
+        startActivityForResult(pic, photoMax)
+    }
+
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == photoMax && resultCode == Activity.RESULT_OK && data != null && data.data != null) {
+            photoLocation = data.data
+            Glide.with(this@PostStoryActivity)
+                .load(photoLocation)
+                .into(binding.ivContent)
+            binding.ivContent.isVisible = true
+            uploadImage()
+        }
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityStoryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        cropActivityResultLauncher = registerForActivityResult(cropActivityResultContract){
-            it?.let { uri ->
-                with(binding){
-                    val textGambar = "Ubah Gambar"
-                    ivContent.isVisible = true
-                    btnAddImg.text = textGambar
-                    ivContent.setImageURI(uri)
-                }
-            }
-        }
-
         binding.btnAddImg.setOnClickListener {
-            cropActivityResultLauncher.launch{null}
+            findPhoto()
         }
-
-
-        //Tensorflow
-        // Init the classifier.
-        val classifier = Classifier( this , "word_dict_post.json" , INPUT_MAXLEN )
-        // Init TFLiteInterpreter
-        tfLiteInterpreter = Interpreter( loadModelFile() )
-
-        val progressDialog = ProgressDialog( this )
-        progressDialog.setMessage( "Parsing word_dict_post.json ..." )
-        progressDialog.setCancelable( false )
-        progressDialog.show()
-        classifier.processVocab( object: Classifier.VocabCallback {
-            override fun onVocabProcessed() {
-                // Processing done, dismiss the progressDialog.
-                progressDialog.dismiss()
-            }
-        })
-
+        uploadImage()
 
         with(binding) {
             btnPost.setOnClickListener {
@@ -97,49 +90,62 @@ class PostStoryActivity : AppCompatActivity() {
                     tvContent.error = "Text Field Tidak Boleh Kosong"
                 } else {
                     tvContent.error = null
-                    val tokenizedMessage = classifier.tokenize(content.toLowerCase(Locale.ROOT).trim())
-                    val results = classifySequence(tokenizedMessage)
 
-                    val highest = results.maxOrNull()
-                    val idxLabel = results.indexOfFirst { it == highest!! }
-                    val finalLabel = findLabel(idxLabel)
+                        val storyItem = StoryResponse(
+                            getLabel(content),
+                            content,
+                            profilePic,
+                            false,
+                            0,
+                            "",
+                            DateHelper.getCurrentDate(),
+                            "nwDaazUrlPY3iDPDY0xn2TxoL703",
+                        )
+                        viewModel.insertStory(storyItem)
+                        Toast.makeText(
+                            this@PostStoryActivity,
+                            "Cerita berhasil di Post",
+                            Toast.LENGTH_LONG
+                        ).show()
+                        finish()
 
-                    val storyItem = StoryResponse(
-                        finalLabel,
-                        content,
-                        "",
-                        false,
-                        0,
-                        "",
-                        DateHelper.getCurrentDate(),
-                        "nwDaazUrlPY3iDPDY0xn2TxoL703",
-
-                    )
-//                    viewModel.insertStory(storyItem)
-                    Toast.makeText(
-                        this@PostStoryActivity,
-                        "Isi Label Story $storyItem",
-                        Toast.LENGTH_LONG
-                    ).show()
-                    finish()
                 }
-
             }
+
+            binding.btnBack.setOnClickListener {
+                finish()
+            }
+
         }
 
-        binding.btnBack.setOnClickListener {
-            finish()
-        }
 
     }
 
+    private fun getLabel(desc: String): String {
+        val stemmer = StemmerFactory(applicationContext).create()
+        val stopwordRemover = StopWordRemoverFactory(applicationContext).create()
+        val classifier = Classifier(this, "word_dict_post.json")
+        val options = Interpreter.Options()
+        tfLiteInterpreter = Interpreter(loadModelFile(), options)
+        classifier.processVocab()
 
+        val stemmed = stemmer.stem(
+            desc.toLowerCase(Locale.ROOT).trim()
+        )
+        val stopword = stopwordRemover.remove(stemmed)
 
-//  <!--------------Tensor Flow Function---------->
+        val tokenizedMessage = classifier.tokenize(stopword)
+        val paddedMessage = classifier.padSequence(tokenizedMessage)
+        val results = classifySequence(paddedMessage)
 
-    fun findLabel(idx: Int): String {
+        val highest = results.maxOrNull()
+        val idxLabel = results.indexOfFirst { it == highest!! }
+        return findLabel(idxLabel)
+    }
+
+    private fun findLabel(idx: Int): String {
         var label = ""
-        when(idx){
+        when (idx) {
             0 -> label = "Lokasi Kerja"
             1 -> label = "Lokasi Pendidikan"
             2 -> label = "Lokasi Privat"
@@ -150,9 +156,27 @@ class PostStoryActivity : AppCompatActivity() {
         return label
     }
 
+    private fun uploadImage() {
+        if (photoLocation != null) {
+            storageRef = FirebaseStorage.getInstance().reference.child("ImageContent")
+            val storage = storageRef.child(
+                System.currentTimeMillis()
+                    .toString() + "." + getFileExtension(photoLocation)
+            )
+            photoLocation?.let { it1 ->
+                storage.putFile(it1).addOnSuccessListener {
+                    storage.downloadUrl.addOnSuccessListener(OnSuccessListener<Uri> { uri ->
+                        profilePic = uri.toString()
+                    })
+                }
+            }
+        }
+    }
+
+
     @Throws(IOException::class)
     private fun loadModelFile(): MappedByteBuffer {
-        val assetFileDescriptor = assets.openFd(MODEL_ASSETS_PATH)
+        val assetFileDescriptor = assets.openFd(modelAssetPath)
         val fileInputStream = FileInputStream(assetFileDescriptor.fileDescriptor)
         val fileChannel = fileInputStream.channel
         val startOffset = assetFileDescriptor.startOffset
@@ -160,10 +184,15 @@ class PostStoryActivity : AppCompatActivity() {
         return fileChannel.map(FileChannel.MapMode.READ_ONLY, startOffset, declaredLength)
     }
 
-    private fun classifySequence (sequence : IntArray ): FloatArray {
-        val inputs : Array<FloatArray> = arrayOf( sequence.map { it.toFloat() }.toFloatArray() )
-        val outputs : Array<FloatArray> = arrayOf( FloatArray( 6 ) )
-        tfLiteInterpreter?.run( inputs , outputs )
+    private fun classifySequence(sequence: IntArray): FloatArray {
+        //Input shape -> (1 , inputPaddedSequenceLength) -> (1,50)
+        val inputs: Array<FloatArray> = arrayOf(sequence.map { it.toFloat() }.toFloatArray())
+        //Output shape -> (1,6) (as numClasses = 6)
+        val outputs: Array<FloatArray> = arrayOf(FloatArray(6))
+        tfLiteInterpreter?.run(inputs, outputs)
         return outputs[0]
     }
+
+
 }
+

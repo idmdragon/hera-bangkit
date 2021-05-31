@@ -42,12 +42,15 @@ class SearchFragment : Fragment() {
                 if (query.isEmpty()) {
                     return true
                 } else {
-                    binding.searchLayout.visibility = View.VISIBLE
-                    binding.tvSearchKeyword.text = query
-                    binding.hastagLayout.visibility = View.GONE
-                    binding.searchNotfound.visibility = View.VISIBLE
+                    with(binding){
+                        searchLayout.visibility = View.VISIBLE
+                        tvSearchKeyword.text = query
+                        hastagLayout.visibility = View.GONE
+                        searchNotfound.visibility = View.VISIBLE
+                    }
+
                     activity.apply {
-//                        viewModel.searchItem(newText).observe(viewLifecycleOwner,::showRv)
+                        viewModel.searchItem(newText).observe(viewLifecycleOwner,::searchRv)
                     }
 
                 }

@@ -24,7 +24,7 @@ class StoryViewModel : ViewModel() {
     fun getStoryList(): LiveData<ArrayList<StoryEntity>> {
         val listItem = ArrayList<StoryEntity>()
         CoroutineScope(Dispatchers.IO).launch {
-            val querySnapshot = Firebase.firestore.collection("story")
+            val querySnapshot = Firebase.firestore.collection("stories")
                 .get()
                 .await()
 
@@ -57,7 +57,7 @@ class StoryViewModel : ViewModel() {
     fun getStoryWithTag(category : String): LiveData<ArrayList<StoryEntity>> {
         val listItem = ArrayList<StoryEntity>()
         CoroutineScope(Dispatchers.IO).launch {
-            val querySnapshot = Firebase.firestore.collection("story")
+            val querySnapshot = Firebase.firestore.collection("stories")
                 .whereEqualTo("category",category)
                 .get()
                 .await()
