@@ -2,6 +2,7 @@ package com.hera.bangkit.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
+import com.hera.bangkit.data.NetworkBoundResource
 import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.data.entity.UserEntity
 import com.hera.bangkit.data.response.ReportEntity
