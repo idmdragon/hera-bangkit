@@ -3,11 +3,9 @@ package com.hera.bangkit.ui.main.post.report
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.ArrayAdapter
 import androidx.activity.viewModels
 import com.hera.bangkit.R
-import com.hera.bangkit.data.entity.ReportEntity
 import com.hera.bangkit.databinding.ActivityReportBinding
 import com.hera.bangkit.ui.main.MainActivity
 import com.hera.bangkit.utils.DateHelper

@@ -27,9 +27,9 @@ object AppModule {
 
     @Singleton
     @Provides
-    @Named("story")
+    @Named("stories")
     fun provideStoryCollection(): DocumentReference =
-        Firebase.firestore.collection("story").document()
+        Firebase.firestore.collection("stories").document()
 
     @Singleton
     @Provides

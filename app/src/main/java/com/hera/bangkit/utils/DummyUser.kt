@@ -1,7 +1,5 @@
 package com.hera.bangkit.utils
 
-import com.hera.bangkit.data.entity.UserEntity
-
 object DummyUser {
     fun generateUser():UserEntity{
         return UserEntity(

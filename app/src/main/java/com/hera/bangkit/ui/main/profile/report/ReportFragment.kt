@@ -6,12 +6,8 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.viewModels
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hera.bangkit.R
-import com.hera.bangkit.data.entity.ReportEntity
-import com.hera.bangkit.databinding.FragmentPostBinding
 import com.hera.bangkit.databinding.FragmentReportBinding
 import com.hera.bangkit.ui.main.post.report.ReportViewModel
 

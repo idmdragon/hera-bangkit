@@ -1,14 +1,16 @@
 package com.hera.bangkit.data.entity
 
 data class StoryEntity(
-        val UserID: String = "",
-        val TimeUpload: String ="",
-        val Category: String = "",
-        val Content: String ="",
-        val ImgContent: String ="",
-        var Like: Int = 0,
+        val avatarProfile : String = "",
+        val category: String = "",
+        val content: String ="",
+        val imgContent: String ="",
         @field:JvmField
         var isLike : Boolean = false,
-        var location : String = ""
-) {
+        var like: Int = 0,
+        var location : String = "",
+        val timeUpload: String ="",
+        val userName : String = "",
+
+        ) {
 }

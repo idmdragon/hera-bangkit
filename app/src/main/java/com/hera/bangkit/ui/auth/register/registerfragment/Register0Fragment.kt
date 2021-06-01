@@ -1,3 +1,5 @@
+package com.hera.bangkit.ui.auth.register.registerfragment
+
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater

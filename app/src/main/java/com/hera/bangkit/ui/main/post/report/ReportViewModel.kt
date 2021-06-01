@@ -3,7 +3,6 @@ package com.hera.bangkit.ui.main.post.report
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.hera.bangkit.data.entity.ReportEntity
 import com.hera.bangkit.utils.DummyReport
 
 class ReportViewModel : ViewModel() {

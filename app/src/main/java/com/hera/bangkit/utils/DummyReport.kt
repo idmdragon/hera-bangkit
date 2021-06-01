@@ -1,7 +1,5 @@
 package com.hera.bangkit.utils
 
-import com.hera.bangkit.data.entity.ReportEntity
-
 
 object DummyReport {
     fun generateReportDummy(): ArrayList<ReportEntity> {

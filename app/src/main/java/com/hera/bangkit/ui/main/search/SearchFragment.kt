@@ -8,12 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hera.bangkit.R
-import com.hera.bangkit.data.entity.HastagEntity
-import com.hera.bangkit.databinding.FragmentHomeBinding
 import com.hera.bangkit.databinding.FragmentSearchBinding
-import com.hera.bangkit.ui.main.home.HomeAdapter
-import com.hera.bangkit.ui.main.home.HomeViewModel
 
 
 class SearchFragment : Fragment() {

@@ -4,7 +4,6 @@ package com.hera.bangkit.ui.main.search
 
 import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
-import com.hera.bangkit.data.entity.HastagEntity
 import com.hera.bangkit.databinding.HastagItemBinding
 import com.hera.bangkit.ui.main.search.hastagpage.HastagPageActivity
 
