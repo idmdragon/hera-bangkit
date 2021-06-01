@@ -12,5 +12,5 @@ data class StoryEntity(
         val timeUpload: String ="",
         val userName : String = "",
 
-        ) {
+) {
 }

@@ -1,4 +1,4 @@
-package com.hera.bangkit.data.source.remote
+package com.idm.moviedb.data.source.remote
 
 enum class StatusResponse {
     SUCCESS,

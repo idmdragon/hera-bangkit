@@ -7,6 +7,7 @@ import com.google.firebase.firestore.ktx.toObject
 import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.data.response.StoryResponse
 import com.hera.bangkit.data.response.UserEntity
+import com.idm.moviedb.data.source.remote.RemoteResponse
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -24,7 +25,7 @@ class RemoteDataSource @Inject constructor(
     @Named("users")
     private val userCollection: CollectionReference
 
-) {
+    ) {
 
     fun insertStory(storyEntity: StoryResponse) {
         CoroutineScope(Dispatchers.IO).launch {

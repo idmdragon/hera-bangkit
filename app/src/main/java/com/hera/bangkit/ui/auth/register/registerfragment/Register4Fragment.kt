@@ -30,7 +30,7 @@ class Register4Fragment : Fragment() {
     private lateinit var avatar: String
 
     private lateinit var binding: FragmentRegister4Binding
-    private val viewModel: RegisterViewModel by activityViewModels()
+    private val viewModel : RegisterViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -113,8 +113,7 @@ class Register4Fragment : Fragment() {
 
                                 viewModel.insertUser(user)
 
-                                Toast.makeText(requireContext(), "User Created", Toast.LENGTH_SHORT)
-                                    .show()
+                                Toast.makeText(requireContext(),"User Created", Toast.LENGTH_SHORT).show()
                             }
                         }
                 }

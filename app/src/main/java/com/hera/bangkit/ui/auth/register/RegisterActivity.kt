@@ -14,7 +14,5 @@ class RegisterActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_regis_host) as NavHostFragment
         val navController = navHostFragment.navController
-
-
     }
 }
