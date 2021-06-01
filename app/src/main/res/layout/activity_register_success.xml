@@ -24,7 +24,7 @@
         android:layout_height="250dp"
         android:layout_marginTop="88dp"
         android:contentDescription="@+id/iv_ilu_register_success"
-        android:src="@drawable/ilu_end_regist"
+        android:src="@drawable/ilu_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/iv_small_logo" />

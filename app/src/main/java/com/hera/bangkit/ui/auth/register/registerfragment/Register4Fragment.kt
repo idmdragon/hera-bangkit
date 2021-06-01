@@ -1,5 +1,6 @@
 package com.hera.bangkit.ui.auth.register.registerfragment
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,7 +13,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hera.bangkit.data.response.UserEntity
 import com.hera.bangkit.databinding.FragmentRegister4Binding
+import com.hera.bangkit.ui.auth.register.RegisterSuccessActivity
 import com.hera.bangkit.ui.auth.register.RegisterViewModel
+import com.hera.bangkit.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -51,7 +54,6 @@ class Register4Fragment : Fragment() {
             this.findNavController().popBackStack()
         }
 
-        // dari fragmen sebelumnya
         if (bundle != null) {
             email = Register4FragmentArgs.fromBundle(bundle).registerEmail
             fullName = Register4FragmentArgs.fromBundle(bundle).registerFullName
@@ -104,7 +106,6 @@ class Register4Fragment : Fragment() {
                                     guardianPhoneNumber1,
                                     guardianPhoneNumber2,
                                     nik,
-                                    password,
                                     phoneNumber,
                                     placeOfBirth,
                                     uid!!,
@@ -114,6 +115,8 @@ class Register4Fragment : Fragment() {
                                 viewModel.insertUser(user)
 
                                 Toast.makeText(requireContext(),"User Created", Toast.LENGTH_SHORT).show()
+                                val intent = Intent(activity, RegisterSuccessActivity::class.java)
+                                startActivity(intent)
                             }
                         }
                 }

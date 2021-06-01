@@ -25,7 +25,6 @@ class Register0Fragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        //FORMATE YANG BENER GINI
 
         with(binding) {
 
@@ -43,8 +42,6 @@ class Register0Fragment : Fragment() {
             tvMasuk.setOnClickListener {
                 startActivity(Intent(requireContext(), LoginActivity::class.java))
             }
-
-
         }
     }
 }

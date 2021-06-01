@@ -25,7 +25,6 @@ import com.hera.bangkit.databinding.FragmentRegister1Binding
 import org.w3c.dom.Text
 
 class Register1Fragment : Fragment() {
-    //NGKO COBA DIUBAHI DADI KEK NGENE YA, TERNYATA NEK NGENE GK GARAI MEMORILEAK KOK
     private lateinit var email: String
     private lateinit var binding: FragmentRegister1Binding
 
