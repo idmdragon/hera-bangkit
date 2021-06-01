@@ -73,6 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:layout_marginTop="4dp"
         app:layout_constraintStart_toStartOf="@+id/tv_content"
         app:layout_constraintTop_toBottomOf="@+id/tv_content">
 
@@ -96,16 +97,6 @@
             app:drawableStartCompat="@drawable/ic_image_post"
             />
 
-        <TextView
-            android:id="@+id/btn_add_loc"
-            style="@style/p_heading3_sb_blue"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:drawablePadding="8dp"
-            android:text="@string/tambahkan_lokasi"
-            app:drawableStartCompat="@drawable/ic_location_post"
-        />
 
 
     </LinearLayout>

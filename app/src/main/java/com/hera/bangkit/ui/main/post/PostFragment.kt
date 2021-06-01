@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.hera.bangkit.databinding.FragmentPostBinding
-import com.hera.bangkit.ui.main.post.report.ReportActivity
+import com.hera.bangkit.ui.main.post.report.PostReportActivity
 import com.hera.bangkit.ui.main.post.sos.SosActivity
 import com.hera.bangkit.ui.main.post.story.PostStoryActivity
 
@@ -29,13 +29,13 @@ class PostFragment : Fragment(){
 
         with(binding){
             btnReport.setOnClickListener{
-                startActivity(Intent(requireContext(),ReportActivity::class.java))
+                startActivity(Intent(requireContext(), PostReportActivity::class.java))
             }
             btnSos.setOnClickListener{
-                startActivity(Intent(requireContext(),SosActivity::class.java))
+                startActivity(Intent(requireContext(), SosActivity::class.java))
             }
             btnStory.setOnClickListener{
-                startActivity(Intent(requireContext(),PostStoryActivity::class.java))
+                startActivity(Intent(requireContext(), PostStoryActivity::class.java))
             }
         }
     }

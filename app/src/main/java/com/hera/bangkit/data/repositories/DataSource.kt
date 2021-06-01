@@ -15,4 +15,5 @@ interface DataSource {
     fun getListReport(): LiveData<Resource<PagedList<ReportEntity>>>
 
     fun insertUser(user : UserEntity)
+
 }

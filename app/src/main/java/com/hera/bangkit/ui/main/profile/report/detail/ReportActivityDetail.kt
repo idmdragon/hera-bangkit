@@ -2,6 +2,7 @@ package com.hera.bangkit.ui.main.profile.report.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.databinding.ActivityReportDetailBinding
 
 class ReportActivityDetail : AppCompatActivity() {
@@ -27,14 +28,14 @@ class ReportActivityDetail : AppCompatActivity() {
 
     private fun setView(item: ReportEntity) {
         with(binding){
-            tvCategory.text = item.Kategori
-            tvKronologi.text = item.Kronologi
-            tvLocation.text = item.Alamat
-            tvName.text = item.Nama
-            tvNik.text = item.NIK
-            tvNoTelp.text = item.NoTlp
-            tvTglLahir.text = item.TTL
-            tvTimeUpload.text = item.TanggalLapor
+            tvCategory.text = item.category
+            tvKronologi.text = item.description
+            tvLocation.text = item.address
+            tvName.text = item.fullname
+            tvNik.text = item.nik
+            tvNoTelp.text = item.phoneNumber
+            tvTglLahir.text = item.ttl
+            tvTimeUpload.text = item.uploadTime
         }
     }
 }

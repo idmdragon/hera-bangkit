@@ -10,6 +10,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
+import com.hera.bangkit.data.response.UserEntity
 import com.hera.bangkit.databinding.FragmentRegister4Binding
 import com.hera.bangkit.ui.auth.register.RegisterViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -29,7 +30,7 @@ class Register4Fragment : Fragment() {
     private lateinit var avatar: String
 
     private lateinit var binding: FragmentRegister4Binding
-    private val viewModel : RegisterViewModel by activityViewModels()
+    private val viewModel: RegisterViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -112,7 +113,8 @@ class Register4Fragment : Fragment() {
 
                                 viewModel.insertUser(user)
 
-                                Toast.makeText(requireContext(),"User Created", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireContext(), "User Created", Toast.LENGTH_SHORT)
+                                    .show()
                             }
                         }
                 }

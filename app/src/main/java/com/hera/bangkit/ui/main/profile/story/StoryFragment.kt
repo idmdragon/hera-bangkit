@@ -1,25 +1,21 @@
 package com.hera.bangkit.ui.main.profile.story
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hera.bangkit.R
 import com.hera.bangkit.data.entity.StoryEntity
-import com.hera.bangkit.databinding.FragmentReportBinding
+import com.hera.bangkit.data.response.StoryResponse
 import com.hera.bangkit.databinding.FragmentStoryBinding
-import com.hera.bangkit.ui.main.post.report.ReportViewModel
-import com.hera.bangkit.ui.main.profile.report.ReportAdapter
 
 
 class  StoryFragment : Fragment() {
 
 
-    private val viewModel : StoryViewModel by activityViewModels()
+    private val viewModel : ProfileStoryViewModel by activityViewModels()
     private var _binding: FragmentStoryBinding? = null
     private lateinit var adapter: StoryAdapter
     private val binding get() = _binding!!
@@ -33,7 +29,7 @@ class  StoryFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getStoryList().observe(viewLifecycleOwner,::setList)
+        viewModel.getMyStory().observe(viewLifecycleOwner,::setList)
     }
 
     private fun setList(items: ArrayList<StoryEntity>) {

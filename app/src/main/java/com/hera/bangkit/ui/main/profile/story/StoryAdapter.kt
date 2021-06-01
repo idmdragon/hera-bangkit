@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.hera.bangkit.data.entity.StoryEntity
+import com.hera.bangkit.data.response.StoryResponse
 import com.hera.bangkit.databinding.StoryItemBinding
 
 class StoryAdapter(private val listStory : ArrayList<StoryEntity>): RecyclerView.Adapter<StoryViewHolder>() {

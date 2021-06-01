@@ -8,6 +8,8 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hera.bangkit.data.entity.StoryEntity
+import com.hera.bangkit.data.response.HastagEntity
 import com.hera.bangkit.databinding.FragmentSearchBinding
 
 
@@ -41,12 +43,15 @@ class SearchFragment : Fragment() {
                 if (query.isEmpty()) {
                     return true
                 } else {
-                    binding.searchLayout.visibility = View.VISIBLE
-                    binding.tvSearchKeyword.text = query
-                    binding.hastagLayout.visibility = View.GONE
-                    binding.searchNotfound.visibility = View.VISIBLE
+                    with(binding){
+                        searchLayout.visibility = View.VISIBLE
+                        tvSearchKeyword.text = query
+                        hastagLayout.visibility = View.GONE
+                        searchNotfound.visibility = View.VISIBLE
+                    }
+
                     activity.apply {
-//                        viewModel.searchItem(newText).observe(viewLifecycleOwner,::showRv)
+//                        viewModel.searchItem(query).observe(viewLifecycleOwner,::searchRv)
                     }
 
                 }
@@ -58,6 +63,10 @@ class SearchFragment : Fragment() {
                 return true
             }
         })
+    }
+
+    private fun searchRv(arrayList: ArrayList<StoryEntity>?) {
+
     }
 
     private fun getHastagList(items: ArrayList<HastagEntity>) {

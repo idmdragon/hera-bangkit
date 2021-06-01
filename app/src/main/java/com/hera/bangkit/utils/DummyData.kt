@@ -1,7 +1,5 @@
 package com.hera.bangkit.utils
 
-import com.hera.bangkit.data.entity.StoryEntity
-
 object DummyData {
 //    fun generateHomeDummy() : ArrayList<StoryEntity> {
 //
