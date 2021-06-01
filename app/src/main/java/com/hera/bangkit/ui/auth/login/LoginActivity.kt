@@ -25,9 +25,10 @@ import com.hera.bangkit.R
 import com.hera.bangkit.databinding.ActivityLoginBinding
 import com.hera.bangkit.ui.auth.register.RegisterActivity
 import com.hera.bangkit.ui.main.MainActivity
+import dagger.hilt.android.AndroidEntryPoint
 import java.util.regex.Pattern
 
-
+@AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
 //    private lateinit var firebaseAuth: FirebaseAuth
