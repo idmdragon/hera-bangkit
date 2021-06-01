@@ -9,8 +9,8 @@
 
     <ImageButton
         android:id="@+id/btn_back"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginStart="24dp"
         android:background="@drawable/ic_back"
@@ -40,7 +40,7 @@
         style="@style/p_heading1_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:text="@string/kelengkapan_data_diri"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +62,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_kelengkapan" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_tempat_lahir"
+        android:id="@+id/PlaceOfBirthLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -79,6 +79,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_kelengkapan_desc">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_placeOfBirth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"
@@ -89,7 +90,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_tanggal_lahir"
+        android:id="@+id/DateOfBirthLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -100,12 +101,16 @@
         app:boxStrokeColor="@color/pink"
         app:boxBackgroundColor="@color/whitegray"
         app:hintTextColor="@color/pink"
+        app:endIconMode="custom"
+        app:endIconTint="@color/white"
+        app:endIconDrawable="@drawable/ic_date"
         android:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otf_tempat_lahir">
+        app:layout_constraintTop_toBottomOf="@+id/PlaceOfBirthLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_dateOfBirth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="datetime"
@@ -116,7 +121,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_alamat"
+        android:id="@+id/AddressLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="120dp"
@@ -130,9 +135,10 @@
         android:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otf_tanggal_lahir">
+        app:layout_constraintTop_toBottomOf="@+id/DateOfBirthLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_address"
             android:layout_width="match_parent"
             android:layout_height="115dp"
             android:inputType="text"
@@ -143,7 +149,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_kodepos"
+        android:id="@+id/NIKLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -157,14 +163,15 @@
         android:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otf_alamat">
+        app:layout_constraintTop_toBottomOf="@+id/AddressLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_nik"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
             android:gravity="top"
-            android:hint="@string/kode_pos"
+            android:hint="@string/nik"
             android:inputType="number"
             android:textColor="@color/white" />
     </com.google.android.material.textfield.TextInputLayout>
@@ -185,6 +192,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otf_kodepos" />
+        app:layout_constraintTop_toBottomOf="@+id/NIKLayout" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

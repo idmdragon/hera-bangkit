@@ -5,6 +5,7 @@ import androidx.paging.PagedList
 import com.hera.bangkit.data.NetworkBoundResource
 import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.data.response.StoryResponse
+import com.hera.bangkit.data.response.UserEntity
 import com.hera.bangkit.data.source.remote.RemoteDataSource
 import com.idm.moviedb.data.source.remote.RemoteResponse
 import com.idm.moviedb.vo.Resource
@@ -49,5 +50,9 @@ class DefaultRepository @Inject constructor(
 
         }.asLiveData()
 
+    }
+
+    override fun insertUser(user: UserEntity) {
+        remoteDataSource.insertUser(user)
     }
 }

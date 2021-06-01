@@ -9,8 +9,8 @@
 
     <ImageButton
         android:id="@+id/btn_back"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
         android:layout_marginTop="24dp"
         android:layout_marginStart="24dp"
         android:background="@drawable/ic_back"
@@ -39,7 +39,7 @@
         style="@style/p_heading1_b"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:text="@string/buat_akun"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
@@ -61,11 +61,11 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_buat_akun" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_nama_lengkap"
+        android:id="@+id/FullNameLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
         android:textColorHint="@color/textgray"
@@ -78,17 +78,18 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_buat_akun_desc">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_fullname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPersonName"
-            android:hint="@string/nama_lengkap"
             android:gravity="top"
             android:textColor="@color/white"
-            android:backgroundTint="@android:color/transparent" />
+            android:backgroundTint="@android:color/transparent"
+            android:hint="@string/nama_lengkap" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_nama_pengguna"
+        android:id="@+id/UsernameLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -102,9 +103,10 @@
         android:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otf_nama_lengkap">
+        app:layout_constraintTop_toBottomOf="@+id/FullNameLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/nama_pengguna"
@@ -116,7 +118,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_password"
+        android:id="@+id/PasswordLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -130,12 +132,13 @@
         android:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otf_nama_pengguna">
+        app:layout_constraintTop_toBottomOf="@+id/UsernameLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberPassword"
+            android:inputType="textPassword"
             android:gravity="top"
             android:textColor="@color/white"
             android:backgroundTint="@android:color/transparent"
@@ -143,61 +146,33 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_code_number"
+        android:id="@+id/PhoneNumberLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_margin="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="16dp"
-        android:textColorHint="@color/textgray"
-        app:boxStrokeColor="@color/pink"
-        app:boxBackgroundColor="@color/whitegray"
-        app:hintTextColor="@color/pink"
-        android:backgroundTint="@android:color/transparent"
-        app:layout_constraintHorizontal_bias="0.002"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otf_password">
-
-    <com.google.android.material.textfield.TextInputEditText
-        android:layout_width="64dp"
-        android:layout_height="56dp"
-        android:backgroundTint="@android:color/transparent"
-        android:gravity="top"
-        android:enabled="false"
-        android:hint="@string/code"
-        android:inputType="textPersonName"
-        android:textColor="@color/white" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_phone_number"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="280dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:backgroundTint="@android:color/transparent"
         android:textColorHint="@color/textgray"
-        app:boxBackgroundColor="@color/whitegray"
         app:boxStrokeColor="@color/pink"
+        app:boxBackgroundColor="@color/whitegray"
         app:hintTextColor="@color/pink"
+        android:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/otf_code_number"
-        app:layout_constraintTop_toBottomOf="@+id/otf_password">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/PasswordLayout">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="280dp"
+            android:id="@+id/et_phoneNumber"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:backgroundTint="@android:color/transparent"
+            android:inputType="number"
             android:gravity="top"
-            android:hint="@string/nomor_telepon"
-            android:inputType="textPersonName"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            app:prefixText="+62"
+            app:prefixTextColor="@color/pink"
+            android:backgroundTint="@android:color/transparent"
+            android:hint="@string/nomor_telepon" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -215,5 +190,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otf_phone_number" />
+        app:layout_constraintTop_toBottomOf="@+id/PhoneNumberLayout" />
 </androidx.constraintlayout.widget.ConstraintLayout>

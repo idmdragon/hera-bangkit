@@ -13,7 +13,6 @@ import com.hera.bangkit.databinding.ActivityReportBinding
 import com.hera.bangkit.tflite.Classifier
 import com.hera.bangkit.ui.main.MainActivity
 import com.hera.bangkit.utils.DateHelper
-import com.hera.bangkit.utils.DummyUser
 import com.share424.sastrawi.Stemmer.StemmerFactory
 import com.share424.sastrawi.StopWordRemover.StopWordRemoverFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -88,15 +87,14 @@ class PostReportActivity : AppCompatActivity() {
     }
 
     private fun postData(desc: String, category: String) {
-        val dummyUser = DummyUser.generateUser()
         val reportItem = ReportEntity(
-            dummyUser.address,
+            "Madiun",
             category,
             desc,
-            DummyUser.generateUser().Fullname,
-            dummyUser.NIK,
-            dummyUser.DateOfBirth,
-            dummyUser.PhoneNumber,
+            "Ilham Dwi M",
+            "181515224",
+            "2020",
+            "0812318235",
             DateHelper.getCurrentDate()
         )
 

@@ -10,7 +10,6 @@ import com.google.firebase.ktx.Firebase
 import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.data.response.StoryResponse
-import com.hera.bangkit.utils.DummyUser
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,7 +31,6 @@ class StoryViewModel : ViewModel() {
                 val item = document.toObject<StoryResponse>()
                 //dibawah sini nanti bikin collection ke user UID buat get kek ava sama username
                 Log.d("HomeViewModel","Isi Item $item")
-                val user = DummyUser.generateUser()
                 if (item != null) {
                     listItem.add(
                         StoryEntity(
@@ -44,7 +42,7 @@ class StoryViewModel : ViewModel() {
                             item.like,
                             item.location,
                             item.timeUpload,
-                            user.Username,
+                            "Ilham Dwi M",
                         )
                     )
                 }
@@ -66,7 +64,6 @@ class StoryViewModel : ViewModel() {
                 val item = document.toObject<StoryResponse>()
                 //dibawah sini nanti bikin collection ke user UID buat get kek ava sama username
                 Log.d("HomeViewModel","Isi Item $item")
-                val user = DummyUser.generateUser()
                 if (item != null) {
                     listItem.add(
                         StoryEntity(
@@ -78,7 +75,7 @@ class StoryViewModel : ViewModel() {
                             item.like,
                             item.location,
                             item.timeUpload,
-                            user.Username,
+                            "Ilham Dwi Muchlison",
                         )
                     )
                 }

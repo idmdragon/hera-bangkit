@@ -11,7 +11,6 @@ import com.google.android.material.tabs.TabLayoutMediator
 import com.hera.bangkit.R
 import com.hera.bangkit.databinding.FragmentProfileBinding
 import com.hera.bangkit.ui.main.profile.setting.SettingActivity
-import com.hera.bangkit.utils.DummyUser
 
 
 class ProfileFragment : Fragment() {
@@ -40,8 +39,8 @@ class ProfileFragment : Fragment() {
                 .load("https://image.flaticon.com/icons/png/512/194/194938.png")
                 .into(ivProfil)
 
-            tvFullName.text = DummyUser.generateUser().Fullname
-            tvUsername.text = DummyUser.generateUser().Username
+            tvFullName.text = "Ilham Dwi Muchlison"
+            tvUsername.text = "Idmdragon16"
             btnSetting.setOnClickListener {
                 startActivity(Intent(requireContext(), SettingActivity::class.java))
             }

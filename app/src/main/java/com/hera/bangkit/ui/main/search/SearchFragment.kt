@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.data.response.HastagEntity
 import com.hera.bangkit.databinding.FragmentSearchBinding
 
@@ -50,7 +51,7 @@ class SearchFragment : Fragment() {
                     }
 
                     activity.apply {
-                        viewModel.searchItem(newText).observe(viewLifecycleOwner,::searchRv)
+//                        viewModel.searchItem(query).observe(viewLifecycleOwner,::searchRv)
                     }
 
                 }
@@ -62,6 +63,10 @@ class SearchFragment : Fragment() {
                 return true
             }
         })
+    }
+
+    private fun searchRv(arrayList: ArrayList<StoryEntity>?) {
+
     }
 
     private fun getHastagList(items: ArrayList<HastagEntity>) {

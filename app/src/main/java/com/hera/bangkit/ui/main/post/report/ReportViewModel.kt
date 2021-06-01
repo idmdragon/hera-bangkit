@@ -9,7 +9,6 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.data.repositories.DefaultRepository
-import com.hera.bangkit.utils.DummyUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -30,7 +29,7 @@ class ReportViewModel @Inject constructor(
         val listItem = ArrayList<ReportEntity>()
         CoroutineScope(Dispatchers.IO).launch {
             val querySnapshot = Firebase.firestore.collection("report")
-                .whereEqualTo("fullname",DummyUser.generateUser().Fullname)
+                .whereEqualTo("fullname","Ilham Dwi Muchlison")
                 .get()
                 .await()
             for(document in querySnapshot.documents){

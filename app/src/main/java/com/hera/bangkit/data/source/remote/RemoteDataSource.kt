@@ -6,7 +6,7 @@ import com.google.firebase.firestore.CollectionReference
 import com.google.firebase.firestore.ktx.toObject
 import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.data.response.StoryResponse
-import com.hera.bangkit.utils.DummyUser
+import com.hera.bangkit.data.response.UserEntity
 import com.idm.moviedb.data.source.remote.RemoteResponse
 
 import kotlinx.coroutines.CoroutineScope
@@ -22,6 +22,8 @@ class RemoteDataSource @Inject constructor(
     private val storyCollection: CollectionReference,
     @Named("report")
     private val reportCollection: CollectionReference,
+    @Named("users")
+    private val userCollection: CollectionReference
 
     ) {
 
@@ -37,11 +39,16 @@ class RemoteDataSource @Inject constructor(
         }
     }
 
+    fun insertUser(user: UserEntity) {
+        CoroutineScope(Dispatchers.IO).launch {
+            userCollection.add(user).await()
+        }
+    }
     fun getUserReport():LiveData<RemoteResponse<ReportEntity>>{
         val listItems = MutableLiveData<RemoteResponse<ReportEntity>>()
         CoroutineScope(Dispatchers.IO).launch {
             val querySnapshot = reportCollection
-                .whereEqualTo("fullname",DummyUser.generateUser().Fullname)
+                .whereEqualTo("fullname","Ilham Dwi Muchlison")
                 .get()
                 .await()
             for(document in querySnapshot.documents){
