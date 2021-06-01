@@ -4,6 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
 import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.data.entity.UserEntity
+import com.hera.bangkit.data.response.ReportEntity
+import com.hera.bangkit.data.response.StoryResponse
 import com.idm.moviedb.vo.Resource
 
 interface DataSource {
