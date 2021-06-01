@@ -20,8 +20,6 @@ import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnCompleteListener
-import com.hera.bangkit.R
-import com.hera.bangkit.databinding.ActivityReportBinding
 import com.hera.bangkit.databinding.ActivitySosBinding
 import java.io.IOException
 import java.util.*
@@ -43,7 +41,7 @@ class SosActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         fusedLocationProviderClient =
-            LocationServices.getFusedLocationProviderClient(this@SOSActivity)
+            LocationServices.getFusedLocationProviderClient(this@SosActivity)
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (checkSelfPermission(Manifest.permission.SEND_SMS) == PackageManager.PERMISSION_DENIED || checkSelfPermission(
@@ -91,7 +89,7 @@ class SosActivity : AppCompatActivity() {
 
         registerReceiver(object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
-                binding.etPhoneNumber.editText.setText("")
+                binding.PhoneNumberLayout.editText?.setText("")
                 //etMessage.editText?.setText("")
                 binding.deliveryStatus.setText("SMS Delivered")
             }
@@ -125,26 +123,20 @@ class SosActivity : AppCompatActivity() {
         ) {
             return
         }
+
         fusedLocationProviderClient.lastLocation.addOnCompleteListener(OnCompleteListener<Location> {
-            var location: Location = it.result
+            var location: Location = it.result!!
             if (location != null) {
-                var geocoder: Geocoder = Geocoder(this@SOSActivity, Locale.getDefault())
+                var geocoder: Geocoder = Geocoder(this@SosActivity, Locale.getDefault())
                 try {
-                    var addressList: List<Address> =
-                        geocoder.getFromLocation(location.latitude, location.longitude, 1)
-                    var smsBody =
-                        "[DARURAT] Tolong kirim bantuan di ${addressList.get(0).getAddressLine(0)}"
-                    //tvLatitude.text = "Latitude: " + addressList.get(0).latitude
-                    //tvLongitude.text = "Longitude: " + addressList.get(0).longitude
-                    //tvAddressLine.text = "Alamat: " + addressList.get(0).getAddressLine(0)
-                    //tvLocality.text = "Kecamatan: " + addressList.get(0).locality
-                    //tvCountry.text = "Negara: " + addressList.get(0).countryName
+                    var addressList: List<Address> = geocoder.getFromLocation(location.latitude, location.longitude, 1)
+                    var smsBody = "[DARURAT] Tolong kirim bantuan di ${addressList.get(0).getAddressLine(0)}"
                     sendSMS(phoneNumber, smsBody)
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
             } else {
-                Toast.makeText(this@SOSActivity, "Location null error", Toast.LENGTH_SHORT)
+                Toast.makeText(this@SosActivity, "Location null error", Toast.LENGTH_SHORT)
                     .show();
             }
         })
