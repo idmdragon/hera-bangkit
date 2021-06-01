@@ -69,6 +69,33 @@
             android:id="@+id/action_register3Fragment_to_register2Fragment"
             app:destination="@id/register2Fragment"
             app:enterAnim="@anim/from_left" />
+        <argument
+            android:name="registerEmail"
+            app:argType="string" />
+        <argument
+            android:name="registerFullName"
+            app:argType="string" />
+        <argument
+            android:name="registerUsername"
+            app:argType="string" />
+        <argument
+            android:name="registerPassword"
+            app:argType="string" />
+        <argument
+            android:name="registerPhoneNumber"
+            app:argType="string" />
+        <argument
+            android:name="registerPlaceOfBirth"
+            app:argType="string" />
+        <argument
+            android:name="registerDateOfBirth"
+            app:argType="string" />
+        <argument
+            android:name="registerAddress"
+            app:argType="string" />
+        <argument
+            android:name="registerNIK"
+            app:argType="string" />
     </fragment>
 
     <fragment
