@@ -18,6 +18,9 @@
             android:id="@+id/action_register1Fragment_to_register0Fragment"
             app:destination="@id/register0Fragment"
             app:enterAnim="@anim/from_left" />
+        <argument
+            android:name="registerEmail"
+            app:argType="string" />
     </fragment>
 
     <fragment
@@ -59,24 +62,8 @@
         android:label="fragment_register4"
         tools:layout="@layout/fragment_register4" >
         <action
-            android:id="@+id/action_register4Fragment_to_register5Fragment"
-            app:destination="@id/register5Fragment"
-            app:enterAnim="@anim/from_right"
-            app:popEnterAnim="@anim/to_left" />
-        <action
             android:id="@+id/action_register4Fragment_to_register3Fragment"
             app:destination="@id/register3Fragment"
-            app:enterAnim="@anim/from_left" />
-    </fragment>
-
-    <fragment
-        android:id="@+id/register5Fragment"
-        android:name="com.hera.bangkit.ui.auth.register.registerfragment.Register5Fragment"
-        android:label="fragment_register5"
-        tools:layout="@layout/fragment_register5" >
-        <action
-            android:id="@+id/action_register5Fragment_to_register4Fragment"
-            app:destination="@id/register4Fragment"
             app:enterAnim="@anim/from_left" />
     </fragment>
 
