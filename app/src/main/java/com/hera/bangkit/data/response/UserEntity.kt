@@ -15,4 +15,7 @@ data class UserEntity (
         val placeOfBirth: String,
         val uid: String,
         val username: String
-)
+){
+
+
+}

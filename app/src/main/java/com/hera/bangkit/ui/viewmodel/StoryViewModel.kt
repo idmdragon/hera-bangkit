@@ -10,6 +10,8 @@ import com.google.firebase.ktx.Firebase
 import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.data.response.StoryResponse
+import com.hera.bangkit.data.response.UserEntity
+import com.hera.bangkit.data.response.UserResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -27,24 +29,32 @@ class StoryViewModel : ViewModel() {
                 .get()
                 .await()
 
-            for(document in querySnapshot.documents){
+            for (document in querySnapshot.documents) {
                 val item = document.toObject<StoryResponse>()
-                //dibawah sini nanti bikin collection ke user UID buat get kek ava sama username
-                Log.d("HomeViewModel","Isi Item $item")
+                val userSnapshot = Firebase.firestore.collection("users")
+                    .whereEqualTo("uid",item?.userID)
+                    .get()
+                    .await()
                 if (item != null) {
-                    listItem.add(
-                        StoryEntity(
-                            "https://image.flaticon.com/icons/png/512/194/194938.png",
-                            item.category,
-                            item.content,
-                            item.imgContent,
-                            item.isLike,
-                            item.like,
-                            item.location,
-                            item.timeUpload,
-                            "Ilham Dwi M",
-                        )
-                    )
+                    for (users in userSnapshot.documents) {
+                        val userItem = users.toObject<UserResponse>()
+                        if (userItem != null) {
+                            listItem.add(
+                                StoryEntity(
+                                    userItem.avatar,
+                                    item.category,
+                                    item.content,
+                                    item.imgContent,
+                                    item.isLike,
+                                    item.like,
+                                    item.location,
+                                    item.timeUpload,
+                                    userItem.username,
+                                )
+                            )
+                        }
+                    }
+
                 }
             }
             _listStory.postValue(listItem)
@@ -52,7 +62,7 @@ class StoryViewModel : ViewModel() {
         return _listStory
     }
 
-    fun getStoryWithTag(category : String): LiveData<ArrayList<StoryEntity>> {
+    fun getStoryWithTag(category: String): LiveData<ArrayList<StoryEntity>> {
         val listItem = ArrayList<StoryEntity>()
         CoroutineScope(Dispatchers.IO).launch {
             val querySnapshot = Firebase.firestore.collection("stories")
@@ -60,24 +70,33 @@ class StoryViewModel : ViewModel() {
                 .get()
                 .await()
 
-            for(document in querySnapshot.documents){
+            for (document in querySnapshot.documents) {
                 val item = document.toObject<StoryResponse>()
-                //dibawah sini nanti bikin collection ke user UID buat get kek ava sama username
-                Log.d("HomeViewModel","Isi Item $item")
+                val userSnapshot = Firebase.firestore.collection("users")
+                    .whereEqualTo("uid",item?.userID)
+                    .get()
+                    .await()
                 if (item != null) {
-                    listItem.add(
-                        StoryEntity(
-                            "https://image.flaticon.com/icons/png/512/194/194938.png",
-                            item.category,
-                            item.content,
-                            item.imgContent,
-                            item.isLike,
-                            item.like,
-                            item.location,
-                            item.timeUpload,
-                            "Ilham Dwi Muchlison",
-                        )
-                    )
+                    for (users in userSnapshot.documents) {
+                        val userItem = users.toObject<UserEntity>()
+                        if (userItem != null) {
+                            listItem.add(
+                                StoryEntity(
+                                    userItem.avatar,
+                                    item.category,
+                                    item.content,
+                                    item.imgContent,
+                                    item.isLike,
+                                    item.like,
+                                    item.location,
+                                    item.timeUpload,
+                                    userItem.username,
+                                )
+                            )
+                        }
+
+                    }
+
                 }
             }
             _listStory.postValue(listItem)

@@ -1,7 +1,6 @@
 package com.hera.bangkit.data.response
 
 data class StoryResponse(
-
         val category: String = "",
         val content: String ="",
         val imgContent: String ="",
