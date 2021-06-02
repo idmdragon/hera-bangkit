@@ -12,7 +12,6 @@ import com.hera.bangkit.utils.Constant
 class RegisterSuccessActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterSuccessBinding
-    private lateinit var fullName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,9 +26,7 @@ class RegisterSuccessActivity : AppCompatActivity() {
 
                 if (user.isEmpty()) {
                     binding.tvPengguna.setText("Sahabat HERA")
-                } else {
-                    binding.tvPengguna.setText("$fullName")
-                }
+                } else
 
 //        binding.btnRegisterSuccess.setOnClickListener {
                 startActivity(Intent(this@RegisterSuccessActivity, MainActivity::class.java))

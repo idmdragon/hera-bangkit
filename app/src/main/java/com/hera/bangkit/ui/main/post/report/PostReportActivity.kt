@@ -99,9 +99,8 @@ class PostReportActivity : AppCompatActivity() {
             "0812318235",
             DateHelper.getCurrentDate()
         )
-
-
         viewModel.insertReport(reportItem)
+        finish()
     }
     //  <!--------------Tensor Flow Function---------->
 
