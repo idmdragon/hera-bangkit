@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
+import com.google.firebase.auth.FirebaseAuth
 import com.hera.bangkit.R
 import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.databinding.ActivityReportBinding
@@ -32,11 +33,13 @@ class PostReportActivity : AppCompatActivity() {
     private val modelAssetPath = "modellaporan.tflite"
 
     private var tfLiteInterpreter: Interpreter? = null
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityReportBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
 
         binding.btnBack.setOnClickListener {
             finish()
@@ -68,7 +71,6 @@ class PostReportActivity : AppCompatActivity() {
                         val tokenizedMessage = classifier.tokenize(stopword)
                         val paddedMessage = classifier.padSequence(tokenizedMessage)
                         val results = classifySequence(paddedMessage)
-
                         val highest = results.maxOrNull()
                         val idxLabel = results.indexOfFirst { it == highest!! }
                         val category = findLabel(idxLabel)

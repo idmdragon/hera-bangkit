@@ -25,21 +25,18 @@ class ReportViewModel @Inject constructor(
 
     private val listReport = MutableLiveData<ArrayList<ReportEntity>>()
 
-    fun getReport(): LiveData<ArrayList<ReportEntity>> {
+    fun getReport(fullName : String): LiveData<ArrayList<ReportEntity>> {
         val listItem = ArrayList<ReportEntity>()
         CoroutineScope(Dispatchers.IO).launch {
             val querySnapshot = Firebase.firestore.collection("report")
-                .whereEqualTo("fullname","Ilham Dwi Muchlison")
+                .whereEqualTo("fullname",fullName)
                 .get()
                 .await()
             for(document in querySnapshot.documents){
-                Log.d("REPORTVIEWMODEL","isi doc $document")
                 val item = document.toObject<ReportEntity>()
-                Log.d("REPORTVIEWMODEL","isi item $item")
                 if (item != null) {
                     listItem.add(item)
                 }
-
             }
             listReport.postValue(listItem)
         }

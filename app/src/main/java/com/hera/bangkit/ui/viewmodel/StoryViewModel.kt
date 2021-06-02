@@ -1,6 +1,5 @@
 package com.hera.bangkit.ui.viewmodel
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -8,9 +7,7 @@ import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.hera.bangkit.data.entity.StoryEntity
-import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.data.response.StoryResponse
-import com.hera.bangkit.data.response.UserEntity
 import com.hera.bangkit.data.response.UserResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -78,7 +75,7 @@ class StoryViewModel : ViewModel() {
                     .await()
                 if (item != null) {
                     for (users in userSnapshot.documents) {
-                        val userItem = users.toObject<UserEntity>()
+                        val userItem = users.toObject<UserResponse>()
                         if (userItem != null) {
                             listItem.add(
                                 StoryEntity(

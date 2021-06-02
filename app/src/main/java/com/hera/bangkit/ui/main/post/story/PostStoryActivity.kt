@@ -5,12 +5,14 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.webkit.MimeTypeMap
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.core.view.isVisible
 import com.bumptech.glide.Glide
 import com.google.android.gms.tasks.OnSuccessListener
+import com.google.firebase.auth.FirebaseAuth
 
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
@@ -42,6 +44,8 @@ class PostStoryActivity : AppCompatActivity() {
 
     private val modelAssetPath = "modelpost.tflite"
     private var tfLiteInterpreter: Interpreter? = null
+
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     //Get Image
     private fun getFileExtension(uri: Uri?): String? {
@@ -81,6 +85,11 @@ class PostStoryActivity : AppCompatActivity() {
         binding.btnAddImg.setOnClickListener {
             findPhoto()
         }
+        binding.btnBack.setOnClickListener {
+            finish()
+        }
+
+
         uploadImage()
 
         with(binding) {
@@ -90,35 +99,32 @@ class PostStoryActivity : AppCompatActivity() {
                     tvContent.error = "Text Field Tidak Boleh Kosong"
                 } else {
                     tvContent.error = null
-
-                        val storyItem = StoryResponse(
-                            getLabel(content),
-                            content,
-                            profilePic,
-                            false,
-                            0,
-                            "",
-                            DateHelper.getCurrentDate(),
-                            "nwDaazUrlPY3iDPDY0xn2TxoL703",
-                        )
-                        viewModel.insertStory(storyItem)
-                        Toast.makeText(
-                            this@PostStoryActivity,
-                            "Cerita berhasil di Post",
-                            Toast.LENGTH_LONG
-                        ).show()
-                        finish()
-
+                    progressBar.visibility = View.VISIBLE
+                    postStory(content)
                 }
             }
-
-            binding.btnBack.setOnClickListener {
-                finish()
-            }
-
         }
+    }
 
-
+    private fun postStory(content: String) {
+        val uid = firebaseAuth.currentUser?.uid
+        val storyItem = StoryResponse(
+            getLabel(content),
+            content,
+            profilePic,
+            false,
+            0,
+            "",
+            DateHelper.getCurrentDate(),
+            uid!!,
+        )
+        viewModel.insertStory(storyItem)
+        Toast.makeText(
+            this@PostStoryActivity,
+            "Cerita berhasil di Post",
+            Toast.LENGTH_LONG
+        ).show()
+        finish()
     }
 
     private fun getLabel(desc: String): String {

@@ -37,7 +37,7 @@ object DummyHastag {
         )
         hastagList.add(
                 HastagEntity(
-                        "Neutral", 300
+                        "Netral", 300
                 )
         )
 

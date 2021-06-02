@@ -10,12 +10,23 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.databinding.FragmentReportBinding
 import com.hera.bangkit.ui.main.post.report.ReportViewModel
+import com.hera.bangkit.ui.main.profile.story.StoryFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class ReportFragment : Fragment() {
+    companion object{
+        private const val FULLNAME = "fullname"
 
+        fun newInstance(fullname:String): ReportFragment {
+            val fragment = ReportFragment()
+            val bundle = Bundle()
+            bundle.putString(FULLNAME,fullname)
+            fragment.arguments = bundle
+            return fragment
+        }
+    }
     private val viewModel : ReportViewModel by activityViewModels()
     private var _binding: FragmentReportBinding? = null
     private lateinit var adapter: ReportAdapter
@@ -30,11 +41,12 @@ class ReportFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         activity.let {
+            val fullname = arguments?.getString(FULLNAME)
+            if (fullname != null) {
+                viewModel.getReport(fullname).observe(viewLifecycleOwner,::setList)
+            }
             binding.rvReportList.layoutManager = LinearLayoutManager(requireContext())
-            viewModel.getReport().observe(viewLifecycleOwner,::setList)
         }
-
-
     }
 
     private fun setList(items: ArrayList<ReportEntity>) {

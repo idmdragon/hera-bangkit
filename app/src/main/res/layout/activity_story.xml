@@ -7,6 +7,15 @@
     android:background="@color/black"
     tools:context=".ui.main.post.story.PostStoryActivity">
 
+    <ProgressBar
+        android:visibility="invisible"
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tv_content"
+        app:layout_constraintStart_toStartOf="@+id/tv_content"
+        app:layout_constraintTop_toTopOf="@+id/textView8" />
     <ImageButton
         android:id="@+id/btn_back"
         android:layout_width="wrap_content"
@@ -70,33 +79,31 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:layout_marginTop="4dp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="@+id/tv_content"
         app:layout_constraintTop_toBottomOf="@+id/tv_content">
 
         <ImageView
-            android:visibility="gone"
             android:id="@+id/iv_content"
-            android:layout_marginBottom="4dp"
             android:layout_width="125dp"
             android:layout_height="125dp"
             android:layout_marginTop="16dp"
-          />
+            android:layout_marginBottom="4dp"
+            android:visibility="gone" />
 
         <TextView
-            android:layout_marginTop="4dp"
             android:id="@+id/btn_add_img"
             style="@style/p_heading3_sb_blue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
             android:drawablePadding="8dp"
             android:text="@string/tambahkan_gambar"
-            app:drawableStartCompat="@drawable/ic_image_post"
-            />
-
+            app:drawableStartCompat="@drawable/ic_image_post" />
 
 
     </LinearLayout>

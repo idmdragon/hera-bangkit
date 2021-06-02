@@ -4,7 +4,9 @@ import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
 import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.data.response.StoryResponse
-import com.hera.bangkit.data.response.UserEntity
+import com.hera.bangkit.data.entity.UserEntity
+import com.hera.bangkit.data.response.UserResponse
+import com.idm.moviedb.data.source.remote.RemoteResponse
 import com.idm.moviedb.vo.Resource
 
 interface DataSource {
@@ -16,4 +18,5 @@ interface DataSource {
 
     fun insertUser(user : UserEntity)
 
+    fun getUser(uid : String) : LiveData<RemoteResponse<UserResponse>>
 }
