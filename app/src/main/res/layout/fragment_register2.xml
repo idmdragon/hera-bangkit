@@ -113,7 +113,7 @@
             android:id="@+id/et_dateOfBirth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="datetime"
+            android:inputType="date"
             android:hint="@string/tanggal_lahir"
             android:gravity="top"
             android:textColor="@color/white"

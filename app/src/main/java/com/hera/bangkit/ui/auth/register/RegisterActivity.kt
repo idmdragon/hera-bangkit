@@ -1,5 +1,6 @@
 package com.hera.bangkit.ui.auth.register
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
@@ -14,5 +15,9 @@ class RegisterActivity : AppCompatActivity() {
 
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_regis_host) as NavHostFragment
         val navController = navHostFragment.navController
+
+//        // baru
+//        val intent = Intent(this, RegisterSuccessActivity::class.java)
+//        startActivity(intent)
     }
 }

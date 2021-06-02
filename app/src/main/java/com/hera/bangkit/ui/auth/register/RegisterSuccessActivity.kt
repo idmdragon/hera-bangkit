@@ -3,22 +3,38 @@ package com.hera.bangkit.ui.auth.register
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.hera.bangkit.R
+import androidx.navigation.fragment.findNavController
 import com.hera.bangkit.databinding.ActivityRegisterSuccessBinding
+import com.hera.bangkit.ui.auth.register.registerfragment.Register4FragmentArgs
 import com.hera.bangkit.ui.main.MainActivity
+import com.hera.bangkit.utils.Constant
 
 class RegisterSuccessActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterSuccessBinding
+    private lateinit var fullName: String
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterSuccessBinding.inflate(layoutInflater)
-
         setContentView(binding.root)
 
-        binding.btnRegisterSuccess.setOnClickListener {
-            startActivity(Intent(this@RegisterSuccessActivity, MainActivity::class.java))
+        /////cek lagi besok
+        with(binding) {
+
+            btnRegisterSuccess.setOnClickListener {
+                var user = binding.tvPengguna.text.toString().trim()
+
+                if (user.isEmpty()) {
+                    binding.tvPengguna.setText("Sahabat HERA")
+                } else {
+                    binding.tvPengguna.setText("$fullName")
+                }
+
+//        binding.btnRegisterSuccess.setOnClickListener {
+                startActivity(Intent(this@RegisterSuccessActivity, MainActivity::class.java))
+            }
+
         }
     }
 }

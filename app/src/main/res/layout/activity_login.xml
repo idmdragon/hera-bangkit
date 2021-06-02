@@ -46,7 +46,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_login_masuk" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_email"
+        android:id="@+id/EmailLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -63,6 +63,7 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_login_masuk_text">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_email"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:backgroundTint="@android:color/transparent"
@@ -73,7 +74,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/otf_password"
+        android:id="@+id/PasswordLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -84,11 +85,14 @@
         app:boxBackgroundColor="@color/whitegray"
         app:boxStrokeColor="@color/pink"
         app:hintTextColor="@color/pink"
+        app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otf_email">
+        app:layout_constraintTop_toBottomOf="@+id/EmailLayout">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
@@ -111,7 +115,7 @@
         style="@style/w_heading3_m"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otf_password" />
+        app:layout_constraintTop_toBottomOf="@+id/PasswordLayout" />
 
     <Button
         android:id="@+id/btn_masuk"

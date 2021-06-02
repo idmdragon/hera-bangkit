@@ -10,7 +10,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hera.bangkit.R
-import com.hera.bangkit.databinding.FragmentRegister1Binding
 import com.hera.bangkit.databinding.FragmentRegister2Binding
 
 class Register2Fragment : Fragment() {
@@ -76,6 +75,7 @@ class Register2Fragment : Fragment() {
                     view.findNavController().navigate(toFragment2)
                 }
             }
+
         }
     }
 }

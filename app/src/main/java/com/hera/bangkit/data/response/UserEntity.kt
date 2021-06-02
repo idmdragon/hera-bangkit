@@ -11,7 +11,6 @@ data class UserEntity (
         val guardianPhoneNumber1: String,
         val guardianPhoneNumber2: String,
         val nik : String,
-        val password: String,
         val phoneNumber: String,
         val placeOfBirth: String,
         val uid: String,
