@@ -6,7 +6,7 @@ import com.hera.bangkit.data.response.ReportEntity
 import com.hera.bangkit.data.response.StoryResponse
 import com.hera.bangkit.data.entity.UserEntity
 import com.hera.bangkit.data.response.UserResponse
-import com.idm.moviedb.data.source.remote.RemoteResponse
+import com.hera.bangkit.data.source.remote.RemoteResponse
 import com.idm.moviedb.vo.Resource
 
 interface DataSource {

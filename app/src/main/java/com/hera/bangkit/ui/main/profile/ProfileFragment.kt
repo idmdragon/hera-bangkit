@@ -15,7 +15,7 @@ import com.hera.bangkit.R
 import com.hera.bangkit.data.response.UserResponse
 import com.hera.bangkit.databinding.FragmentProfileBinding
 import com.hera.bangkit.ui.main.profile.setting.SettingActivity
-import com.idm.moviedb.data.source.remote.RemoteResponse
+import com.hera.bangkit.data.source.remote.RemoteResponse
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

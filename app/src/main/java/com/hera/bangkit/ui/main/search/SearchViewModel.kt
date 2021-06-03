@@ -17,8 +17,5 @@ class SearchViewModel : ViewModel() {
         return _listHastag
     }
 
-//    fun searchItem(query: String): LiveData<ArrayList<StoryEntity>> {
-//
-//
-//    }
+
 }

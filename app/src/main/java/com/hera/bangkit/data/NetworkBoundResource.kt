@@ -2,7 +2,7 @@ package com.hera.bangkit.data
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
-import com.idm.moviedb.data.source.remote.RemoteResponse
+import com.hera.bangkit.data.source.remote.RemoteResponse
 import com.idm.moviedb.data.source.remote.StatusResponse
 import com.idm.moviedb.vo.Resource
 import kotlinx.coroutines.CoroutineScope

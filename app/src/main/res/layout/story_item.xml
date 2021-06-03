@@ -6,10 +6,10 @@
     android:background="@color/black"
     android:layout_height="wrap_content">
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/iv_avatar"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:contentDescription="@string/avatar"
@@ -136,5 +136,5 @@
         app:layout_constraintBottom_toBottomOf="@+id/btn_up"
         app:layout_constraintStart_toEndOf="@+id/btn_up"
         app:layout_constraintTop_toTopOf="@+id/btn_up"
-        android:text="4" />
+        tools:text="4" />
 </androidx.constraintlayout.widget.ConstraintLayout>

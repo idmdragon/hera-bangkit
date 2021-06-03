@@ -10,4 +10,11 @@ object DateHelper {
 
         return dateFormat.format(date)
     }
+
+    fun getDateOnly(): String {
+        val dateFormat = SimpleDateFormat("dd MMM yyyy", Locale.getDefault())
+        val date = Date()
+
+        return dateFormat.format(date)
+    }
 }

@@ -1,4 +1,4 @@
-package com.hera.bangkit.ui.main.search.hastagpage
+package com.hera.bangkit.ui.main.search
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -30,15 +30,12 @@ class HastagPageActivity : AppCompatActivity() {
                 finish()
             }
         }
-
         viewModel.getStoryWithTag(hastagCategory.toString()).observe(this,::setList)
-
-
     }
 
     private fun setList(items: ArrayList<StoryEntity>) {
         binding.rvHastag.layoutManager = LinearLayoutManager(this)
-        adapter = HomeAdapter(items)
+        adapter = HomeAdapter(viewModel,items)
         adapter.notifyDataSetChanged()
         binding.rvHastag.adapter = adapter
     }

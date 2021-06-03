@@ -1,4 +1,6 @@
-package com.idm.moviedb.data.source.remote
+package com.hera.bangkit.data.source.remote
+
+import com.idm.moviedb.data.source.remote.StatusResponse
 
 class RemoteResponse<T>(val status: StatusResponse, val body: T, val message: String?) {
     companion object {

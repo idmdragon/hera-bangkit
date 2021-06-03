@@ -42,7 +42,7 @@ class ReportViewModel @Inject constructor(
         }
         return listReport
     }
-
+        fun getUser(uid : String) = repository.getUser(uid)
 }
 
 

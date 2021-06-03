@@ -28,14 +28,10 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //Hastag List
         binding.rvHastag.layoutManager = LinearLayoutManager(requireContext())
         viewModel.getHastag().observe(viewLifecycleOwner, ::getHastagList)
 
     }
-
-
-
 
 
     private fun getHastagList(items: ArrayList<HastagEntity>) {

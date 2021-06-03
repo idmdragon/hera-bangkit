@@ -73,19 +73,64 @@ class StoryViewModel : ViewModel() {
                 .await()
             for (document in querySnapshot) {
                 val storyRef = storyCollectionRef.document(document.id)
-                if (story.isLike == false) {
                     storyRef.update("like", FieldValue.increment(1))
                     storyRef.update("isLike", true)
-                } else {
-                    storyRef.update("like", FieldValue.increment(-1))
-                    storyRef.update("isLike", false)
-                }
             }
+        }
 
+    }
+    fun decreaseStory(story: StoryEntity) {
+        val storyCollectionRef = Firebase.firestore.collection("stories")
+        CoroutineScope(Dispatchers.IO).launch {
+            val querySnapshot = storyCollectionRef
+                .whereEqualTo("category", story.category)
+                .whereEqualTo("content", story.content)
+                .whereEqualTo("timeUpload", story.timeUpload)
+                .get()
+                .await()
+            for (document in querySnapshot) {
+                val storyRef = storyCollectionRef.document(document.id)
+                storyRef.update("like", FieldValue.increment(-1))
+                storyRef.update("isLike", false)
+            }
         }
 
     }
 
+    fun increaseUpvote(story: StoryEntity) {
+        val storyCollectionRef = Firebase.firestore.collection("stories")
+        CoroutineScope(Dispatchers.IO).launch {
+            val querySnapshot = storyCollectionRef
+                .whereEqualTo("category", story.category)
+                .whereEqualTo("content", story.content)
+                .whereEqualTo("timeUpload", story.timeUpload)
+                .get()
+                .await()
+            for (document in querySnapshot) {
+                val storyRef = storyCollectionRef.document(document.id)
+                storyRef.update("upvote", FieldValue.increment(1))
+                storyRef.update("isUpvoted", true)
+            }
+        }
+
+    }
+    fun decreaseUpvote(story: StoryEntity) {
+        val storyCollectionRef = Firebase.firestore.collection("stories")
+        CoroutineScope(Dispatchers.IO).launch {
+            val querySnapshot = storyCollectionRef
+                .whereEqualTo("category", story.category)
+                .whereEqualTo("content", story.content)
+                .whereEqualTo("timeUpload", story.timeUpload)
+                .get()
+                .await()
+            for (document in querySnapshot) {
+                val storyRef = storyCollectionRef.document(document.id)
+                storyRef.update("upvote", FieldValue.increment(-1))
+                storyRef.update("isUpvoted", false)
+            }
+        }
+
+    }
     fun getStoryWithTag(category: String): LiveData<ArrayList<StoryEntity>> {
         val listItem = ArrayList<StoryEntity>()
         CoroutineScope(Dispatchers.IO).launch {
