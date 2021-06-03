@@ -7,32 +7,28 @@ object DummyHastag {
         val hastagList = ArrayList<HastagEntity>()
         hastagList.add(
                 HastagEntity(
-                    "Public Places", 4000
+                    "Lokasi Publik", 4000
                 )
         )
         hastagList.add(
                 HastagEntity(
-                        "Private Places", 3000
+                        "Lokasi Privat", 3000
                 )
         )
         hastagList.add(
                 HastagEntity(
-                        "Public Places", 2000
+                        "Lokasi Kerja", 2000
+                )
+        )
+
+        hastagList.add(
+                HastagEntity(
+                        "Siber", 500
                 )
         )
         hastagList.add(
                 HastagEntity(
-                        "Work Places", 1000
-                )
-        )
-        hastagList.add(
-                HastagEntity(
-                        "Cyber", 500
-                )
-        )
-        hastagList.add(
-                HastagEntity(
-                        "Educational Places", 450
+                        "Lokasi Pendidikan", 450
                 )
         )
         hastagList.add(

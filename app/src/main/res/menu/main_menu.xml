@@ -5,7 +5,7 @@
         android:icon="@drawable/ic_home"
         app:showAsAction="always"
         android:title="" />
-    <item android:id="@+id/searchFragment"
+    <item android:id="@+id/hastagFragment"
         app:showAsAction="always"
         android:icon="@drawable/ic_search"
         android:title="" />

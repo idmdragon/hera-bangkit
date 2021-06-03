@@ -20,8 +20,10 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         _binding = FragmentHomeBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
@@ -35,6 +37,11 @@ class HomeFragment : Fragment() {
     private fun setStoryList(items: ArrayList<StoryEntity>) {
         binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
         adapter = HomeAdapter(items)
+
+        adapter.onItemClick = { story ->
+            viewModel.increaseStory(story)
+        }
+
         adapter.notifyDataSetChanged()
         binding.rvHome.adapter = adapter
 
@@ -44,5 +51,6 @@ class HomeFragment : Fragment() {
         super.onDestroy()
         _binding = null
     }
+
 
 }

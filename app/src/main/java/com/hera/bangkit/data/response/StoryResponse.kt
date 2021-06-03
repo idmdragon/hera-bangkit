@@ -6,9 +6,11 @@ data class StoryResponse(
         val imgContent: String ="",
         @field:JvmField
         var isLike : Boolean = false,
+        @field:JvmField
+        var isUpvoted : Boolean = false,
         var like: Int = 0,
-        var location : String = "",
         val timeUpload: String ="",
-        val userID: String = ""
+        val userID: String = "",
+        val upvote : Int = 0,
 ) {
 }

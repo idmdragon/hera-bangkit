@@ -1,8 +1,10 @@
 package com.hera.bangkit.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
@@ -43,10 +45,11 @@ class StoryViewModel : ViewModel() {
                                     item.content,
                                     item.imgContent,
                                     item.isLike,
+                                    item.isUpvoted,
                                     item.like,
-                                    item.location,
                                     item.timeUpload,
                                     userItem.username,
+                                    item.upvote,
                                 )
                             )
                         }
@@ -59,18 +62,42 @@ class StoryViewModel : ViewModel() {
         return _listStory
     }
 
+    fun increaseStory(story: StoryEntity) {
+        val storyCollectionRef = Firebase.firestore.collection("stories")
+        CoroutineScope(Dispatchers.IO).launch {
+            val querySnapshot = storyCollectionRef
+                .whereEqualTo("category", story.category)
+                .whereEqualTo("content", story.content)
+                .whereEqualTo("timeUpload", story.timeUpload)
+                .get()
+                .await()
+            for (document in querySnapshot) {
+                val storyRef = storyCollectionRef.document(document.id)
+                if (story.isLike == false) {
+                    storyRef.update("like", FieldValue.increment(1))
+                    storyRef.update("isLike", true)
+                } else {
+                    storyRef.update("like", FieldValue.increment(-1))
+                    storyRef.update("isLike", false)
+                }
+            }
+
+        }
+
+    }
+
     fun getStoryWithTag(category: String): LiveData<ArrayList<StoryEntity>> {
         val listItem = ArrayList<StoryEntity>()
         CoroutineScope(Dispatchers.IO).launch {
             val querySnapshot = Firebase.firestore.collection("stories")
-                .whereEqualTo("category",category)
+                .whereEqualTo("category", category)
                 .get()
                 .await()
 
             for (document in querySnapshot.documents) {
                 val item = document.toObject<StoryResponse>()
                 val userSnapshot = Firebase.firestore.collection("users")
-                    .whereEqualTo("uid",item?.userID)
+                    .whereEqualTo("uid", item?.userID)
                     .get()
                     .await()
                 if (item != null) {
@@ -84,10 +111,11 @@ class StoryViewModel : ViewModel() {
                                     item.content,
                                     item.imgContent,
                                     item.isLike,
+                                    item.isUpvoted,
                                     item.like,
-                                    item.location,
                                     item.timeUpload,
                                     userItem.username,
+                                    item.upvote,
                                 )
                             )
                         }

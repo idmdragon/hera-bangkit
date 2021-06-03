@@ -43,10 +43,11 @@ class ProfileStoryViewModel : ViewModel() {
                                     item.content,
                                     item.imgContent,
                                     item.isLike,
+                                    item.isUpvoted,
                                     item.like,
-                                    item.location,
                                     item.timeUpload,
                                     userItem.username,
+                                    item.upvote,
                                 )
                             )
                         }

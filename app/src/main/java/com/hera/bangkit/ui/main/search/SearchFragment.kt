@@ -32,42 +32,11 @@ class SearchFragment : Fragment() {
         binding.rvHastag.layoutManager = LinearLayoutManager(requireContext())
         viewModel.getHastag().observe(viewLifecycleOwner, ::getHastagList)
 
-        searchFunction()
     }
 
-    private fun searchFunction() {
 
-        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
-            override fun onQueryTextSubmit(query: String): Boolean {
-                if (query.isEmpty()) {
-                    return true
-                } else {
-                    with(binding){
-                        searchLayout.visibility = View.VISIBLE
-                        tvSearchKeyword.text = query
-                        hastagLayout.visibility = View.GONE
-                        searchNotfound.visibility = View.VISIBLE
-                    }
 
-                    activity.apply {
-//                        viewModel.searchItem(query).observe(viewLifecycleOwner,::searchRv)
-                    }
-
-                }
-                return true
-            }
-
-            override fun onQueryTextChange(newText: String): Boolean {
-
-                return true
-            }
-        })
-    }
-
-    private fun searchRv(arrayList: ArrayList<StoryEntity>?) {
-
-    }
 
     private fun getHastagList(items: ArrayList<HastagEntity>) {
         adapter = HastagAdapter(items)

@@ -7,10 +7,11 @@ data class StoryEntity(
         val imgContent: String ="",
         @field:JvmField
         var isLike : Boolean = false,
+        @field:JvmField
+        var isUpvoted : Boolean = false,
         var like: Int = 0,
-        var location : String = "",
         val timeUpload: String ="",
         val userName : String = "",
-
+        var upvote : Int = 0,
 ) {
 }
