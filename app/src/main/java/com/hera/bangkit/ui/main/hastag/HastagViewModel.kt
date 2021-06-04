@@ -9,9 +9,6 @@ import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
 import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.data.response.HastagEntity
-import com.hera.bangkit.data.response.StoryResponse
-import com.hera.bangkit.data.response.UserResponse
-import com.hera.bangkit.utils.DummyHastag
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
