@@ -8,19 +8,19 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hera.bangkit.data.response.HastagEntity
-import com.hera.bangkit.databinding.FragmentSearchBinding
+import com.hera.bangkit.databinding.FragmentHastagBinding
 
 
-class SearchFragment : Fragment() {
+class HastagFragment : Fragment() {
 
-    private val viewModel: SearchViewModel by activityViewModels()
+    private val viewModel: HastagViewModel by activityViewModels()
     private lateinit var adapter: HastagAdapter
-    private var _binding: FragmentSearchBinding? = null
+    private var _binding: FragmentHastagBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
-        _binding = FragmentSearchBinding.inflate(layoutInflater, container, false)
+        _binding = FragmentHastagBinding.inflate(layoutInflater, container, false)
         return binding.root
     }
 

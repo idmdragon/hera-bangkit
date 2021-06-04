@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/hastagFragment"
-        android:name="com.hera.bangkit.ui.main.hastag.SearchFragment"
+        android:name="com.hera.bangkit.ui.main.hastag.HastagFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_hastag" />
 </navigation>
