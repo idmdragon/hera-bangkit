@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hera.bangkit.data.entity.StoryEntity
-import com.hera.bangkit.data.response.StoryResponse
 import com.hera.bangkit.databinding.FragmentStoryBinding
 
 
@@ -49,7 +48,7 @@ class StoryFragment : Fragment() {
         with(binding){
             Log.d("StoryFragment","isi setList $items")
             rvStoryProfile.layoutManager = LinearLayoutManager(requireContext())
-            adapter = StoryAdapter(items)
+            adapter = StoryAdapter(items,viewModel)
             rvStoryProfile.adapter = adapter
             adapter.notifyDataSetChanged()
         }

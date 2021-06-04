@@ -42,7 +42,6 @@
         style="@style/pink_h2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
         android:background="@color/darkbluegray"
         android:paddingStart="4dp"
@@ -52,6 +51,7 @@
         tools:text="Sexual Harrasment" />
 
     <ImageButton
+        android:id="@+id/btn_option"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"

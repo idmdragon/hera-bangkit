@@ -8,7 +8,7 @@
     <string name="sostextpost">Berikan sinyal kepada guardian untuk menyelamatkanmu sekarang juga</string>
     <string name="buat_sinyal_sos">Buat Sinyal SOS</string>
     <string name="laporkan_kasus_yang_kamu_alami_langsung_ke_kpppa">Laporkan kasus yang kamu alami langsung ke KPPPA</string>
-    <string name="lapor_kppa">Lapor KPPA</string>
+    <string name="lapor_kppa">Lapor KPPPA</string>
     <string name="bagikan_cerita">Bagikan Cerita</string>
     <string name="text_bagikan">Bagikan cerita yang kamu alami, informasikan kasus yang menimpamu</string>
     <string name="laporkan_kasus">Laporkan Kasus</string>
@@ -25,7 +25,7 @@
     <string name="tambahkan_gambar">Tambahkan Gambar</string>
     <string name="tambahkan_lokasi">Tambahkan Lokasi</string>
     <string name="tulis_cerita">Tulis Cerita</string>
-    <string name="sinyal_sos">Sinyal SOS</string>
+    <string name="sinyal_sos">Sinyal    SOS</string>
     <string name="bahaya">Apakah kamu dalam bahaya?</string>
     <string name="tombol_dikirim">Tekan tombol dibawah dan SOS akan dikirim ke guardianmu</string>
     <string name="sos">SOS</string>
@@ -101,4 +101,5 @@
     <string name="selesai">Selesai</string>
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="lihat_berdasarkan_tagar">Lihat berdasarkan Tagar</string>
+    <string name="laporkan">Laporkan Cerita Ini</string>
 </resources>

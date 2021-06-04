@@ -1,8 +1,13 @@
 package com.hera.bangkit.ui.main.home
 
 import android.annotation.SuppressLint
+import android.content.Context
 import android.view.LayoutInflater
+import android.view.MenuItem
+import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.widget.PopupMenu
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
@@ -80,6 +85,7 @@ class HomeAdapter constructor(private val viewModel : StoryViewModel, private va
                     )
                 }
 
+
                 btnUp.setOnClickListener {
 
                     if (story.isUpvoted == false) {
@@ -120,10 +126,32 @@ class HomeAdapter constructor(private val viewModel : StoryViewModel, private va
 
                     tvLoveNumCount.text = story.like.toString()
                 }
+
+                btnOption.setOnClickListener {
+                    showMenu(it, R.menu.option_menu,itemView.context)
+                }
             }
 
         }
 
+    }
+
+    private fun showMenu(it: View, optionMenu: Int, context: Context) {
+        val popup = PopupMenu(context,it )
+        popup.menuInflater.inflate(optionMenu, popup.menu)
+
+        popup.setOnMenuItemClickListener { menuItem: MenuItem ->
+
+        if(menuItem.itemId == R.id.report){
+            Toast.makeText(context,"Cerita telah di Laporkan",Toast.LENGTH_LONG).show()
+        }
+        true
+        }
+        popup.setOnDismissListener {
+            // Respond to popup being dismissed.
+        }
+        // Show the popup menu.
+        popup.show()
     }
 
     @SuppressLint("SimpleDateFormat")

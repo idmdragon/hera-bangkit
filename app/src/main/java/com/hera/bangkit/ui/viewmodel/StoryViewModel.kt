@@ -61,7 +61,6 @@ class StoryViewModel : ViewModel() {
         }
         return _listStory
     }
-
     fun increaseStory(story: StoryEntity) {
         val storyCollectionRef = Firebase.firestore.collection("stories")
         CoroutineScope(Dispatchers.IO).launch {
@@ -96,7 +95,6 @@ class StoryViewModel : ViewModel() {
         }
 
     }
-
     fun increaseUpvote(story: StoryEntity) {
         val storyCollectionRef = Firebase.firestore.collection("stories")
         CoroutineScope(Dispatchers.IO).launch {
@@ -126,6 +124,19 @@ class StoryViewModel : ViewModel() {
             for (document in querySnapshot) {
                 val storyRef = storyCollectionRef.document(document.id)
                 storyRef.update("upvote", FieldValue.increment(-1))
+                storyRef.update("isUpvoted", false)
+            }
+        }
+
+    }
+    fun reportStory(story: StoryEntity) {
+        val reportCollectionRef = Firebase.firestore.collection("reported")
+        CoroutineScope(Dispatchers.IO).launch {
+            val querySnapshot = reportCollectionRef
+                .get()
+                .await()
+            for (document in querySnapshot) {
+                val storyRef = reportCollectionRef.document(document.id)
                 storyRef.update("isUpvoted", false)
             }
         }
