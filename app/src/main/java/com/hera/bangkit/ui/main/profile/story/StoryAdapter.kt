@@ -125,7 +125,7 @@ class StoryAdapter(private val listStory: ArrayList<StoryEntity>, private val vi
                 }
 
                 btnOption.setOnClickListener {
-                    showMenu(it, R.menu.option_menu,itemView.context,story)
+                    showMenu(it, R.menu.delete_menu,itemView.context,story)
                 }
             }
 

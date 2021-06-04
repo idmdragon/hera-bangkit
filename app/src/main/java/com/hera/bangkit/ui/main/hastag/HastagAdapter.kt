@@ -1,4 +1,4 @@
-package com.hera.bangkit.ui.main.search
+package com.hera.bangkit.ui.main.hastag
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,14 +1,12 @@
-package com.hera.bangkit.ui.main.search
+package com.hera.bangkit.ui.main.hastag
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hera.bangkit.data.entity.StoryEntity
 import com.hera.bangkit.data.response.HastagEntity
 import com.hera.bangkit.databinding.FragmentSearchBinding
 
@@ -29,7 +27,8 @@ class SearchFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.rvHastag.layoutManager = LinearLayoutManager(requireContext())
-        viewModel.getHastag().observe(viewLifecycleOwner, ::getHastagList)
+        val arrHastag = arrayOf("Lokasi Publik","Lokasi Privat","Lokasi Kerja","Siber","Lokasi Pendidikan","Netral")
+        viewModel.getHastag(arrHastag).observe(viewLifecycleOwner, ::getHastagList)
 
     }
 

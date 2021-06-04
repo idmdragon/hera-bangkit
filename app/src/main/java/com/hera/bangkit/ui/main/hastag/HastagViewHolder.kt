@@ -1,4 +1,4 @@
-package com.hera.bangkit.ui.main.search
+package com.hera.bangkit.ui.main.hastag
 import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 import com.hera.bangkit.data.response.HastagEntity

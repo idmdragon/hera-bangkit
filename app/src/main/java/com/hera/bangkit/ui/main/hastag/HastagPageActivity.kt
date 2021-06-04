@@ -1,4 +1,4 @@
-package com.hera.bangkit.ui.main.search
+package com.hera.bangkit.ui.main.hastag
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

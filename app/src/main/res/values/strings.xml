@@ -102,4 +102,5 @@
     <string name="enter_phone_number">Enter Phone Number</string>
     <string name="lihat_berdasarkan_tagar">Lihat berdasarkan Tagar</string>
     <string name="laporkan">Laporkan Cerita Ini</string>
+    <string name="hapus_cerita_ini">Hapus Cerita Ini</string>
 </resources>
