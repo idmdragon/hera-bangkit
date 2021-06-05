@@ -32,7 +32,7 @@ class Register4Fragment : Fragment() {
     private lateinit var avatar: String
 
     private lateinit var binding: FragmentRegister4Binding
-    private val viewModel : RegisterViewModel by activityViewModels()
+    private val viewModel: RegisterViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -89,10 +89,7 @@ class Register4Fragment : Fragment() {
                     firebaseAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener {
                             if (it.isSuccessful) {
-                                Toast.makeText(requireContext(), "User Created", Toast.LENGTH_SHORT)
-                                    .show()
 
-//                            taruh di Firestore
                                 val uid = firebaseAuth.currentUser?.uid
                                 val user = UserEntity(
                                     address,
@@ -113,7 +110,7 @@ class Register4Fragment : Fragment() {
 
                                 viewModel.insertUser(user)
 
-                                Toast.makeText(requireContext(),"User Created", Toast.LENGTH_SHORT).show()
+                                Toast.makeText(requireContext(), "User Created", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(activity, RegisterSuccessActivity::class.java)
                                 startActivity(intent)
                             }

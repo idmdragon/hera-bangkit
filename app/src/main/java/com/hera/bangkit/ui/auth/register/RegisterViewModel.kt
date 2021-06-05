@@ -9,4 +9,6 @@ import javax.inject.Inject
 @HiltViewModel
 class RegisterViewModel @Inject constructor(private val repository: DefaultRepository) : ViewModel() {
     fun insertUser (userEntity: UserEntity) = repository.insertUser(userEntity)
+    fun getUser(uid : String) = repository.getUser(uid)
+
 }

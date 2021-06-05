@@ -103,4 +103,7 @@
     <string name="lihat_berdasarkan_tagar">Lihat berdasarkan Tagar</string>
     <string name="laporkan">Laporkan Cerita Ini</string>
     <string name="hapus_cerita_ini">Hapus Cerita Ini</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="reset_pass_desc">Masukkan email yang kamu pakai dalam aplikasi ini</string>
+    <string name="kirim">Kirim</string>
 </resources>

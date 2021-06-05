@@ -50,7 +50,6 @@ class Register1Fragment : Fragment() {
             this.findNavController().popBackStack()
         }
 
-        // dari fragmen sebelumnya
         if (bundle != null) {
             email = Register1FragmentArgs.fromBundle(bundle).registerEmail
         }
@@ -70,6 +69,8 @@ class Register1Fragment : Fragment() {
                     binding.UsernameLayout.error = "Nama Pengguna tidak boleh kosong"
                 } else if (password.isEmpty()) {
                     binding.PasswordLayout.error = "Password tidak boleh kosong"
+                }else if (password.length < 6){
+                    binding.PasswordLayout.error = "Password tidak boleh kurang dari 6 karakter"
                 } else if (phoneNumber.isEmpty()) {
                     binding.PhoneNumberLayout.error = "Nomor Telepon tidak boleh kosong"
                 } else {

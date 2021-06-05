@@ -1,5 +1,6 @@
 package com.hera.bangkit.ui.auth.register.registerfragment
 
+import android.app.DatePickerDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import androidx.navigation.fragment.findNavController
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hera.bangkit.R
 import com.hera.bangkit.databinding.FragmentRegister2Binding
+import java.util.*
 
 class Register2Fragment : Fragment() {
 
@@ -61,6 +63,28 @@ class Register2Fragment : Fragment() {
                 val dateOfBirth = binding.etDateOfBirth.text.toString().trim()
                 val address = binding.etAddress.text.toString().trim()
                 val nik = binding.etNik.text.toString().trim()
+
+                binding.etDateOfBirth.setOnClickListener {
+
+                    val calendar = Calendar.getInstance()
+                    val day = calendar.get(Calendar.DAY_OF_MONTH)
+                    val month = calendar.get(Calendar.MONTH)
+                    val year = calendar.get(Calendar.YEAR)
+
+                    val datePicker = activity?.let { it ->
+                        DatePickerDialog(
+                            it,
+                            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
+                                etDateOfBirth.setText(dayOfMonth.toString() + "-" + (month.toInt() + 1) + "-" + year)
+                            },
+                            year,
+                            month,
+                            day
+                        )
+                    }
+                    datePicker!!.show()
+                }
+
 
                 if (placeOfBirth.isEmpty()) {
                     binding.PlaceOfBirthLayout.error = "Tempat Lahir tidak boleh kosong"
