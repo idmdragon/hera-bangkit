@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hera.bangkit.data.entity.StoryEntity
@@ -45,12 +46,19 @@ class StoryFragment : Fragment() {
     }
 
     private fun setList(items: ArrayList<StoryEntity>) {
+
         with(binding){
             Log.d("StoryFragment","isi setList $items")
             rvStoryProfile.layoutManager = LinearLayoutManager(requireContext())
             adapter = StoryAdapter(items,viewModel)
             rvStoryProfile.adapter = adapter
             adapter.notifyDataSetChanged()
+
+            if(items.isEmpty()) {
+                binding.storyNotFound.isVisible = true
+            } else {
+                binding.storyNotFound.isVisible = false
+            }
         }
 
 

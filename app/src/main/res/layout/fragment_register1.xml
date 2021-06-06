@@ -130,6 +130,7 @@
         app:boxBackgroundColor="@color/whitegray"
         app:hintTextColor="@color/pink"
         app:passwordToggleEnabled="true"
+        app:passwordToggleTint="@color/white"
         android:backgroundTint="@android:color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

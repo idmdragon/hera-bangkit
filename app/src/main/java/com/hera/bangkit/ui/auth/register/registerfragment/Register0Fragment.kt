@@ -16,7 +16,7 @@ class Register0Fragment : Fragment() {
 
     private lateinit var binding: FragmentRegister0Binding
 
-    private lateinit var firebaseAuth: FirebaseAuth
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,13 +50,13 @@ class Register0Fragment : Fragment() {
 
     ///// baru (klo user dah login, lgsung ke main
     // pindah ke register activity
-//    override fun onStart() {
-//        super.onStart()
-//        if(firebaseAuth.currentUser != null){
-//            Intent(requireContext(), MainActivity::class.java).also { intent ->
-//                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-//                startActivity(intent)
-//            }
-//        }
-//    }
+    override fun onStart() {
+        super.onStart()
+        if(firebaseAuth.currentUser != null){
+            Intent(requireContext(), MainActivity::class.java).also { intent ->
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
+        }
+    }
 }

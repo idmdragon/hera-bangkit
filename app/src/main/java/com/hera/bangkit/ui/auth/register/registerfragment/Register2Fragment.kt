@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hera.bangkit.R
 import com.hera.bangkit.databinding.FragmentRegister2Binding
@@ -23,7 +24,6 @@ class Register2Fragment : Fragment() {
     private lateinit var phoneNumber: String
 
     private lateinit var binding: FragmentRegister2Binding
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -63,7 +63,8 @@ class Register2Fragment : Fragment() {
                 val address = binding.etAddress.text.toString().trim()
                 val nik = binding.etNik.text.toString().trim()
 
-                binding.etDateOfBirth.setOnClickListener {
+
+                DateOfBirthLayout.setOnClickListener {
 
                     val calendar = Calendar.getInstance()
                     val day = calendar.get(Calendar.DAY_OF_MONTH)

@@ -135,23 +135,11 @@
         app:layout_constraintVertical_bias="0.0" />
 
     <TextView
-        android:id="@+id/tv_belum_punya"
+        android:id="@+id/tv_daftar"
         style="@style/w_heading3_m"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="104dp"
-        android:layout_marginTop="168dp"
-        android:text="@string/belum_punya_akun"
-        android:textAlignment="viewEnd"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_masuk" />
-
-    <TextView
-        android:id="@+id/tv_daftar"
-        style="@style/w_heading3_m"
-        android:layout_width="50dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="168dp"
+        android:layout_marginTop="160dp"
         android:layout_marginEnd="86dp"
         android:text="@string/daftar"
         android:textAlignment="viewStart"
@@ -159,6 +147,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/tv_belum_punya"
+        app:layout_constraintTop_toBottomOf="@+id/btn_masuk" />
+
+    <TextView
+        android:id="@+id/tv_belum_punya"
+        style="@style/w_heading3_m"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="160dp"
+        android:text="@string/belum_punya_akun"
+        android:textAlignment="viewEnd"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_masuk" />
 
 

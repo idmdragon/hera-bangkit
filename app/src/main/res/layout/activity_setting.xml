@@ -8,7 +8,7 @@
     tools:context=".ui.main.profile.setting.SettingActivity">
 
     <TextView
-        android:id="@+id/tv_languange"
+        android:id="@+id/btn_languange"
         style="@style/p_med_14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,11 +23,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_akun"
+        app:layout_constraintTop_toBottomOf="@+id/btn_akun"
         app:drawableEndCompat="@drawable/ic_next" />
 
     <TextView
-        android:id="@+id/tv_about"
+        android:id="@+id/btn_about"
         style="@style/p_med_14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -41,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_languange"
+        app:layout_constraintTop_toBottomOf="@+id/btn_languange"
         app:drawableEndCompat="@drawable/ic_next" />
 
     <TextView
@@ -60,7 +60,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_about"
+        app:layout_constraintTop_toBottomOf="@+id/btn_about"
         app:drawableEndCompat="@drawable/ic_next" />
 
     <ImageButton
@@ -101,7 +101,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView7" />
 
     <TextView
-        android:id="@+id/tv_akun"
+        android:id="@+id/btn_akun"
         style="@style/p_med_14"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

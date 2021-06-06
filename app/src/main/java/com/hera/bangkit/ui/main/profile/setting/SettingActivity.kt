@@ -4,6 +4,7 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.view.Menu
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
@@ -13,7 +14,7 @@ import com.hera.bangkit.ui.auth.login.LoginActivity
 
 class SettingActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivitySettingBinding
+    private lateinit var binding: ActivitySettingBinding
     private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,9 +22,14 @@ class SettingActivity : AppCompatActivity() {
         binding = ActivitySettingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        with(binding){
+        with(binding) {
             btnBack.setOnClickListener {
                 finish()
+            }
+
+            btnLanguange.setOnClickListener {
+                val local = Intent(Settings.ACTION_LOCALE_SETTINGS)
+                startActivity(local)
             }
 
             btnLogout.setOnClickListener {
@@ -38,14 +44,15 @@ class SettingActivity : AppCompatActivity() {
                 }
                 dialog.setNegativeButton("Tidak") { dialog: DialogInterface?, which: Int -> }
                 dialog.show()
-                }
             }
 
+            btnAkun.setOnClickListener {
+                startActivity(Intent(this@SettingActivity, SettingAccountActivity::class.java))
+            }
+
+            btnAbout.setOnClickListener {
+                startActivity(Intent(this@SettingActivity, SettingAboutActivity::class.java))
+            }
         }
-
-// KLO MAU CUSTOM
-//    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-//        return super.onCreateOptionsMenu(menu)
-//    }
-
     }
+}

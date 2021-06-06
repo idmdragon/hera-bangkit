@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hera.bangkit.data.response.ReportEntity
@@ -50,6 +51,12 @@ class ReportFragment : Fragment() {
     }
 
     private fun setList(items: ArrayList<ReportEntity>) {
+        if(items.isEmpty()) {
+            binding.reportNotFound.isVisible = true
+        } else {
+            binding.reportNotFound.isVisible = false
+        }
+
         adapter = ReportAdapter(items)
         binding.rvReportList.adapter = adapter
         adapter.notifyDataSetChanged()

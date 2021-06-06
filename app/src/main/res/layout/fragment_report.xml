@@ -3,8 +3,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/black"
     tools:context=".ui.main.profile.report.ReportFragment">
+
+   <LinearLayout
+       android:id="@+id/report_not_found"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:orientation="vertical"
+       android:visibility="visible"
+       android:layout_gravity="center"
+       android:gravity="center"
+       app:layout_constraintBottom_toBottomOf="@id/rv_report_list"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintHorizontal_bias="0.496"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="@+id/rv_report_list"
+       app:layout_constraintVertical_bias="0.353">
+
+      <com.airbnb.lottie.LottieAnimationView
+
+          android:layout_width="200dp"
+          android:layout_height="240dp"
+          android:layout_gravity="center"
+          android:scaleType="centerCrop"
+          app:lottie_autoPlay="true"
+          app:lottie_fileName="post_story.json"
+          app:lottie_loop="true" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          style="@style/p_heading3_r"
+          android:text="@string/post_report"
+          android:textColor="@color/white"
+          android:textSize="18sp" />
+   </LinearLayout>
 
    <androidx.recyclerview.widget.RecyclerView
        android:layout_width="match_parent"

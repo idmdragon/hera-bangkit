@@ -26,13 +26,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Herabangkit">
-        <activity android:name=".ui.auth.login.ResetPasswordActivity"></activity>
+        <activity android:name=".ui.main.profile.setting.SettingAboutActivity"></activity>
+        <activity android:name=".ui.main.profile.setting.SettingAccountActivity" />
+        <activity android:name=".ui.auth.login.ResetPasswordActivity" />
         <activity
             android:name="com.theartofdev.edmodo.cropper.CropImageActivity"
             android:theme="@style/Base.Theme.AppCompat" />
         <activity android:name=".ui.main.profile.report.detail.ReportActivityDetail" />
         <activity android:name=".ui.main.hastag.HastagPageActivity" />
-        <activity android:name=".ui.main.post.story.PostStoryActivity"></activity>
+        <activity android:name=".ui.main.post.story.PostStoryActivity" />
         <activity android:name=".ui.main.post.sos.SosActivity" />
 
         <receiver
@@ -43,23 +45,21 @@
             </intent-filter>
         </receiver>
 
-        <activity android:name=".ui.main.post.report.PostReportActivity"></activity>
-        <activity android:name=".ui.main.profile.setting.SettingActivity" >
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
-        </activity>
+        <activity android:name=".ui.main.post.report.PostReportActivity" />
+        <activity android:name=".ui.main.profile.setting.SettingActivity"></activity>
         <activity android:name=".ui.splash.SplashActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".ui.auth.register.RegisterSuccessActivity" />
-        <activity android:name=".ui.auth.register.RegisterActivity"></activity>
+        <activity android:name=".ui.auth.register.RegisterActivity" />
         <activity android:name=".ui.auth.login.LoginActivity" />
         <activity android:name=".ui.intro.IntroSlideActivity" />
         <activity android:name=".ui.dashboard.DashboardActivity" />
-        <activity android:name=".ui.main.MainActivity"></activity>
+        <activity android:name=".ui.main.MainActivity" />
 
         <meta-data
             android:name="preloaded_fonts"

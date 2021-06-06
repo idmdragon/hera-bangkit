@@ -106,4 +106,10 @@
     <string name="reset_password">Reset Password</string>
     <string name="reset_pass_desc">Masukkan email yang kamu pakai dalam aplikasi ini</string>
     <string name="kirim">Kirim</string>
+    <string name="post_story">Kamu belum pernah membuat cerita</string>
+    <string name="post_report">Kamu belum pernah membuat laporan</string>
+    <string name="ubah_akun">Ubah Akun</string>
+    <string name="simpan">Simpan</string>
+    <string name="about_hera">HERA (Helps and Emergency Reporting App) merupakan aplikasi berbasis Android yang dibuat untuk memberikan pencegahan dan penanganan kekerasan dan pelecehan terhadap perempuan.</string>
+    <string name="about">About</string>
 </resources>
