@@ -59,8 +59,9 @@
         <activity android:name=".ui.auth.login.LoginActivity" />
         <activity android:name=".ui.intro.IntroSlideActivity" />
         <activity android:name=".ui.dashboard.DashboardActivity" />
-        <activity android:name=".ui.main.MainActivity" />
+        <activity android:name=".ui.main.MainActivity" >
 
+        </activity>
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />

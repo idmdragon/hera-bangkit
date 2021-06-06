@@ -97,7 +97,7 @@
     <string name="regis_desc">Register your account and share the story that happened to you</string>
     <string name="sudah_punya_akun">Already have an account?</string>
     <string name="masuk">Login</string>
-    <string name="lengkapi_data_desc">Complete the following data as supporting datag</string>
+    <string name="lengkapi_data_desc">Complete the following data as supporting data</string>
     <string name="selesai">Done</string>
     <string name="lihat_berdasarkan_tagar">View by Hashtag</string>
     <string name="laporkan">Report This Story</string>
@@ -107,4 +107,8 @@
     <string name="kirim">Send</string>
     <string name="post_story">You have never made a story</string>
     <string name="post_report">You have never made a report</string>
+    <string name="ubah_akun">Update Account</string>
+    <string name="simpan">Save</string>
+    <string name="about_hera">HERA (Helps and Emergency Reporting App) an Android based application which is made to provide prevention and treatment for women\'s violence and harassment.</string>
+    <string name="about">About</string>
 </resources>
