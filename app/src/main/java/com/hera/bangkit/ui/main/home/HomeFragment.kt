@@ -47,16 +47,12 @@ class HomeFragment : Fragment() {
     private fun setStoryList(items: ArrayList<StoryEntity>) {
         binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
         adapter = HomeAdapter(viewModel,items)
-
         adapter.notifyDataSetChanged()
         binding.rvHome.adapter = adapter
-
     }
 
     override fun onDestroy() {
         super.onDestroy()
         _binding = null
     }
-
-
 }

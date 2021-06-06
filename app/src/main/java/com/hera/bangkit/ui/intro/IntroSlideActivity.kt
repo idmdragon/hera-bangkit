@@ -8,12 +8,9 @@ import android.widget.LinearLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.get
-import androidx.fragment.app.activityViewModels
 import androidx.viewpager2.widget.ViewPager2
 import com.hera.bangkit.R
 import com.hera.bangkit.databinding.ActivityIntroBinding
-import com.hera.bangkit.databinding.FragmentHomeBinding
-import com.hera.bangkit.ui.auth.login.LoginActivity
 import com.hera.bangkit.ui.auth.register.RegisterActivity
 
 class IntroSlideActivity : AppCompatActivity() {
@@ -108,6 +105,4 @@ class IntroSlideActivity : AppCompatActivity() {
             }
         }
     }
-
-
 }

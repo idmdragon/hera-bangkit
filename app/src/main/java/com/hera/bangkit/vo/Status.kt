@@ -1,4 +1,4 @@
-package com.idm.moviedb.vo
+package com.hera.bangkit.vo
 
 enum class Status {
     SUCCESS,

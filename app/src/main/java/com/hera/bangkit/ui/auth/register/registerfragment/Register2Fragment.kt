@@ -46,7 +46,6 @@ class Register2Fragment : Fragment() {
             this.findNavController().popBackStack()
         }
 
-        // dari fragmen sebelumnya
         if (bundle != null) {
             email = Register2FragmentArgs.fromBundle(bundle).registerEmail
             fullName = Register2FragmentArgs.fromBundle(bundle).registerFullName

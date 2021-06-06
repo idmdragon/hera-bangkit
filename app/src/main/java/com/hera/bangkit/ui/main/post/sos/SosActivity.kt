@@ -16,28 +16,29 @@ import android.os.Bundle
 import android.telephony.SmsManager
 import android.util.Log
 import android.widget.Toast
+import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.tasks.OnCompleteListener
-import com.hera.bangkit.R
-import com.hera.bangkit.databinding.ActivityReportBinding
+import com.google.firebase.auth.FirebaseAuth
 import com.hera.bangkit.databinding.ActivitySosBinding
+import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
 import java.util.*
 
+@AndroidEntryPoint
 class SosActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySosBinding
 
-    private lateinit var guardianPhoneNumber1: String
-    private lateinit var guardianPhoneNumber2: String
+    private val firebaseAuth = FirebaseAuth.getInstance()
+    private val viewModel : SosViewModel by viewModels()
 
     val SMS_SENT_ACTION = "com.hera.bangkit.ui.main.post.sos.SMS_SENT_ACTION"
     val SMS_DELIVERED_ACTION = "com.hera.bangkit.ui.main.post.sos.SMS_DELIVERED_ACTION"
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,23 +64,16 @@ class SosActivity : AppCompatActivity() {
             }
         }
 
-        binding.sos.setOnClickListener {
-            // coba modif
-            val phoneNum = guardianPhoneNumber1 + guardianPhoneNumber2
-//            val phoneNum1 = guardianPhoneNumber1
-//            val phoneNum2 = guardianPhoneNumber2
+        val uid = firebaseAuth.currentUser?.uid
 
-            // koko
-//            val phoneNum = etPhoneNumber.editText?.text.toString()
-
-            if (phoneNum.isEmpty()) {
-                Toast.makeText(applicationContext, "Please Enter a Phone Number", Toast.LENGTH_LONG)
-                    .show()
-            } else {
-                showLocation(phoneNum)
+        with(binding) {
+            sos.setOnClickListener {
+                viewModel.getUser(uid!!).observe(this@SosActivity, {
+                    showLocation(it.body.guardianPhoneNumber1)
+                    showLocation(it.body.guardianPhoneNumber2)
+                })
             }
         }
-
 
         registerReceiver(object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
@@ -91,16 +85,12 @@ class SosActivity : AppCompatActivity() {
                     SmsManager.RESULT_ERROR_NULL_PDU -> message = "Error: Null PDU."
                     SmsManager.RESULT_ERROR_RADIO_OFF -> message = "Error: Radio off."
                 }
-//                    smsStatus.setText(message)
                 Toast.makeText(applicationContext, "$message", Toast.LENGTH_SHORT).show()
             }
         }, IntentFilter(SMS_SENT_ACTION))
 
         registerReceiver(object : BroadcastReceiver() {
             override fun onReceive(context: Context?, intent: Intent?) {
-
-//                etPhoneNumber.editText.setText("")
-//                deliveryStatus.setText("SMS Delivered")
                 Toast.makeText(applicationContext, "SMS Delivered", Toast.LENGTH_SHORT).show()
             }
         }, IntentFilter(SMS_DELIVERED_ACTION))

@@ -11,19 +11,19 @@ import com.hera.bangkit.ui.auth.register.RegisterActivity
 import com.hera.bangkit.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
-
 @AndroidEntryPoint
 class LoginActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityLoginBinding
+    private val firebaseAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val fireStore = FirebaseFirestore.getInstance()
-        val firebaseAuth = FirebaseAuth.getInstance()
+//        val fireStore = FirebaseFirestore.getInstance()
+//        val firebaseAuth = FirebaseAuth.getInstance()
 
         binding.tvDaftar.setOnClickListener {
             startActivity(Intent(this@LoginActivity, RegisterActivity::class.java))
@@ -78,6 +78,18 @@ class LoginActivity : AppCompatActivity() {
             }
         }.addOnFailureListener {
             Toast.makeText(this, "Akun tidak ada", Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    ///// baru (klo user dah login, lgsung ke main
+
+    override fun onStart() {
+        super.onStart()
+        if(firebaseAuth.currentUser != null){
+            Intent(this@LoginActivity, MainActivity::class.java).also { intent ->
+                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                startActivity(intent)
+            }
         }
     }
 }

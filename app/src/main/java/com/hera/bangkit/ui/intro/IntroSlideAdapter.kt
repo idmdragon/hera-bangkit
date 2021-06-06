@@ -7,7 +7,6 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.hera.bangkit.R
-import com.hera.bangkit.databinding.ActivityIntroBinding
 
 class IntroSlideAdapter (private val introSlide: List<IntroSlide>): RecyclerView.Adapter<IntroSlideAdapter.IntroSlideViewHolder>(){
 

@@ -11,7 +11,7 @@ import com.hera.bangkit.databinding.ActivityRegisterSuccessBinding
 import com.hera.bangkit.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
-@AndroidEntryPoint
+//@AndroidEntryPoint
 class RegisterSuccessActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterSuccessBinding
@@ -32,7 +32,6 @@ class RegisterSuccessActivity : AppCompatActivity() {
                 startActivity(Intent(this@RegisterSuccessActivity, MainActivity::class.java))
             }
         }
-
     }
 
     private fun getUserInfo(remoteResponse: RemoteResponse<UserResponse>) {

@@ -40,8 +40,6 @@ class Register3Fragment : Fragment() {
     lateinit var storageRef: StorageReference
     var profilePic: String = ""
 
-
-    //Get Image
     private fun getFileExtension(uri: Uri?): String? {
         val contentResolver = activity?.contentResolver
         val mimeTypeMap = MimeTypeMap.getSingleton()
@@ -91,7 +89,6 @@ class Register3Fragment : Fragment() {
             this.findNavController().popBackStack()
         }
 
-        // dari fragmen sebelumnya
         if (bundle != null) {
             email = Register3FragmentArgs.fromBundle(bundle).registerEmail
             fullName = Register3FragmentArgs.fromBundle(bundle).registerFullName
@@ -120,7 +117,6 @@ class Register3Fragment : Fragment() {
         }
     }
 
-
     private fun uploadImage() {
         if (photoLocation != null) {
             storageRef = FirebaseStorage.getInstance().reference.child("AvatarPath")
@@ -138,11 +134,3 @@ class Register3Fragment : Fragment() {
         }
     }
 }
-
-
-
-//    override fun onDestroy() {
-//        super.onDestroy()
-//        _binding = null
-//    }
-//}

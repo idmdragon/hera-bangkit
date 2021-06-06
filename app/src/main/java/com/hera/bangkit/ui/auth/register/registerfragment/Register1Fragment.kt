@@ -1,28 +1,16 @@
 package com.hera.bangkit.ui.auth.register.registerfragment
 
 import android.os.Bundle
-import android.support.v4.media.session.MediaSessionCompat.Token.fromBundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.Toast
-import android.widget.Toolbar
-import androidx.core.app.Person.fromBundle
-import androidx.media.AudioAttributesCompat.fromBundle
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hera.bangkit.R
-import com.hera.bangkit.databinding.FragmentRegister0Binding
 import com.hera.bangkit.databinding.FragmentRegister1Binding
-import org.w3c.dom.Text
 
 class Register1Fragment : Fragment() {
     private lateinit var email: String

@@ -5,19 +5,35 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.hera.bangkit.R
+import com.hera.bangkit.ui.auth.login.LoginActivity
 import com.hera.bangkit.ui.dashboard.DashboardActivity
+import com.hera.bangkit.utils.SharedPreferences
 
 class SplashActivity : AppCompatActivity() {
+
     private lateinit var handler : Handler
+    lateinit var sharedPreferences: SharedPreferences
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
 
+        sharedPreferences = SharedPreferences(this)
+
         handler = Handler(mainLooper)
         handler.postDelayed({
-            val intent = Intent(this, DashboardActivity::class.java)
-            startActivity(intent)
+            var i = Intent()
+
+            if(sharedPreferences.firstInstall == false){
+                i = Intent(this, DashboardActivity::class.java)
+            } else {
+                i = Intent(this, LoginActivity::class.java)
+            }
+
+            // if (user = login){
+            // i = Intent(this, MainActivity)
+            startActivity(i)
             finish()
-        }, 1500)
+        }, 2000)
     }
 }

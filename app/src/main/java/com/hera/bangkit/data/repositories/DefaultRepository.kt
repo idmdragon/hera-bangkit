@@ -9,7 +9,7 @@ import com.hera.bangkit.data.entity.UserEntity
 import com.hera.bangkit.data.response.UserResponse
 import com.hera.bangkit.data.source.remote.RemoteDataSource
 import com.hera.bangkit.data.source.remote.RemoteResponse
-import com.idm.moviedb.vo.Resource
+import com.hera.bangkit.vo.Resource
 import javax.inject.Inject
 
 class DefaultRepository @Inject constructor(
