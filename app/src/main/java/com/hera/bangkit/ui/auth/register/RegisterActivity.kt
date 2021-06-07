@@ -1,5 +1,6 @@
 package com.hera.bangkit.ui.auth.register
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -17,20 +18,10 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
-
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_regis_host) as NavHostFragment
         val navController = navHostFragment.navController
 
     }
 
-    // baru, klo user dah pernah login, langsung aja ke main activity
-    override fun onStart() {
-        super.onStart()
-        if(firebaseAuth.currentUser != null){
-            Intent(this@RegisterActivity, MainActivity::class.java).also { intent ->
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-            }
-        }
-    }
+
 }

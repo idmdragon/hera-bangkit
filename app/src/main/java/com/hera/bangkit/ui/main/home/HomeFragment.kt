@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.firebase.auth.FirebaseAuth
@@ -45,10 +46,15 @@ class HomeFragment : Fragment() {
     }
 
     private fun setStoryList(items: ArrayList<StoryEntity>) {
-        binding.rvHome.layoutManager = LinearLayoutManager(requireContext())
-        adapter = HomeAdapter(viewModel,items)
-        adapter.notifyDataSetChanged()
-        binding.rvHome.adapter = adapter
+        with(binding){
+           rvHome.layoutManager = LinearLayoutManager(requireContext())
+            progressbar.isVisible = false
+            rvHome.isVisible = true
+            adapter = HomeAdapter(viewModel,items)
+            adapter.notifyDataSetChanged()
+           rvHome.adapter = adapter
+        }
+
     }
 
     override fun onDestroy() {

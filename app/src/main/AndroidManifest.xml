@@ -21,12 +21,12 @@
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_small_logo"
         android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:roundIcon="@drawable/ic_small_logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.Herabangkit">
-        <activity android:name=".ui.main.profile.setting.SettingAboutActivity"></activity>
+        <activity android:name=".ui.main.profile.setting.SettingAboutActivity" />
         <activity android:name=".ui.main.profile.setting.SettingAccountActivity" />
         <activity android:name=".ui.auth.login.ResetPasswordActivity" />
         <activity

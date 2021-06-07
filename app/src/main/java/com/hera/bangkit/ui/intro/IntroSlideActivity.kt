@@ -1,5 +1,6 @@
 package com.hera.bangkit.ui.intro
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup.LayoutParams.WRAP_CONTENT
@@ -56,6 +57,7 @@ class IntroSlideActivity : AppCompatActivity() {
             {
                 binding.introSliderViewPager.currentItem+=1
             }else{
+
                 Intent (applicationContext, RegisterActivity::class.java).also {
                     startActivity(it)
                     finish()
@@ -105,4 +107,5 @@ class IntroSlideActivity : AppCompatActivity() {
             }
         }
     }
+
 }

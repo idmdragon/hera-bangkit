@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.hera.bangkit.data.response.HastagEntity
@@ -51,13 +52,12 @@ class HastagFragment : Fragment() {
                         it.let { item ->
                             adapter = HastagAdapter(item)
                             adapter.notifyDataSetChanged()
-                            binding.shimmer.stopShimmer()
-                            binding.shimmer.visibility = View.GONE
+                            binding.progressbar.isVisible = false
                             binding.rvHastag.adapter = adapter
                         }
                     }
                     Resource.error("error", arrHastag) -> {
-                        binding.shimmer.stopShimmer()
+                        binding.progressbar.isVisible = false
                         Toast.makeText(
                             requireContext(),
                             "Error when Load a Data",
@@ -65,8 +65,7 @@ class HastagFragment : Fragment() {
                         ).show()
                     }
                     Resource.loading(arrHastag) -> {
-                        binding.shimmer.visibility = View.VISIBLE
-
+                        binding.progressbar.isVisible = true
                     }
                 }
 

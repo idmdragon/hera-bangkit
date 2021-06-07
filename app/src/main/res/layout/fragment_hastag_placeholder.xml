@@ -1,19 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:orientation="vertical"
     android:background="@color/black">
 
-    <ImageView
-        android:id="@+id/imageView6"
+    <LinearLayout
+        android:orientation="horizontal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="16dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:src="@drawable/ic_hastag"
         android:background="@color/textgray"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -21,7 +26,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/tv_category"
         style="@style/p_med_14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -34,7 +38,6 @@
         tools:text="Sexual Harrasment" />
 
     <TextView
-        android:id="@+id/tv_count_post"
         style="@style/p_med_14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,7 +51,6 @@
         tools:text="20" />
 
     <TextView
-        android:id="@+id/textviewpost"
         style="@style/p_med_14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -59,4 +61,326 @@
         app:layout_constraintBottom_toBottomOf="@+id/imageView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageView6" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_hastag"
+        android:background="@color/textgray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/p_med_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@color/textgray"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        android:textColor="@color/textgray"
+        tools:text="Sexual Harrasment" />
+
+    <TextView
+        style="@style/p_med_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:textColor="@color/textgray"
+        android:background="@color/textgray"
+
+        app:layout_constraintBottom_toBottomOf="@+id/textviewpost"
+        app:layout_constraintEnd_toStartOf="@+id/textviewpost"
+        app:layout_constraintTop_toTopOf="@+id/textviewpost"
+        tools:text="20" />
+
+    <TextView
+        style="@style/p_med_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/post"
+        android:textColor="@color/textgray"
+        android:background="@color/textgray"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_hastag"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6"
+            android:textColor="@color/textgray"
+            tools:text="Sexual Harrasment" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textColor="@color/textgray"
+            android:background="@color/textgray"
+
+            app:layout_constraintBottom_toBottomOf="@+id/textviewpost"
+            app:layout_constraintEnd_toStartOf="@+id/textviewpost"
+            app:layout_constraintTop_toTopOf="@+id/textviewpost"
+            tools:text="20" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="@string/post"
+            android:textColor="@color/textgray"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_hastag"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6"
+            android:textColor="@color/textgray"
+            tools:text="Sexual Harrasment" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textColor="@color/textgray"
+            android:background="@color/textgray"
+
+            app:layout_constraintBottom_toBottomOf="@+id/textviewpost"
+            app:layout_constraintEnd_toStartOf="@+id/textviewpost"
+            app:layout_constraintTop_toTopOf="@+id/textviewpost"
+            tools:text="20" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="@string/post"
+            android:textColor="@color/textgray"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_hastag"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6"
+            android:textColor="@color/textgray"
+            tools:text="Sexual Harrasment" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textColor="@color/textgray"
+            android:background="@color/textgray"
+
+            app:layout_constraintBottom_toBottomOf="@+id/textviewpost"
+            app:layout_constraintEnd_toStartOf="@+id/textviewpost"
+            app:layout_constraintTop_toTopOf="@+id/textviewpost"
+            tools:text="20" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="@string/post"
+            android:textColor="@color/textgray"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_hastag"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintStart_toEndOf="@+id/imageView6"
+            app:layout_constraintTop_toTopOf="@+id/imageView6"
+            android:textColor="@color/textgray"
+            tools:text="Sexual Harrasment" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:textColor="@color/textgray"
+            android:background="@color/textgray"
+
+            app:layout_constraintBottom_toBottomOf="@+id/textviewpost"
+            app:layout_constraintEnd_toStartOf="@+id/textviewpost"
+            app:layout_constraintTop_toTopOf="@+id/textviewpost"
+            tools:text="20" />
+
+        <TextView
+            style="@style/p_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="24dp"
+            android:text="@string/post"
+            android:textColor="@color/textgray"
+            android:background="@color/textgray"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/imageView6" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_hastag"
+        android:background="@color/textgray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        style="@style/p_med_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:background="@color/textgray"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintStart_toEndOf="@+id/imageView6"
+        app:layout_constraintTop_toTopOf="@+id/imageView6"
+        android:textColor="@color/textgray"
+        tools:text="Sexual Harrasment" />
+
+    <TextView
+        style="@style/p_med_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:textColor="@color/textgray"
+        android:background="@color/textgray"
+
+        app:layout_constraintBottom_toBottomOf="@+id/textviewpost"
+        app:layout_constraintEnd_toStartOf="@+id/textviewpost"
+        app:layout_constraintTop_toTopOf="@+id/textviewpost"
+        tools:text="20" />
+
+    <TextView
+        style="@style/p_med_14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:text="@string/post"
+        android:textColor="@color/textgray"
+        android:background="@color/textgray"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageView6" />
+    </LinearLayout>
+
+</LinearLayout>

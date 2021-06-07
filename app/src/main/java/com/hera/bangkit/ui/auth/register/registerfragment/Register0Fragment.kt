@@ -1,5 +1,6 @@
 package com.hera.bangkit.ui.auth.register.registerfragment
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -28,7 +29,7 @@ class Register0Fragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
+        onBoardingFinish()
         with(binding) {
 
             btnDaftar.setOnClickListener {
@@ -48,15 +49,10 @@ class Register0Fragment : Fragment() {
         }
     }
 
-    ///// baru (klo user dah login, lgsung ke main
-    // pindah ke register activity
-    override fun onStart() {
-        super.onStart()
-        if(firebaseAuth.currentUser != null){
-            Intent(requireContext(), MainActivity::class.java).also { intent ->
-                intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
-                startActivity(intent)
-            }
-        }
+    private fun onBoardingFinish() {
+        val sharedPref = requireActivity().getSharedPreferences("onBoarding", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean("Finished", true)
+        editor.apply()
     }
 }

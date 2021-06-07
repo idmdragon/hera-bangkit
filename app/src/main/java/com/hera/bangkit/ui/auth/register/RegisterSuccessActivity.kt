@@ -1,5 +1,6 @@
 package com.hera.bangkit.ui.auth.register
 
+import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -27,9 +28,17 @@ class RegisterSuccessActivity : AppCompatActivity() {
             val intentValue = intent.getStringExtra(USERNAME)
             tvPengguna.text = intentValue
             btnRegisterSuccess.setOnClickListener {
+                openMain()
                 startActivity(Intent(this@RegisterSuccessActivity, MainActivity::class.java))
             }
         }
+    }
+
+    private fun openMain() {
+        val sharedPref = this.getSharedPreferences("openMain", Context.MODE_PRIVATE)
+        val editor = sharedPref.edit()
+        editor.putBoolean("Finished", true)
+        editor.apply()
     }
 
 }

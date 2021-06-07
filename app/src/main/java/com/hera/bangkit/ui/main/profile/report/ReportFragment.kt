@@ -51,11 +51,7 @@ class ReportFragment : Fragment() {
     }
 
     private fun setList(items: ArrayList<ReportEntity>) {
-        if(items.isEmpty()) {
-            binding.reportNotFound.isVisible = true
-        } else {
-            binding.reportNotFound.isVisible = false
-        }
+        binding.reportNotFound.isVisible = items.isEmpty()
 
         adapter = ReportAdapter(items)
         binding.rvReportList.adapter = adapter

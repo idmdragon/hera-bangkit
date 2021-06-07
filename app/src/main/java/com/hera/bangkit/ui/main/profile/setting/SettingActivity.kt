@@ -33,7 +33,7 @@ class SettingActivity : AppCompatActivity() {
             }
 
             btnLogout.setOnClickListener {
-                var dialog = AlertDialog.Builder(this@SettingActivity)
+                val dialog = AlertDialog.Builder(this@SettingActivity)
                 dialog.setTitle("Log out")
                 dialog.setMessage("Apakah kamu yakin ingin keluar?")
                 dialog.setPositiveButton("Iya") { dialog: DialogInterface?, which: Int ->

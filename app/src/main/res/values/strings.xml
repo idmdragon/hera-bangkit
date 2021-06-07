@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Hera-bangkit</string>
+    <string name="app_name">Hera</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hai">Hai,</string>
@@ -34,7 +34,7 @@
     <string name="hint_search">Cari topik kasus ...</string>
     <string name="kasus_marak">Kasus yang sedang marak terjadi</string>
     <string name="minggu_ini">Minggu Ini</string>
-    <string name="kronologi_kejadianmu">Kronologi Kejadianmu...</string>
+    <string name="kronologi_kejadianmu">Kronologi Kejadianmu</string>
     <string name="kategori_kasus">Kategori Kasus</string>
     <string name="tagar">Tagar</string>
     <string name="hasil_pencarian_untuk">Hasil Pencarian Untuk</string>
@@ -105,8 +105,8 @@
     <string name="reset_password">Reset Password</string>
     <string name="reset_pass_desc">Masukkan email yang kamu pakai dalam aplikasi ini</string>
     <string name="kirim">Kirim</string>
-    <string name="post_story">Kamu belum pernah membuat cerita</string>
-    <string name="post_report">Kamu belum pernah membuat laporan</string>
+    <string name="post_story">Cerita tidak ditemukan</string>
+    <string name="post_report">Laporan tidak ditemukan</string>
     <string name="ubah_akun">Ubah Akun</string>
     <string name="simpan">Simpan</string>
     <string name="about_hera">HERA (Helps and Emergency Reporting App) merupakan aplikasi berbasis Android yang dibuat untuk memberikan pencegahan dan penanganan kekerasan dan pelecehan terhadap perempuan.</string>
