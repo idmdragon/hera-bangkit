@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
+import com.google.android.material.datepicker.MaterialDatePicker
 import com.google.android.material.textfield.TextInputLayout
 import com.google.firebase.firestore.FirebaseFirestore
 import com.hera.bangkit.R
@@ -46,6 +47,10 @@ class Register2Fragment : Fragment() {
             this.findNavController().popBackStack()
         }
 
+        // Date
+        val builderDate = MaterialDatePicker.Builder.datePicker()
+        val pickerDate = builderDate.build()
+
         if (bundle != null) {
             email = Register2FragmentArgs.fromBundle(bundle).registerEmail
             fullName = Register2FragmentArgs.fromBundle(bundle).registerFullName
@@ -55,6 +60,14 @@ class Register2Fragment : Fragment() {
         }
 
         with(binding) {
+            etDateOfBirth.setOnClickListener {
+                fragmentManager?.let { it1 -> pickerDate.show(it1, pickerDate.toString()) }
+                pickerDate.addOnPositiveButtonClickListener {
+                    val inputTanggal = pickerDate.headerText
+                    etDateOfBirth.setText(inputTanggal)
+                }
+
+            }
 
             btnLanjutkan.setOnClickListener {
 
@@ -64,26 +77,7 @@ class Register2Fragment : Fragment() {
                 val nik = binding.etNik.text.toString().trim()
 
 
-                DateOfBirthLayout.setOnClickListener {
 
-                    val calendar = Calendar.getInstance()
-                    val day = calendar.get(Calendar.DAY_OF_MONTH)
-                    val month = calendar.get(Calendar.MONTH)
-                    val year = calendar.get(Calendar.YEAR)
-
-                    val datePicker = activity?.let { it ->
-                        DatePickerDialog(
-                            it,
-                            DatePickerDialog.OnDateSetListener { view, year, month, dayOfMonth ->
-                                etDateOfBirth.setText(dayOfMonth.toString() + "-" + (month.toInt() + 1) + "-" + year)
-                            },
-                            year,
-                            month,
-                            day
-                        )
-                    }
-                    datePicker!!.show()
-                }
 
 
                 if (placeOfBirth.isEmpty()) {
@@ -95,7 +89,18 @@ class Register2Fragment : Fragment() {
                 } else if (nik.isEmpty()) {
                     binding.NIKLayout.error = "NIK tidak boleh kosong"
                 } else {
-                    val toFragment2 = Register2FragmentDirections.actionRegister2FragmentToRegister3Fragment(email, fullName, username, password, phoneNumber,placeOfBirth, dateOfBirth, address, nik)
+                    val toFragment2 =
+                        Register2FragmentDirections.actionRegister2FragmentToRegister3Fragment(
+                            email,
+                            fullName,
+                            username,
+                            password,
+                            phoneNumber,
+                            placeOfBirth,
+                            dateOfBirth,
+                            address,
+                            nik
+                        )
                     view.findNavController().navigate(toFragment2)
                 }
             }

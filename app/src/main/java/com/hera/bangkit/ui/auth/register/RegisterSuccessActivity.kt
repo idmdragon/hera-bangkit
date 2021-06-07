@@ -11,34 +11,25 @@ import com.hera.bangkit.databinding.ActivityRegisterSuccessBinding
 import com.hera.bangkit.ui.main.MainActivity
 import dagger.hilt.android.AndroidEntryPoint
 
-//@AndroidEntryPoint
 class RegisterSuccessActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterSuccessBinding
-    private val firebaseAuth = FirebaseAuth.getInstance()
-    private val viewModel: RegisterViewModel by viewModels()
 
+    companion object{
+        const val USERNAME = "username"
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterSuccessBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val uid = firebaseAuth.currentUser?.uid
-        uid?.let { viewModel.getUser(it).observe(this, ::getUserInfo) }
-
         with(binding) {
-
+            val intentValue = intent.getStringExtra(USERNAME)
+            tvPengguna.text = intentValue
             btnRegisterSuccess.setOnClickListener {
                 startActivity(Intent(this@RegisterSuccessActivity, MainActivity::class.java))
             }
         }
     }
 
-    private fun getUserInfo(remoteResponse: RemoteResponse<UserResponse>) {
-        remoteResponse.body.let {
-            with(binding) {
-                tvPengguna.text = it.username
-            }
-        }
-    }
 }

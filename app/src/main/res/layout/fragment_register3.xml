@@ -61,12 +61,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_foto" />
 
-    <ImageView
+    <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/avatar"
         android:layout_width="180dp"
         android:layout_height="180dp"
         android:layout_marginTop="36dp"
-        android:contentDescription="TODO"
         android:src="@drawable/ilu_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

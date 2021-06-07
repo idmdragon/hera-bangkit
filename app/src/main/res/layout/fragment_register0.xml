@@ -12,11 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
+        android:contentDescription="TODO"
         android:src="@drawable/ic_small_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="TODO" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/tv_login_daftar"
@@ -37,10 +37,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="36dp"
-        android:layout_marginEnd="36dp"
         android:layout_marginTop="16dp"
-        android:textAlignment="center"
+        android:layout_marginEnd="36dp"
         android:text="@string/regis_desc"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_login_daftar" />
@@ -50,8 +50,8 @@
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:backgroundTint="@android:color/transparent"
         android:textColorHint="@color/textgray"
@@ -106,35 +106,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_privacy" />
 
-    <TextView
-        android:id="@+id/tv_masuk"
-        style="@style/p_heading3_s"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="180dp"
-        android:layout_marginEnd="16dp"
-        android:text="@string/masuk"
-        android:textAlignment="viewStart"
-        android:textColor="@color/pink"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_sudah_punya"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_daftar"
-        app:layout_constraintVertical_bias="1.0" />
 
-    <TextView
-        android:id="@+id/tv_sudah_punya"
-        style="@style/p_heading3_s"
-        android:layout_width="250dp"
+
+    <LinearLayout
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="296dp"
-        android:layout_marginEnd="3dp"
-        android:text="@string/sudah_punya_akun"
-        android:textAlignment="viewEnd"
-        app:layout_constraintEnd_toStartOf="@+id/tv_masuk"
-        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginTop="160dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_daftar" />
+        app:layout_constraintTop_toTopOf="@id/btn_daftar">
+
+        <TextView
+            android:id="@+id/tv_sudah_punya"
+            style="@style/p_heading3_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="3dp"
+            android:text="@string/sudah_punya_akun"
+            android:textAlignment="viewEnd" />
+        <TextView
+            android:id="@+id/tv_masuk"
+            style="@style/p_heading3_s"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/masuk"
+            android:textAlignment="viewStart"
+            android:textColor="@color/pink"
+            />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

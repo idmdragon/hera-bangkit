@@ -112,6 +112,7 @@ class Register4Fragment : Fragment() {
 
                                 Toast.makeText(requireContext(), "User Created", Toast.LENGTH_SHORT).show()
                                 val intent = Intent(activity, RegisterSuccessActivity::class.java)
+                                intent.putExtra(RegisterSuccessActivity.USERNAME,fullName)
                                 startActivity(intent)
                             }
                         }
