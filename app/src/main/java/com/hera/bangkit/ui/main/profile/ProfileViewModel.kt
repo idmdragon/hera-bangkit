@@ -39,6 +39,7 @@ class ProfileViewModel @Inject constructor(
                 userRef.update("phoneNumber", user.phoneNumber)
                 userRef.update("placeOfBirth", user.placeOfBirth)
                 userRef.update("username", user.username)
+                userRef.update("avatar", user.avatar)
             }
         }
 
