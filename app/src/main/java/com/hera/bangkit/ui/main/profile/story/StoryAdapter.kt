@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 import com.hera.bangkit.R
-import com.hera.bangkit.data.entity.StoryEntity
+import com.hera.bangkit.data.source.local.entity.StoryEntity
 import com.hera.bangkit.databinding.StoryItemBinding
 import com.hera.bangkit.utils.DateHelper
 import java.text.DateFormat

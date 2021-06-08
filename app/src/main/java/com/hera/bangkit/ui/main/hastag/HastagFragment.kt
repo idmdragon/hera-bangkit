@@ -9,10 +9,8 @@ import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hera.bangkit.data.response.HastagEntity
+import com.hera.bangkit.data.source.remote.response.HastagEntity
 import com.hera.bangkit.databinding.FragmentHastagBinding
-import com.hera.bangkit.vo.Resource
-import com.hera.bangkit.vo.Status
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -47,27 +45,12 @@ class HastagFragment : Fragment() {
 
         activity.apply {
             viewModel.getHastag(arrHastag).observe(viewLifecycleOwner, {
-                when (it) {
-                    Resource.success(arrHastag) -> {
-                        it.let { item ->
-                            adapter = HastagAdapter(item)
-                            adapter.notifyDataSetChanged()
-                            binding.progressbar.isVisible = false
-                            binding.rvHastag.adapter = adapter
-                        }
-                    }
-                    Resource.error("error", arrHastag) -> {
-                        binding.progressbar.isVisible = false
-                        Toast.makeText(
-                            requireContext(),
-                            "Error when Load a Data",
-                            Toast.LENGTH_LONG
-                        ).show()
-                    }
-                    Resource.loading(arrHastag) -> {
-                        binding.progressbar.isVisible = true
-                    }
-                }
+
+                adapter = HastagAdapter(it)
+                adapter.notifyDataSetChanged()
+                binding.progressbar.isVisible = false
+                binding.rvHastag.adapter = adapter
+
 
             })
         }

@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import com.hera.bangkit.data.entity.UserEntity
-import com.hera.bangkit.data.response.UserResponse
+import com.hera.bangkit.data.source.local.entity.UserEntity
+import com.hera.bangkit.data.source.remote.response.UserResponse
 import com.hera.bangkit.databinding.ActivitySettingAccountBinding
 import com.hera.bangkit.ui.auth.register.RegisterActivity
 import com.hera.bangkit.ui.main.post.report.ReportViewModel

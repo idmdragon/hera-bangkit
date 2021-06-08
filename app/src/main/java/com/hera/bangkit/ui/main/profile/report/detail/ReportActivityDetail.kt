@@ -2,7 +2,7 @@ package com.hera.bangkit.ui.main.profile.report.detail
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.hera.bangkit.data.response.ReportEntity
+import com.hera.bangkit.data.source.local.entity.ReportEntity
 import com.hera.bangkit.databinding.ActivityReportDetailBinding
 
 class ReportActivityDetail : AppCompatActivity() {

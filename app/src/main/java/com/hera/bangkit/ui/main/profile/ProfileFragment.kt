@@ -12,7 +12,7 @@ import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
 import com.google.firebase.auth.FirebaseAuth
 import com.hera.bangkit.R
-import com.hera.bangkit.data.response.UserResponse
+import com.hera.bangkit.data.source.remote.response.UserResponse
 import com.hera.bangkit.databinding.FragmentProfileBinding
 import com.hera.bangkit.ui.main.profile.setting.SettingActivity
 import com.hera.bangkit.data.source.remote.RemoteResponse

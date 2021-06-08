@@ -5,8 +5,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.viewModels
 import com.google.firebase.auth.FirebaseAuth
-import com.hera.bangkit.data.response.ReportEntity
-import com.hera.bangkit.data.response.UserResponse
+import com.hera.bangkit.data.source.local.entity.ReportEntity
+import com.hera.bangkit.data.source.remote.response.UserResponse
 import com.hera.bangkit.databinding.ActivityReportBinding
 import com.hera.bangkit.tflite.Classifier
 import com.hera.bangkit.utils.DateHelper

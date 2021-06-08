@@ -9,7 +9,7 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hera.bangkit.data.entity.StoryEntity
+import com.hera.bangkit.data.source.local.entity.StoryEntity
 import com.hera.bangkit.databinding.FragmentStoryBinding
 
 

@@ -1,12 +1,14 @@
 package com.hera.bangkit.di
 
 import android.content.Context
-import androidx.viewbinding.BuildConfig
+import androidx.room.Room
 import com.google.firebase.firestore.CollectionReference
-import com.google.firebase.firestore.DocumentReference
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import com.hera.bangkit.BaseApplication
+import com.hera.bangkit.data.source.local.HeraDatabase
+import com.hera.bangkit.data.source.local.dao.HeraDao
+import com.hera.bangkit.utils.Constant.Companion.DATABASE_NAME
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -21,7 +23,7 @@ object AppModule {
 
     @Singleton
     @Provides
-    fun provideApplication(@ApplicationContext app: Context): BaseApplication {
+    fun provideApplication(@ApplicationContext app : Context) : BaseApplication {
         return app as BaseApplication
     }
 
@@ -42,4 +44,18 @@ object AppModule {
     @Named("users")
     fun provideUserCollection(): CollectionReference =
         Firebase.firestore.collection("users")
+
+    @Singleton
+    @Provides
+    fun provideDatabase(
+        @ApplicationContext context : Context
+    )= Room.databaseBuilder(context, HeraDatabase::class.java,DATABASE_NAME).build()
+
+    @Singleton
+    @Provides
+    fun provideHeraDao(
+        database: HeraDatabase
+    ) : HeraDao {
+        return database.heraDao()
+    }
 }

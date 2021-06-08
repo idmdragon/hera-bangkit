@@ -1,8 +1,13 @@
-package com.hera.bangkit.data.entity
+package com.hera.bangkit.data.source.local.entity
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "story_list")
 data class StoryEntity(
         val avatarProfile : String = "",
         val category: String = "",
+        @PrimaryKey
         val content: String ="",
         val imgContent: String ="",
         @field:JvmField

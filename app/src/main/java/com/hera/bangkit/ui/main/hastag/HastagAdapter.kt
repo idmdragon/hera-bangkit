@@ -3,7 +3,7 @@ package com.hera.bangkit.ui.main.hastag
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.hera.bangkit.data.response.HastagEntity
+import com.hera.bangkit.data.source.remote.response.HastagEntity
 import com.hera.bangkit.databinding.HastagItemBinding
 
 class HastagAdapter(private val hastagItems : ArrayList<HastagEntity>) : RecyclerView.Adapter<HastagViewHolder>() {

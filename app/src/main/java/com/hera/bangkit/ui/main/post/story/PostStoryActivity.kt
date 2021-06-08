@@ -16,7 +16,7 @@ import com.google.firebase.auth.FirebaseAuth
 
 import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
-import com.hera.bangkit.data.response.StoryResponse
+import com.hera.bangkit.data.source.remote.response.StoryResponse
 import com.hera.bangkit.databinding.ActivityStoryBinding
 import com.hera.bangkit.tflite.Classifier
 import com.hera.bangkit.utils.DateHelper

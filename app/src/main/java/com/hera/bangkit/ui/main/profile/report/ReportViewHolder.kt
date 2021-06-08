@@ -2,7 +2,7 @@ package com.hera.bangkit.ui.main.profile.report
 
 import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
-import com.hera.bangkit.data.response.ReportEntity
+import com.hera.bangkit.data.source.local.entity.ReportEntity
 import com.hera.bangkit.databinding.ReportListItemBinding
 import com.hera.bangkit.ui.main.profile.report.detail.ReportActivityDetail
 

@@ -8,9 +8,9 @@ import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import com.hera.bangkit.data.entity.StoryEntity
-import com.hera.bangkit.data.response.StoryResponse
-import com.hera.bangkit.data.response.UserResponse
+import com.hera.bangkit.data.source.local.entity.StoryEntity
+import com.hera.bangkit.data.source.remote.response.StoryResponse
+import com.hera.bangkit.data.source.remote.response.UserResponse
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

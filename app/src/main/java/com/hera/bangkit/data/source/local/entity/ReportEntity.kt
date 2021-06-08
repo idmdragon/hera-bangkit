@@ -1,4 +1,4 @@
-package com.hera.bangkit.data.response
+package com.hera.bangkit.data.source.local.entity
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

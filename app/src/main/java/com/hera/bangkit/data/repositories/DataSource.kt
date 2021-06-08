@@ -2,19 +2,20 @@ package com.hera.bangkit.data.repositories
 
 import androidx.lifecycle.LiveData
 import androidx.paging.PagedList
-import com.hera.bangkit.data.response.ReportEntity
-import com.hera.bangkit.data.response.StoryResponse
-import com.hera.bangkit.data.entity.UserEntity
-import com.hera.bangkit.data.response.UserResponse
+import com.hera.bangkit.data.source.Resource
+import com.hera.bangkit.data.source.local.entity.StoryEntity
+import com.hera.bangkit.data.source.local.entity.ReportEntity
+import com.hera.bangkit.data.source.remote.response.StoryResponse
+import com.hera.bangkit.data.source.local.entity.UserEntity
+import com.hera.bangkit.data.source.remote.response.UserResponse
 import com.hera.bangkit.data.source.remote.RemoteResponse
-import com.hera.bangkit.vo.Resource
+import kotlinx.coroutines.flow.Flow
 
 interface DataSource {
     fun insertStory(story : StoryResponse)
-    fun getListStory(): LiveData<Resource<PagedList<StoryResponse>>>
+    fun getListStory(): Flow<Resource<List<StoryEntity>>>
 
     fun insertReport(report : ReportEntity)
-    fun getListReport(): LiveData<Resource<PagedList<ReportEntity>>>
 
     fun insertUser(user : UserEntity)
 

@@ -8,10 +8,9 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hera.bangkit.data.response.ReportEntity
+import com.hera.bangkit.data.source.local.entity.ReportEntity
 import com.hera.bangkit.databinding.FragmentReportBinding
 import com.hera.bangkit.ui.main.post.report.ReportViewModel
-import com.hera.bangkit.ui.main.profile.story.StoryFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 

@@ -11,7 +11,7 @@ import androidx.fragment.app.activityViewModels
 import androidx.navigation.fragment.findNavController
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
-import com.hera.bangkit.data.entity.UserEntity
+import com.hera.bangkit.data.source.local.entity.UserEntity
 import com.hera.bangkit.databinding.FragmentRegister4Binding
 import com.hera.bangkit.ui.auth.register.RegisterSuccessActivity
 import com.hera.bangkit.ui.auth.register.RegisterViewModel

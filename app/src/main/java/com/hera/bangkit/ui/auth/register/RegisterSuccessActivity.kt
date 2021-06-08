@@ -6,7 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import com.google.firebase.auth.FirebaseAuth
-import com.hera.bangkit.data.response.UserResponse
+import com.hera.bangkit.data.source.remote.response.UserResponse
 import com.hera.bangkit.data.source.remote.RemoteResponse
 import com.hera.bangkit.databinding.ActivityRegisterSuccessBinding
 import com.hera.bangkit.ui.main.MainActivity

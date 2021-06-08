@@ -1,13 +1,12 @@
 package com.hera.bangkit.ui.main.post.report
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import com.hera.bangkit.data.response.ReportEntity
+import com.hera.bangkit.data.source.local.entity.ReportEntity
 import com.hera.bangkit.data.repositories.DefaultRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineScope

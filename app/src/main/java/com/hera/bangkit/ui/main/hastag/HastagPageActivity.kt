@@ -4,7 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.hera.bangkit.data.entity.StoryEntity
+import com.hera.bangkit.data.source.local.entity.StoryEntity
 import com.hera.bangkit.databinding.ActivityHastagPageBinding
 import com.hera.bangkit.ui.main.home.HomeAdapter
 import com.hera.bangkit.ui.viewmodel.StoryViewModel

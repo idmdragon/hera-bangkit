@@ -7,8 +7,8 @@ import androidx.lifecycle.ViewModel
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.firestore.ktx.toObject
 import com.google.firebase.ktx.Firebase
-import com.hera.bangkit.data.entity.StoryEntity
-import com.hera.bangkit.data.response.HastagEntity
+import com.hera.bangkit.data.source.local.entity.StoryEntity
+import com.hera.bangkit.data.source.remote.response.HastagEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

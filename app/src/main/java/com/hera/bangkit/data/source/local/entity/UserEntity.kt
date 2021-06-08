@@ -1,4 +1,4 @@
-package com.hera.bangkit.data.entity
+package com.hera.bangkit.data.source.local.entity
 
 data class UserEntity (
         val address : String,

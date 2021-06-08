@@ -1,7 +1,7 @@
 package com.hera.bangkit.ui.main.hastag
 import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
-import com.hera.bangkit.data.response.HastagEntity
+import com.hera.bangkit.data.source.remote.response.HastagEntity
 import com.hera.bangkit.databinding.HastagItemBinding
 
 class HastagViewHolder(private val binding: HastagItemBinding) : RecyclerView.ViewHolder(binding.root) {
