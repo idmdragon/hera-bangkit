@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.view.Menu
+import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
 import com.google.firebase.auth.FirebaseAuth
 import com.hera.bangkit.R
@@ -16,6 +17,7 @@ class SettingActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivitySettingBinding
     private val firebaseAuth = FirebaseAuth.getInstance()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

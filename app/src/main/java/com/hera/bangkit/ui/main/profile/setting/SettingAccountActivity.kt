@@ -27,7 +27,7 @@ import kotlinx.coroutines.withContext
 @AndroidEntryPoint
 class SettingAccountActivity : AppCompatActivity() {
 
-    private lateinit var binding : ActivitySettingAccountBinding
+    private lateinit var binding: ActivitySettingAccountBinding
     private val firebaseAuth = FirebaseAuth.getInstance()
     private val viewModel: ProfileViewModel by viewModels()
 
@@ -43,76 +43,66 @@ class SettingAccountActivity : AppCompatActivity() {
                 finish()
             }
             val uid = firebaseAuth.currentUser?.uid
-            uid?.let { viewModel.getUser(it).observe(this@SettingAccountActivity , { user ->
+            uid?.let {
+                viewModel.getUser(it).observe(this@SettingAccountActivity, { user ->
 
-                user.body.let { item ->
-                    AddressLayout.editText?.setText(item.address)
-                    DateOfBirthLayout.editText?.setText(item.dateOfBirth)
-                    FullNameLayout.editText?.setText(item.fullName)
-                    UsernameLayout.editText?.setText(item.username)
-                    PhoneNumberLayout.editText?.setText(item.phoneNumber)
-                    PlaceOfBirthLayout.editText?.setText(item.placeOfBirth)
-                    NIKLayout.editText?.setText(item.nik)
-                    GuardianName1Layout.editText?.setText(item.guardianName1)
-                    GuardianPhone1Layout.editText?.setText(item.guardianPhoneNumber1)
-                    GuardianName2Layout.editText?.setText(item.guardianName2)
-                    GuardianPhone2Layout.editText?.setText(item.guardianPhoneNumber2)
+                    user.body.let { item ->
+                        AddressLayout.editText?.setText(item.address)
+                        DateOfBirthLayout.editText?.setText(item.dateOfBirth)
+                        FullNameLayout.editText?.setText(item.fullName)
+                        UsernameLayout.editText?.setText(item.username)
+                        PhoneNumberLayout.editText?.setText(item.phoneNumber)
+                        PlaceOfBirthLayout.editText?.setText(item.placeOfBirth)
+                        NIKLayout.editText?.setText(item.nik)
+                        GuardianName1Layout.editText?.setText(item.guardianName1)
+                        GuardianPhone1Layout.editText?.setText(item.guardianPhoneNumber1)
+                        GuardianName2Layout.editText?.setText(item.guardianName2)
+                        GuardianPhone2Layout.editText?.setText(item.guardianPhoneNumber2)
 
-                    btnSimpan.setOnClickListener {
-
-
-
-                        val address = etAddress.text.toString()
-                        val dateOfBirth = etDateOfBirth.text.toString()
-                        val fullName = etFullname.text.toString()
-                        val guardianName1 = etGuardianName1.text.toString()
-                        val guardianName2 = etGuardianName2.text.toString()
-                        val guardianPhoneNumber1 = etGuardianPhone1.text.toString()
-                        val guardianPhoneNumber2 = etGuardianPhone2.text.toString()
-                        val nik = etNik.text.toString()
-                        val phoneNumber = etPhoneNumber.text.toString()
-                        val placeOfBirth = etPlaceOfBirth.text.toString()
-                        val username = etUsername.text.toString()
+                        btnSimpan.setOnClickListener {
 
 
+                            val address = etAddress.text.toString()
+                            val dateOfBirth = etDateOfBirth.text.toString()
+                            val fullName = etFullname.text.toString()
+                            val guardianName1 = etGuardianName1.text.toString()
+                            val guardianName2 = etGuardianName2.text.toString()
+                            val guardianPhoneNumber1 = etGuardianPhone1.text.toString()
+                            val guardianPhoneNumber2 = etGuardianPhone2.text.toString()
+                            val nik = etNik.text.toString()
+                            val phoneNumber = etPhoneNumber.text.toString()
+                            val placeOfBirth = etPlaceOfBirth.text.toString()
+                            val username = etUsername.text.toString()
 
-                        val newUser = UserEntity(
-                            address,
-                            item.avatar,
-                            dateOfBirth,
-                            item.email,
-                            fullName,
-                            guardianName1,
-                            guardianName2,
-                            guardianPhoneNumber1,
-                            guardianPhoneNumber2,
-                            nik,
-                            phoneNumber,
-                            placeOfBirth,
-                            uid,
-                            username)
-                Log.d("SettingAccount","Isi User $newUser")
-//                    saveUser(user)
 
+                            val newUser = UserEntity(
+                                address,
+                                item.avatar,
+                                dateOfBirth,
+                                item.email,
+                                fullName,
+                                guardianName1,
+                                guardianName2,
+                                guardianPhoneNumber1,
+                                guardianPhoneNumber2,
+                                nik,
+                                phoneNumber,
+                                placeOfBirth,
+                                uid,
+                                username
+                            )
+                            viewModel.updateUser(newUser)
+
+                            Toast.makeText(this@SettingAccountActivity,"Perubahan berhasil disimpan",Toast.LENGTH_LONG).show()
+                            finish()
+                        }
                     }
-                }
-            })
+                })
             }
 
 
         }
     }
 
-    private fun saveUser(user: UserResponse) = CoroutineScope(Dispatchers.IO).launch {
-        try {
-            userCollectionRef.add(user).await()
-            withContext(Dispatchers.Main) {
-                Toast.makeText(this@SettingAccountActivity, "Successfully saved data.", Toast.LENGTH_LONG).show()
-            }
-        } catch(e: Exception) {
-            withContext(Dispatchers.Main) {
-                Toast.makeText(this@SettingAccountActivity , e.message, Toast.LENGTH_LONG).show()
-            }
-        }
-    }
+
 }
