@@ -8,7 +8,10 @@ import com.hera.bangkit.data.source.local.entity.StoryEntity
 import com.hera.bangkit.databinding.ActivityHastagPageBinding
 import com.hera.bangkit.ui.main.home.HomeAdapter
 import com.hera.bangkit.ui.viewmodel.StoryViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import java.util.ArrayList
 
+@AndroidEntryPoint
 class HastagPageActivity : AppCompatActivity() {
 
     companion object{
@@ -30,13 +33,15 @@ class HastagPageActivity : AppCompatActivity() {
                 finish()
             }
         }
-        viewModel.getStoryWithTag(hastagCategory.toString()).observe(this,::setList)
+        viewModel.getStoryByHastag(hastagCategory.toString()).observe(this,::listStory)
     }
 
-    private fun setList(items: ArrayList<StoryEntity>) {
+    private fun listStory(list: List<StoryEntity>) {
         binding.rvHastag.layoutManager = LinearLayoutManager(this)
-        adapter = HomeAdapter(viewModel,items)
+        adapter = HomeAdapter(viewModel,list as ArrayList<StoryEntity>)
         adapter.notifyDataSetChanged()
         binding.rvHastag.adapter = adapter
     }
+
+
 }

@@ -34,7 +34,6 @@ class DefaultRepository @Inject constructor(
                 return true
             }
 
-
             override suspend fun createCall(): Flow<ApiResponse<ArrayList<StoryEntity>>> =
                 remoteDataSource.getStoryList()
 
@@ -43,12 +42,13 @@ class DefaultRepository @Inject constructor(
             }
         }.asFlow()
 
+    override fun getStorybyHastag(hastag : String): Flow<List<StoryEntity>> {
+        return localDataSource.getStoryTag(hastag)
+    }
+
     override fun insertReport(report: ReportEntity) {
         remoteDataSource.insertReport(report)
     }
-
-
-
 
     override fun insertUser(user: UserEntity) {
         remoteDataSource.insertUser(user)
@@ -56,5 +56,9 @@ class DefaultRepository @Inject constructor(
 
     override fun getUser(uid: String): LiveData<RemoteResponse<UserResponse>> {
         return remoteDataSource.getUser(uid)
+    }
+
+    override fun getHastagSize(hastag: String): Int {
+     return localDataSource.getHastagSize(hastag)
     }
 }

@@ -12,12 +12,13 @@ import com.hera.bangkit.data.source.remote.RemoteResponse
 import kotlinx.coroutines.flow.Flow
 
 interface DataSource {
-    fun insertStory(story : StoryResponse)
+    fun insertStory(story: StoryResponse)
     fun getListStory(): Flow<Resource<List<StoryEntity>>>
+    fun getStorybyHastag(hastag : String): Flow<List<StoryEntity>>
+    fun getHastagSize(hastag : String): Int
+    fun insertReport(report: ReportEntity)
 
-    fun insertReport(report : ReportEntity)
+    fun insertUser(user: UserEntity)
 
-    fun insertUser(user : UserEntity)
-
-    fun getUser(uid : String) : LiveData<RemoteResponse<UserResponse>>
+    fun getUser(uid: String): LiveData<RemoteResponse<UserResponse>>
 }

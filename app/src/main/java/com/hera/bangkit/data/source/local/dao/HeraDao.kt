@@ -13,4 +13,10 @@ interface HeraDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertStory(onePiece: List<StoryEntity>)
+
+    @Query("SELECT * FROM story_list WHERE category = :hastag ")
+    fun getStoryHastag(hastag : String): Flow<List<StoryEntity>>
+
+    @Query(" SELECT COUNT (*) FROM story_list WHERE category = :hastag  ")
+    fun getHastagSize(hastag: String): Int
 }

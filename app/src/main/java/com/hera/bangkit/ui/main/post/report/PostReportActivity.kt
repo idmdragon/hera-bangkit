@@ -56,9 +56,6 @@ class PostReportActivity : AppCompatActivity() {
                     btnPost.setOnClickListener {
 
                         val desc = etDesc.editText?.text.toString()
-                        Toast.makeText(this@PostReportActivity, "Isi desc $desc", Toast.LENGTH_LONG)
-                            .show()
-
                         if (desc.isEmpty()) {
                             etDesc.error = "Kronologi Tidak boleh kosong"
                         } else {
@@ -74,11 +71,7 @@ class PostReportActivity : AppCompatActivity() {
                                 val idxLabel = results.indexOfFirst { it == highest!! }
                                 val category = findLabel(idxLabel)
                                 postData(desc, category, user)
-                                Toast.makeText(
-                                    this@PostReportActivity,
-                                    "Isi Label $category",
-                                    Toast.LENGTH_LONG
-                                ).show()
+
                             }
                         }
                     }

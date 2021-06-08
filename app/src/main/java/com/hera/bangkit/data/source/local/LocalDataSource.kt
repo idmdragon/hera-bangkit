@@ -10,6 +10,8 @@ class LocalDataSource @Inject constructor(
 ){
 
     fun getAllItem(): Flow<List<StoryEntity>> = dao.getAllStory()
+    fun getHastagSize(hastag: String): Int = dao.getHastagSize(hastag)
+    fun getStoryTag(hastag :String ): Flow<List<StoryEntity>> = dao.getStoryHastag(hastag)
     suspend fun insertStory(item: List<StoryEntity>) = dao.insertStory(item)
 
 

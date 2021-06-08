@@ -26,9 +26,9 @@ class StoryViewModel @Inject constructor(
     private val repository: DefaultRepository
 ): ViewModel() {
 
-    private val _listStory = MutableLiveData<ArrayList<StoryEntity>>()
 
     fun getStoryList() = repository.getListStory().asLiveData()
+    fun getStoryByHastag(hastag : String) = repository.getStorybyHastag(hastag).asLiveData()
 
 
     fun increaseStory(story: StoryEntity) {
@@ -112,46 +112,46 @@ class StoryViewModel @Inject constructor(
         }
 
     }
-    fun getStoryWithTag(category: String): LiveData<ArrayList<StoryEntity>> {
-        val listItem = ArrayList<StoryEntity>()
-        CoroutineScope(Dispatchers.IO).launch {
-            val querySnapshot = Firebase.firestore.collection("stories")
-                .whereEqualTo("category", category)
-                .get()
-                .await()
-
-            for (document in querySnapshot.documents) {
-                val item = document.toObject<StoryResponse>()
-                val userSnapshot = Firebase.firestore.collection("users")
-                    .whereEqualTo("uid", item?.userID)
-                    .get()
-                    .await()
-                if (item != null) {
-                    for (users in userSnapshot.documents) {
-                        val userItem = users.toObject<UserResponse>()
-                        if (userItem != null) {
-                            listItem.add(
-                                StoryEntity(
-                                    userItem.avatar,
-                                    item.category,
-                                    item.content,
-                                    item.imgContent,
-                                    item.isLike,
-                                    item.isUpvoted,
-                                    item.like,
-                                    item.timeUpload,
-                                    userItem.username,
-                                    item.upvote,
-                                )
-                            )
-                        }
-
-                    }
-
-                }
-            }
-            _listStory.postValue(listItem)
-        }
-        return _listStory
-    }
+//    fun getStoryWithTag(category: String): LiveData<ArrayList<StoryEntity>> {
+//        val listItem = ArrayList<StoryEntity>()
+//        CoroutineScope(Dispatchers.IO).launch {
+//            val querySnapshot = Firebase.firestore.collection("stories")
+//                .whereEqualTo("category", category)
+//                .get()
+//                .await()
+//
+//            for (document in querySnapshot.documents) {
+//                val item = document.toObject<StoryResponse>()
+//                val userSnapshot = Firebase.firestore.collection("users")
+//                    .whereEqualTo("uid", item?.userID)
+//                    .get()
+//                    .await()
+//                if (item != null) {
+//                    for (users in userSnapshot.documents) {
+//                        val userItem = users.toObject<UserResponse>()
+//                        if (userItem != null) {
+//                            listItem.add(
+//                                StoryEntity(
+//                                    userItem.avatar,
+//                                    item.category,
+//                                    item.content,
+//                                    item.imgContent,
+//                                    item.isLike,
+//                                    item.isUpvoted,
+//                                    item.like,
+//                                    item.timeUpload,
+//                                    userItem.username,
+//                                    item.upvote,
+//                                )
+//                            )
+//                        }
+//
+//                    }
+//
+//                }
+//            }
+//            _listStory.postValue(listItem)
+//        }
+//        return _listStory
+//    }
 }

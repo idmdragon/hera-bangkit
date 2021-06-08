@@ -125,7 +125,7 @@ class PostStoryActivity : AppCompatActivity() {
             "Cerita berhasil di Post",
             Toast.LENGTH_LONG
         ).show()
-//        finish()
+        finish()
     }
 
     private fun getLabel(desc: String): String {
