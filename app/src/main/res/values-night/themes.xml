@@ -1,16 +1,163 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Herabangkit" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+    <style name="Theme.Herabangkit" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_200</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
-        <item name="colorOnPrimary">@color/black</item>
+        <item name="colorPrimary">@color/black</item>
+        <item name="colorPrimaryDark">@color/black</item>
+        <item name="colorPrimaryVariant">@color/black</item>
+        <item name="colorOnPrimary">@color/white</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/teal_200</item>
-        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorSecondary">@color/pink</item>
+        <item name="colorSecondaryVariant">@color/pink</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+        <item name="android:textColorHint">@color/whitegray</item>
+
     </style>
+
+    <style name="textInputStyle" parent="">
+        <item name="boxStrokeColor">@color/pink</item>
+    </style>
+    <style name="pink_h1" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/pink</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="pink_h2" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/pink</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textStyle">italic</item>
+
+    </style>
+    <style name="pink_m_12" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/pink</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">12sp</item>
+
+    </style>
+
+    <style name="m_heading0_s" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/montserrat_bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="m_heading1_b" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="w_heading2_b" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/work_sans_bold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="w_heading3_r" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/work_sans</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="w_heading3_m" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+    <style name="p_heading0_b" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">24sp</item>
+    </style>
+
+    <style name="p_heading1_b" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_bold</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+    <style name="p_heading1_2_b" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="p_heading1_s" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+    <style name="p_heading1_l" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textSize">18sp</item>
+    </style>
+
+    <style name="p_heading2_m" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="p_heading2_m_abu" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/textgray</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="p_heading2_r" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="p_med_14" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="p_reg_14" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="p_heading3_s" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="p_heading3_r" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:fontFamily">@font/poppins</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="p_heading3_l" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/textgray</item>
+        <item name="android:fontFamily">@font/poppins_light</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="p_heading3_sb_blue" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/bluetext</item>
+        <item name="android:fontFamily">@font/poppins_semibold</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="p_heading3_m_abu" parent="Widget.AppCompat.TextView">
+        <item name="android:textColor">@color/textgray</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="expandedBarTextStyle" parent="Theme.Herabangkit">
+        <!-- Customize your theme here. -->
+        <item name="android:textSize">0sp</item>
+        <item name="android:textColor">@android:color/transparent</item>
+
+    </style>
+
 </resources>
